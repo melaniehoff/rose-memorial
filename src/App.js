@@ -57,7 +57,7 @@ render() {
           {/* NAVIGATION */}
           <Switch>
             <Route path="/share">
-              <Share />
+              <GetShare />
             </Route>
             <Route path="/">
               <Home records={records} />

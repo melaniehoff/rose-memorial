@@ -11,6 +11,6 @@ class GetShare extends Component {
             </div>
         );
     }
-    }
+   }
 
   export default GetShare;
