@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-// import './App.css';
+import './App.css';
 import GetShare from './components/Share/GetShare';
 
 const pub = process.env.PUBLIC_URL;
