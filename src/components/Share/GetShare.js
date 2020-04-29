@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import Airtable from 'airtable'
 // import '../Components.css';
 // import './p5/p5.min.js'
+console.log(process.env)
+const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
 
 class GetShare extends Component {
   constructor(props) {
@@ -35,8 +38,27 @@ class GetShare extends Component {
   handleSubmit(event) {
   	//send info to airtable
   	const {dedication, optional_note, optional_photo, rose_svg} = this.state
-  	
-  	
+	    
+	base('RoseGarden').create([
+	  {
+	    "fields": {
+	      "Timestamp": Date.now(),
+	      "Dedication": dedication,
+	      "OptionalNote": optional_note,
+	      "RoseSVG": rose_svg,
+	      "Public": "Yes"
+	    }
+	  }
+	], function(err, records) {
+	  if (err) {
+	    console.error(err);
+	    return;
+	  }
+	  records.forEach(function (record) {
+	    console.log(record.getId());
+	  });
+	});
+
     // alert('A name was submitted: ' + this.state.dedication);
     event.preventDefault();
     //submit public to Yes
