@@ -3,7 +3,7 @@ import Airtable from 'airtable'
 // import '../Components.css';
 // import './p5/p5.min.js'
 console.log(process.env)
-const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
+const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
 
 class GetShare extends Component {
   constructor(props) {
