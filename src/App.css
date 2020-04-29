@@ -1,3 +1,10 @@
+/* ~kebab case~ */
+/* element--child
+   element--modification(i.e. color) 
+   btn--text //a text element inside a button
+   btn--blue //a class that changes buttons to blue
+*/
+
 .App {
   text-align: center;
 }

@@ -76,7 +76,7 @@ function Home(props) {
       </div>
   );
 }
-function Calendar() {
+function Share() {
   return (
     <div>
       <GetShare/>
