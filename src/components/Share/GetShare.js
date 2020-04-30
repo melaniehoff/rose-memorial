@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import Airtable from 'airtable'
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+import request from 'superagent';
+
 // import '../Components.css';
 // import './p5/p5.min.js'
-console.log(process.env)
+
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
 
 class GetShare extends Component {
@@ -34,18 +37,54 @@ class GetShare extends Component {
   handleRose(event) {
     this.setState({rose_svg: event.target.value});
   }
+  onPhotoSelected(files) {
+        const url = `https://api.cloudinary.com/v1_1/${
+            process.env.REACT_APP_CLOUD_NAME
+            }/upload`;
+    
 
+        for (let file of files) {
+            const photoId = this.photoId++;
+            const fileName = file.name;
+
+            request.post(url)
+                .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
+                .field('file', file)
+                .field('multiple','multiple')
+                .on('progress', (progress) => this.onPhotoUploadProgress(photoId, file.name, progress))
+                .end((error, response) => {
+                    this.onPhotoUploaded(photoId, fileName, response);
+                });
+        }
+    }
+   onPhotoUploadProgress(id, fileName, progress) {
+        this.props.onUpdateUploadedPhoto({
+            id: id,
+            fileName: fileName,
+            progress: progress,
+        });
+    }
+
+    onPhotoUploaded(id, fileName, response) {
+        this.props.onUpdateUploadedPhoto({
+            id: id,
+            fileName: fileName,
+            response: response,
+        });
+
+        this.props.onPhotosUploaded([response.body]);
+    }
   handleSubmit(event) {
   	//send info to airtable
-  	const {dedication, optional_note, optional_photo, rose_svg} = this.state
-	    
+  const {dedication, optional_note, optional_photo, rose_svg} = this.state
 	base('RoseGarden').create([
 	  {
 	    "fields": {
 	      "Timestamp": Date.now(),
 	      "Dedication": dedication,
 	      "OptionalNote": optional_note,
-	      "RoseSVG": rose_svg,
+        "OptionalPhoto": optional_photo,
+	      "RoseSVG": [{"url": rose_svg}],
 	      "Public": "Yes"
 	    }
 	  }
@@ -81,13 +120,30 @@ class GetShare extends Component {
 
         <label>
           Optional Photo:
-          <input type="file" value={optional_photo} onChange={this.handlePhoto} />
+        
+          <input
+              type="file"
+              id="fileupload"
+              accept="image/*"
+              multiple="false"
+              ref={fileInputEl =>
+                  (this.fileInputEl = fileInputEl)
+              }
+              onChange={() =>
+                  this.onPhotoSelected(
+                      this.fileInputEl.files
+                  )
+              }
+          />
         </label>
 
         <label>
           Rose:
           <input type="text" value={rose_svg} onChange={this.handleRose} />
+
+         
         </label>
+
 
         <input type="submit" value="Submit" />
       </form>
