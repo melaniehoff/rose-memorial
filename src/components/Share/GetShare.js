@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Airtable from 'airtable'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import request from 'superagent';
+import { photosUploaded, updateUploadedPhoto } from '../actions';
 
 // import '../Components.css';
 // import './p5/p5.min.js'
@@ -14,7 +15,9 @@ class GetShare extends Component {
     this.state = {dedication: '',
                   optional_note:'',
               	  optional_photo:'',
-              	  rose_svg:''};
+              	  rose_svg:'',
+                  onUpdateUploadedPhoto: updateUploadedPhoto,
+                  onPhotosUploaded: photosUploaded};
     this.handleDedication = this.handleDedication.bind(this);
     this.handleNote = this.handleNote.bind(this);
     this.handlePhoto = this.handlePhoto.bind(this);
@@ -50,7 +53,7 @@ class GetShare extends Component {
             request.post(url)
                 .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
                 .field('file', file)
-                .field('multiple','multiple')
+                .field('multiple','false')
                 .on('progress', (progress) => this.onPhotoUploadProgress(photoId, file.name, progress))
                 .end((error, response) => {
                     this.onPhotoUploaded(photoId, fileName, response);
@@ -58,7 +61,7 @@ class GetShare extends Component {
         }
     }
    onPhotoUploadProgress(id, fileName, progress) {
-        this.props.onUpdateUploadedPhoto({
+        this.state.onUpdateUploadedPhoto({
             id: id,
             fileName: fileName,
             progress: progress,
@@ -66,13 +69,13 @@ class GetShare extends Component {
     }
 
     onPhotoUploaded(id, fileName, response) {
-        this.props.onUpdateUploadedPhoto({
+        this.state.onUpdateUploadedPhoto({
             id: id,
             fileName: fileName,
             response: response,
         });
 
-        this.props.onPhotosUploaded([response.body]);
+        this.state.onPhotosUploaded([response.body]);
     }
   handleSubmit(event) {
   	//send info to airtable
@@ -125,7 +128,7 @@ class GetShare extends Component {
               type="file"
               id="fileupload"
               accept="image/*"
-              multiple="false"
+              multiple={false}
               ref={fileInputEl =>
                   (this.fileInputEl = fileInputEl)
               }
