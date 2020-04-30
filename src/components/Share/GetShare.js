@@ -76,6 +76,8 @@ class GetShare extends Component {
         });
 
         this.state.onPhotosUploaded([response.body]);
+        this.setState({optional_photo: response.body['url']});
+
     }
   handleSubmit(event) {
   	//send info to airtable
@@ -86,7 +88,7 @@ class GetShare extends Component {
 	      "Timestamp": Date.now(),
 	      "Dedication": dedication,
 	      "OptionalNote": optional_note,
-        "OptionalPhoto": optional_photo,
+        "OptionalPhoto": [{"url": optional_photo}],
 	      "RoseSVG": [{"url": rose_svg}],
 	      "Public": "Yes"
 	    }
@@ -101,7 +103,6 @@ class GetShare extends Component {
 	  });
 	});
 
-    // alert('A name was submitted: ' + this.state.dedication);
     event.preventDefault();
     //submit public to Yes
   }
