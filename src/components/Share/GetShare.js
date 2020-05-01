@@ -4,6 +4,8 @@ import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react'
 import request from 'superagent';
 import { photosUploaded, updateUploadedPhoto } from '../actions';
 import P5Wrapper from 'react-p5-wrapper';
+import * as p5svg from 'p5.js-svg'
+import ScriptTag from 'react-script-tag';
 
 // import '../Components.css';
 // import './p5/p5.min.js'
@@ -46,11 +48,6 @@ class GetShare extends Component {
             process.env.REACT_APP_CLOUD_NAME
             }/upload`;
     
-
-
-
-
-
             request.post(url)
                 .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
                 .field('file', svgbase64)
@@ -62,6 +59,12 @@ class GetShare extends Component {
       
 
 
+  }
+  componentDidMount () {
+      const script = document.createElement("script");
+      script.src = "/p5/p5.svg.js";
+      script.async = true;
+      document.body.appendChild(script);
   }
   onPhotoSelected(files) {
         const url = `https://api.cloudinary.com/v1_1/${
@@ -143,9 +146,9 @@ class GetShare extends Component {
       var a = parseInt(meow1[x]) + parseInt(meow1[5-x]);
       meow.push(a);
     }
-
+  console.log(p5svg.SVG)
     p.setup = function () {
-      p.createCanvas(400, 400);
+      p.createCanvas(400, 400, p.SVG);
       p.angleMode(p.DEGREES);
       p.noLoop();
     };
@@ -312,6 +315,7 @@ class GetShare extends Component {
   	const {dedication, optional_note, optional_photo, rose_svg} = this.state; 
     return (
       <React.Fragment>
+        <ScriptTag isHydrating={true} type="text/javascript" src="p5/p5.svg.js" />
         <P5Wrapper sketch={this.sketch} />
         <form onSubmit={this.handleSubmit}>
           <label>
