@@ -3,6 +3,7 @@ import Airtable from 'airtable'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import request from 'superagent';
 import { photosUploaded, updateUploadedPhoto } from '../actions';
+import P5Wrapper from 'react-p5-wrapper';
 
 // import '../Components.css';
 // import './p5/p5.min.js'
@@ -129,50 +130,63 @@ class GetShare extends Component {
     //submit public to Yes
   }
 
+  sketch (p) {
+    p.setup = function () {
+      p.createCanvas(600, 400);
+    };
+
+    p.draw = function () {
+      p.background(100);
+      p.ellipse(20,20,30,30)
+    };
+  };
 
   render() {
   	const {dedication, optional_note, optional_photo, rose_svg} = this.state; 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={dedication} onChange={this.handleDedication} />
-        </label>
+      <React.Fragment>
+        <P5Wrapper sketch={this.sketch} />
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input type="text" value={dedication} onChange={this.handleDedication} />
+          </label>
 
-        <label>
-          Optional Note:
-          <input type="text" value={optional_note} onChange={this.handleNote} />
-        </label>
+          <label>
+            Optional Note:
+            <input type="text" value={optional_note} onChange={this.handleNote} />
+          </label>
 
-        <label>
-          Optional Photo:
-        
-          <input
-              type="file"
-              id="fileupload"
-              accept="image/*"
-              multiple={false}
-              ref={fileInputEl =>
-                  (this.fileInputEl = fileInputEl)
-              }
-              onChange={() =>
-                  this.onPhotoSelected(
-                      this.fileInputEl.files
-                  )
-              }
-          />
-        </label>
+          <label>
+            Optional Photo:
+          
+            <input
+                type="file"
+                id="fileupload"
+                accept="image/*"
+                multiple={false}
+                ref={fileInputEl =>
+                    (this.fileInputEl = fileInputEl)
+                }
+                onChange={() =>
+                    this.onPhotoSelected(
+                        this.fileInputEl.files
+                    )
+                }
+            />
+          </label>
 
-        <label>
-          Rose:
-          <input type="text" value={rose_svg} onChange={this.handleRose} />
+          <label>
+            Rose:
+            <input type="text" value={rose_svg} onChange={this.handleRose} />
 
-         
-        </label>
+           
+          </label>
 
 
-        <input type="submit" value="Submit" />
-      </form>
+          <input type="submit" value="Submit" />
+        </form>
+      </React.Fragment>
     );
   }
 

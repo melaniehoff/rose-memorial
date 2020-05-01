@@ -4,7 +4,9 @@
    btn--text //a text element inside a button
    btn--blue //a class that changes buttons to blue
 */
-
+canvas{
+  margin-bottom:50px;
+}
 .App {
   text-align: center;
 }
