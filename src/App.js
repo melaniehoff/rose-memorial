@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import GetShare from './components/Share/GetShare';
+import {GetShare, Home} from './components'
 
 const pub = process.env.PUBLIC_URL;
 
@@ -68,12 +68,5 @@ render() {
     );
   }
 }
-function Home(props) {
-  return (
-    <div>
-        <div className="Content">
-        </div>
-      </div>
-  );
-}
+
 export default App;
