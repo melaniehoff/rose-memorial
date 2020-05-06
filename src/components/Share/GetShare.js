@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Airtable from 'airtable'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import request from 'superagent';
-import { photosUploaded, updateUploadedPhoto } from '../actions';
+import { photosUploaded, updateUploadedPhoto } from '../../actions';
 import P5Wrapper from 'react-p5-wrapper';
 
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
