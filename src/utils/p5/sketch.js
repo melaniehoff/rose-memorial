@@ -1,7 +1,7 @@
 /*------------------*/
 /*------------------*/
 /* FLOWER CODE */
-sketch (p) {
+function sketch (p) {
   const num = 20;
   const num2 = 70;
   const meow1 = Date.now().toString().split('');
