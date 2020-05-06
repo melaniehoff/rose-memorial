@@ -76,12 +76,4 @@ function Home(props) {
       </div>
   );
 }
-function Share() {
-  return (
-    <div>
-      <GetShare/>
-      </div>
-
-  );
-}
 export default App;
