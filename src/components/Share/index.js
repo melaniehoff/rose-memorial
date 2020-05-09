@@ -7,7 +7,7 @@ import P5Wrapper from 'react-p5-wrapper';
 import sketch from '../../utils/p5/sketch';
 
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
-
+const uri = ''
 class GetShare extends Component {
   constructor(props) {
     super(props);
@@ -40,19 +40,19 @@ class GetShare extends Component {
 
   handleRose(event) {
    // svgbase64 would be dynamically created through the p5 sketch. 
-      // const svgString = event.target.value;
-      // const url = `https://api.cloudinary.com/v1_1/${
-      //       process.env.REACT_APP_CLOUD_NAME
-      //       }/upload`;
+      const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
+      const url = `https://api.cloudinary.com/v1_1/${
+            process.env.REACT_APP_CLOUD_NAME
+            }/upload`;
     
-      //       request.post(url)
-      //           .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
-      //           .field('file', svgbase64)
-      //           .field('multiple','false')
-      //           .end((error, response) => {
-      //               console.log(response)
-      //               this.setState({rose_svg: response.body["url"]});
-      //           });
+            request.post(url)
+                .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
+                .field('file', dataURI)
+                .field('multiple','false')
+                .end((error, response) => {
+                    console.log(response)
+                    this.setState({rose_svg: response.body["url"]});
+                });
   }
 
   onPhotoSelected(files) {
@@ -127,7 +127,8 @@ class GetShare extends Component {
   	const {dedication, optional_note, optional_photo, rose_svg} = this.state; 
     return (
       <React.Fragment>
-        <P5Wrapper sketch />
+        <div id='flower'></div>
+        <P5Wrapper sketch={sketch} />
         <form onSubmit={this.handleSubmit}>
           <label>
             Name:

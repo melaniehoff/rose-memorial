@@ -25,6 +25,10 @@ function sketch (p) {
     p.stroke(90,95,90,255);
     p.branch(0);
     p.noLoop();
+    const canvas = document.getElementsByTagName("canvas")[0];
+    const dataURL = canvas.toDataURL({pixelRatio: 2}).toString(); //there should be a better way to transfer this over to the getshare
+    canvas.setAttribute("data-uri", dataURL.toString());
+    console.log(dataURL.toString());
   };
 
   p.branch = function(depth){
