@@ -115,6 +115,8 @@ class GetShare extends Component {
 	  }
 	  records.forEach(function (record) {
 	    console.log(record.getId());
+      document.getElementById('submission').classList.add("submitted")
+
 	  });
 	});
 
@@ -129,7 +131,7 @@ class GetShare extends Component {
       <React.Fragment>
         <div id='flower'></div>
         <P5Wrapper sketch={sketch} />
-        <form onSubmit={this.handleSubmit}>
+        <form id='submission' onSubmit={this.handleSubmit}>
           <label>
             Name:
             <input type="text" value={dedication} onChange={this.handleDedication} />
@@ -137,7 +139,7 @@ class GetShare extends Component {
 
           <label>
             Optional Note:
-            <input type="text" value={optional_note} onChange={this.handleNote} />
+            <textarea value={optional_note} onChange={this.handleNote} />
           </label>
 
           <label>
@@ -160,10 +162,12 @@ class GetShare extends Component {
           </label>
 
           <label>
-            Rose:
-            <input type="text" value={rose_svg} onChange={this.handleRose} />
-
-           
+            Rose:<br/>
+            
+            <a href="#" onClick={this.handleRose}>
+              Click to save rose
+            </a>
+             
           </label>
 
 

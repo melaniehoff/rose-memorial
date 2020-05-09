@@ -4,9 +4,71 @@
    btn--text //a text element inside a button
    btn--blue //a class that changes buttons to blue
 */
+
+/* TEMP SUBMISSION FORM STYLES*/
 canvas{
   margin-bottom:50px;
+
 }
+
+#flower + div {
+  background-color: black;
+  position: absolute;
+  left:60%;
+  max-width:100%;
+}
+form{
+  text-align: left;
+  margin: 0 auto;
+  background: #f8f8f8;
+  padding: 25px 50px 50px;
+  max-width: 1080px;
+}
+label{
+  width: 100%;
+  margin: 2rem 0;
+  display: block;
+}
+label a{
+  background: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: inline-block;
+  color:black;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+input[type='submit']{
+  background: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: inline-block;
+  color:black;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+label a:hover{
+  opacity: 0.9;
+}
+input[type='file']{
+  display: block;
+}
+textarea{
+  width: 40%;
+  height: 200px;
+  display: block;
+}
+#submission.submitted label{
+  display: none;
+}
+#submission.submitted input[type='submit']{
+  display: none;
+}
+#submission.submitted:after{
+  content:"thank you";
+}
+
+/* END SUBMISSION FORM */
 .App {
   text-align: center;
 }
