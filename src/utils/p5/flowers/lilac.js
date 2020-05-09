@@ -130,7 +130,7 @@ function lilac (p) {
         p.strokeWeight(0.5);
         p.rotate(tempAngle)
         var radius = 30
-        p.fill(255, 235, 245,255);     
+        p.fill(255, 245, 255,255);     
         p.ellipse(19,0, radius,radius/1.5); 
     }
   }
