@@ -3,12 +3,12 @@
 function daisy(p) {
 	var num = 40;
 	var num2 = 50;
-	var meow1 = Date.now().toString().split('');
-	var meow = [];
+	const currentTimeStamp = Date.now().toString().split('');
+  	const timeArray = [];
 
 	for(var x = 0; x < 6; x++){
-	  var a = parseInt(meow1[x]) + parseInt(meow1[5-x]);
-	  meow.push(a);
+	  var a = parseInt(currentTimeStamp[x]) + parseInt(currentTimeStamp[5-x]);
+	  timeArray.push(a);
 	}
 
 
@@ -29,13 +29,9 @@ function daisy(p) {
 	  canvas.setAttribute("data-uri", dataURL.toString());
 	}
 
-
-
 	p.branch = function(depth){
-	  var b = p.map(meow[depth], 0, 18, 1, 3)
-	  
-	   if(depth < b){
-	     
+	  var b = p.map(timeArray[depth], 0, 18, 1, 3)
+	  if(depth < b){  
 	     p.line(0,0,0, -1 * num);
 	     if(depth % 2 == 0){
 	       p.push()
@@ -64,25 +60,24 @@ function daisy(p) {
 	}
 
 	p.createBud = function(x,y){
-	  var bunna = 20;
-	  
+	  var tempAngle = 20;
 	  p.translate(x,y-10);
 	  p.rotate(230)
 	  for(var j =0;j < 3;j++){      
 	    p.noStroke()
-	    p.rotate(bunna)
+	    p.rotate(tempAngle)
 	    var radius = 30
 	    p.fill(255, 255, 235,200);      
 	    p.ellipse(19,0, radius,radius/2.2); 	 
-	  }
-	      
+	  } 
 	}
-	p.createBunna = function(x,y){
-	  var bunna = 18;
+	
+	p.createFlower = function(x,y){
+	  var tempAngle = 18;
 	  p.translate(x,y-10);
 	    for(var j =0;j < 20;j++){      
 	      p.noStroke()
-	      p.rotate(bunna)
+	      p.rotate(tempAngle)
 	      var radius = 30
 	      p.fill(255, 255, 235,200);  
 	      p.ellipse(19,0, radius,radius/2.8); 
@@ -94,10 +89,10 @@ function daisy(p) {
 	}
 
 	p.createRings = function(x,y){
-	  var bunna = 36;
+	  var tempAngle = 36;
 	  p.translate(x,y-10);
 	  for(var j =0;j < 10;j++){      
-        p.rotate(bunna)
+        p.rotate(tempAngle)
         p.stroke(0);
         p.fill(0)
         p.strokeWeight(0.5);
@@ -138,7 +133,7 @@ function daisy(p) {
 	        p.line(0,0,0,-2 * num2);
 	        p.push()
 	        p.push() 
-	       	p.createBunna(0,-2 * num2);
+	       	p.createFlower(0,-2 * num2);
 	       	p.fill(255,190,0)
 	        p.pop()
 	        p.push()

@@ -15,8 +15,8 @@ canvas{
   background-color: black;
   position: absolute;
   left:60%;
-  max-width:100%;
 }
+
 form{
   text-align: left;
   margin: 0 auto;

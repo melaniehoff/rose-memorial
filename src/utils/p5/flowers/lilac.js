@@ -1,15 +1,13 @@
-/*------------------*/
-/*------------------*/
-/* lilac CODE */
+
 function lilac (p) {
   const num = 20;
   const num2 = 70;
-  const meow1 = Date.now().toString().split('');
-  const meow = [];
+  const currentTimeStamp = Date.now().toString().split('');
+  const timeArray = [];
 
   for(var x = 0; x < 6; x++){
-    var a = parseInt(meow1[x]) + parseInt(meow1[5-x]);
-    meow.push(a);
+    var a = parseInt(currentTimeStamp[x]) + parseInt(currentTimeStamp[5-x]);
+    timeArray.push(a);
   }
 
   p.setup = function () {
@@ -30,7 +28,7 @@ function lilac (p) {
   };
 
   p.branch = function(depth){
-    var b = p.map(meow[depth], 0, 18, 2, 4)
+    var b = p.map(timeArray[depth], 0, 18, 2, 4)
     if(depth < b){
        p.line(0,0,0, -1 * num);
        if(depth % 2 == 0){
@@ -124,13 +122,13 @@ function lilac (p) {
     
   }
 
-  p.createBunna = function(x,y){
-    var bunna = 60;
+  p.createFlower = function(x,y){
+    var tempAngle = 60;
     p.translate(x,y-10);
       for(var j =0;j < 6;j++){      
         p.stroke(0);
         p.strokeWeight(0.5);
-        p.rotate(bunna)
+        p.rotate(tempAngle)
         var radius = 30
         p.fill(255, 235, 245,255);     
         p.ellipse(19,0, radius,radius/1.5); 
@@ -160,11 +158,11 @@ function lilac (p) {
        p.line(0,0,0,-1*(d)); 
        p.push()
        p.scale(0.3);
-       p.createBunna(-1 * r*2,-1*r*2)
+       p.createFlower(-1 * r*2,-1*r*2)
        p.pop()
        p.push()
        p.scale(0.3);
-       p.createBunna(r*2,-1*(d)+r/1.5)
+       p.createFlower(r*2,-1*(d)+r/1.5)
        p.pop()
        p.translate(0,-1*(d));
        p.scale(0.9);
@@ -173,8 +171,6 @@ function lilac (p) {
   }
 
 };
-/* END FLOWER CODE */
-/*------------------*/
-/*------------------*/
+
 
 export default lilac
