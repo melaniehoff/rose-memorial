@@ -16,6 +16,7 @@ class GetShare extends Component {
       optional_note:'',
       optional_photo:'',
       rose_svg:'',
+      rose_id:'',
       onUpdateUploadedPhoto: updateUploadedPhoto,
       onPhotosUploaded: photosUploaded
     };
@@ -51,6 +52,7 @@ class GetShare extends Component {
                 .field('multiple','false')
                 .end((error, response) => {
                     console.log(response)
+                    this.setState({rose_id: [response.body["public_id"],response.body["delete_token"]]})
                     this.setState({rose_svg: response.body["url"]});
                 });
   }
@@ -96,7 +98,7 @@ class GetShare extends Component {
     }
   handleSubmit(event) {
   	//send info to airtable
-  const {dedication, optional_note, optional_photo, rose_svg} = this.state
+  const {dedication, optional_note, optional_photo, rose_svg, rose_id} = this.state
 	base('RoseGarden').create([
 	  {
 	    "fields": {
@@ -114,7 +116,22 @@ class GetShare extends Component {
 	    return;
 	  }
 	  records.forEach(function (record) {
-	    console.log(record.getId());
+	    
+
+      const url = `https://@api.cloudinary.com/v1_1/${
+            process.env.REACT_APP_CLOUD_NAME
+            }/delete_by_token`;
+    
+            request.post(url)
+                .field('token', rose_id[1])
+                .end((error, response) => {
+                   if(error){
+                      console.log('done deletting')
+                   }else{
+                    console.log(error)
+                   }
+                    
+                });
       document.getElementById('submission').classList.add("submitted")
 
 	  });

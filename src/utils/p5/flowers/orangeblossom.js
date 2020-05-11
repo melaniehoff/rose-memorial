@@ -18,7 +18,6 @@ function orangeBlossom(p){
 	}
 
 	p.draw = function() {
-	  p.background(0);
 	  p.translate(200, 400);
 	  p.strokeWeight(3);
 	  p.stroke(145,137,71,255);
@@ -31,9 +30,6 @@ function orangeBlossom(p){
       canvas.setAttribute("data-uri", dataURL.toString());
 	}
 
-	p.touchEnded = function(){
-	  p.redraw()
-	}
 
 	p.branch = function(depth){
 	  var b = p.map(timeArray[depth], 0, 18, 2, 5)

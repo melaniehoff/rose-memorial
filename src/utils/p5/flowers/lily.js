@@ -18,7 +18,6 @@ function lily(p){
 	}
 
 	p.draw = function() {
-	  p.background(0);
 	  p.translate(200, 400);
 	  p.strokeWeight(5);
 	  p.stroke(90,95,90,255);

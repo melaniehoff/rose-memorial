@@ -17,7 +17,6 @@ function jasmine(p){
 	}
 
 	p.draw = function() {
-	  p.background(0);
 	  p.translate(200, 400);
 	  p.strokeWeight(3);
 	  p.stroke(90,95,90,255);
