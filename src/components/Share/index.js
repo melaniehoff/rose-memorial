@@ -41,6 +41,8 @@ class GetShare extends Component {
 
   handleRose(event) {
    // svgbase64 would be dynamically created through the p5 sketch. 
+      document.getElementById('save-rose').classList.add("submitted");
+      document.getElementById('rose-saved').classList.add("submitted");
       const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
       const url = `https://api.cloudinary.com/v1_1/${
             process.env.REACT_APP_CLOUD_NAME
@@ -181,10 +183,10 @@ class GetShare extends Component {
           <label>
             Rose:<br/>
             
-            <a href="#" onClick={this.handleRose}>
-              Click to save rose
+            <a id='save-rose' href="#" onClick={this.handleRose}>
+              Click to save current rose
             </a>
-             
+            <span id='rose-saved'>Current rose saved</span>
           </label>
 
 

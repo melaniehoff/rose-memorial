@@ -50,6 +50,8 @@ function sketch (p) {
     p.rect(0,0, p.width, p.height);
     p.pop()
     p.noErase();
+    document.getElementById('save-rose').classList = "";
+    document.getElementById('rose-saved').classList = "";
     p.redraw();
   }
 };

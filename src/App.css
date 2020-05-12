@@ -67,6 +67,15 @@ textarea{
 #submission.submitted label{
   display: none;
 }
+#save-rose.submitted{
+ display: none;
+}
+#rose-saved.submitted{
+ display: block;
+}
+#rose-saved{
+ display: none;
+}
 #submission.submitted input[type='submit']{
   display: none;
 }
