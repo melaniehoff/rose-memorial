@@ -10,30 +10,12 @@ function rose(p){
 	  timeArray.push(a);
 	}
 
-	p.setup = function() {
-	  p.createCanvas(400, 400);
-	  p.angleMode(p.DEGREES);
-	  p.noLoop();
-	}
-
-	p.draw = function() {
-	  p.translate(200, 400);
-	  p.strokeWeight(5);
-	  p.stroke(90,95,90,255);
-	  p.branch(0);
-	  p.noLoop();
-	  const canvas = document.getElementsByTagName("canvas")[0];
-	  const dataURL = canvas.toDataURL({pixelRatio: 2}).toString(); //there should be a better way to transfer this over to the getshare
-	  canvas.setAttribute("data-uri", dataURL.toString());
-	}
-
-
 
 	p.branch = function(depth){
 	  var b = p.map(timeArray[depth], 0, 18, 2, 4)
 	  if(depth < b){ 
 	    p.line(0,0,0, -1 * num);
-	    if(depth % 2 == 0){
+	    if(depth % 2 === 0){
 	       p.push()
 	       p.rotate(15)
 	       p.line(0,0,0, -1 * num);
@@ -66,7 +48,6 @@ function rose(p){
         p.noStroke()
         p.rotate(bunna)
         var radius = 30
-        let h = 255;
         p.fill(255, 255, 235,200);
         p.ellipse(19,0, radius,radius/2.2); 
 	 }   
@@ -80,11 +61,10 @@ function rose(p){
         p.noStroke()
         p.rotate(bunna)
         var radius = 30
-        let h = 255;
-        if(j == 2){
+        if(j === 2){
           p.fill(255, 245, 215,200);
           p.ellipse(25,0, radius,radius/1.5); 
-        }else if(j==1){
+        }else if(j===1){
           p.fill(255, 245, 225,200);
           p.ellipse(22,0, radius,radius/2.2);      
         }else{
@@ -171,6 +151,12 @@ function rose(p){
 	  p.vertex(0, 0);
 	  p.endShape(p.CLOSE);
 	}
+	  p.push();
+	  p.translate(200, 400);
+	  p.strokeWeight(5);
+	  p.stroke(90,95,90,255);
+	  p.branch(0);
+	  p.pop();
 }
 
 export default rose

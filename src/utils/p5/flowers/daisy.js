@@ -12,28 +12,13 @@ function daisy(p) {
 	}
 
 
-	p.setup = function() {
-	  p.createCanvas(400, 400);
-	  p.angleMode(p.DEGREES);
-	  p.noLoop();
-	}
 
-	p.draw = function() {
-	  p.translate(p.width/2, p.height);
-	  p.strokeWeight(5);
-	  p.stroke(90,95,90,255);
-	  p.branch(0);
-	  p.noLoop();
-	  const canvas = document.getElementsByTagName("canvas")[0];
-	  const dataURL = canvas.toDataURL({pixelRatio: 2}).toString(); //there should be a better way to transfer this over to the getshare
-	  canvas.setAttribute("data-uri", dataURL.toString());
-	}
 
 	p.branch = function(depth){
 	  var b = p.map(timeArray[depth], 0, 18, 1, 3)
 	  if(depth < b){  
 	     p.line(0,0,0, -1 * num);
-	     if(depth % 2 == 0){
+	     if(depth % 2 === 0){
 	       p.push()
 	       p.rotate(p.random(45))
 	       p.line(0,0,0, -1 * num);
@@ -194,7 +179,13 @@ function daisy(p) {
 	  p.endShape(p.CLOSE);
 
 	}
-
+ 	  
+ 	  p.push()
+	  p.translate(p.width/2, p.height);
+	  p.strokeWeight(5);
+	  p.stroke(90,95,90,255);
+	  p.branch(0);
+	  p.pop()
 
 }
 

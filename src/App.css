@@ -8,13 +8,19 @@
 /* TEMP SUBMISSION FORM STYLES*/
 canvas{
   margin-bottom:50px;
-
 }
 
 #flower + div {
   background-color: black;
   position: absolute;
   left:60%;
+  padding:25px;
+  border-radius: 100%;
+}
+#flower + div:after{
+  content: "click to generate a new flower";
+  background: white;
+  position: absolute;
 }
 
 form{

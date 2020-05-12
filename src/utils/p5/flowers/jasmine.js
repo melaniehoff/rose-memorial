@@ -10,29 +10,11 @@ function jasmine(p){
 	  timeArray.push(a);
 	}
 
-	p.setup = function() {
-	  p.createCanvas(400, 400);
-	  p.angleMode(p.DEGREES);
-	  p.noLoop();
-	}
-
-	p.draw = function() {
-	  p.translate(200, 400);
-	  p.strokeWeight(3);
-	  p.stroke(90,95,90,255);
-	  p.branch(0);
-	  p.noLoop();
-	  const canvas = document.getElementsByTagName("canvas")[0];
-	  const dataURL = canvas.toDataURL({pixelRatio: 2}).toString(); //there should be a better way to transfer this over to the getshare
-	  canvas.setAttribute("data-uri", dataURL.toString());
-	}
-
-
 	p.branch = function(depth){
 	  var b = p.map(timeArray[depth], 0, 18, 2, 4)
 	  if(depth < b){
 	     p.line(0,0,0, -1 * num);
-	     if(depth % 2 == 0){
+	     if(depth % 2 === 0){
 	       p.push()
 	       p.rotate(45)
 	       p.line(0,0,0, -1 * num);
@@ -65,8 +47,7 @@ function jasmine(p){
 	  for(var j =0;j < 3;j++){      
         p.noStroke()
         p.rotate(tempAngle)
-        var radius = 30
-        let h = 255;
+        var radius = 30;
         p.fill(255, 255, 255,200);
         p.ellipse(19,0, radius,radius/2.2); 
 	 }    
@@ -79,8 +60,7 @@ function jasmine(p){
 	    p.stroke(0);
 	    p.strokeWeight(0.5);
 	    p.rotate(tempAngle)
-	    var radius = 30
-	    let h = 255;
+	    var radius = 30;
 	    p.fill(255, 255, 255,200); 
 	    p.ellipse(19,0, radius,radius/2.2); 
 	 }
@@ -174,6 +154,12 @@ function jasmine(p){
 	   }
 	  
 	}
+	  p.push();
+	  p.translate(200, 400);
+	  p.strokeWeight(3);
+	  p.stroke(90,95,90,255);
+	  p.branch(0);
+	  p.pop();
 }
 
 export default jasmine

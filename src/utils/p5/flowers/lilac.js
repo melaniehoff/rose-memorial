@@ -10,28 +10,13 @@ function lilac (p) {
     timeArray.push(a);
   }
 
-  p.setup = function () {
-    p.createCanvas(400, 400);
-    p.angleMode(p.DEGREES);
-    p.noLoop();
-  };
 
-  p.draw = function () {
-    p.translate(200, 400);
-    p.strokeWeight(3);
-    p.stroke(90,95,90,255);
-    p.branch(0);
-    p.noLoop();
-    const canvas = document.getElementsByTagName("canvas")[0];
-    const dataURL = canvas.toDataURL({pixelRatio: 2}).toString(); //there should be a better way to transfer this over to the getshare
-    canvas.setAttribute("data-uri", dataURL.toString());
-  };
 
   p.branch = function(depth){
     var b = p.map(timeArray[depth], 0, 18, 2, 4)
     if(depth < b){
        p.line(0,0,0, -1 * num);
-       if(depth % 2 == 0){
+       if(depth % 2 === 0){
          p.push()
          p.rotate(15)
          p.line(0,0,0, -1 * num);
@@ -169,7 +154,12 @@ function lilac (p) {
        p.drawInnerFlorette(l, depth + 1);
       }
   }
-
+   p.push();
+    p.translate(200, 400);
+    p.strokeWeight(3);
+    p.stroke(90,95,90,255);
+    p.branch(0);
+    p.pop();
 };
 
 

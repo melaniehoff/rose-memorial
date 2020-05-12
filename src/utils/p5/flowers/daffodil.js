@@ -10,30 +10,11 @@ function daffodil(p){
 	}
 
 
-	p.setup = function() {
-	  p.createCanvas(400, 400);
-	  p.angleMode(p.DEGREES);
-	  p.noLoop();
-	}
-
-	p.draw = function() {
-	  p.translate(200, 400);
-	  p.strokeWeight(5);
-	  p.stroke(90,95,90,255);
-	  p.branch(0);
-	  p.noLoop();
-	  const canvas = document.getElementsByTagName("canvas")[0];
-      const dataURL = canvas.toDataURL({pixelRatio: 2}).toString(); //there should be a better way to transfer this over to the getshare
-      canvas.setAttribute("data-uri", dataURL.toString());
-	}
-
-
-
 	p.branch = function(depth){
 	  var b = p.map(timeArray[depth], 0, 18, 2, 4)
 	  if(depth < b){  
 	     p.line(0,0,0, -1 * num);
-	     if(depth % 2 == 0){
+	     if(depth % 2 === 0){
 	       p.push()
 	       p.rotate(15)
 	       p.line(0,0,0, -1 * num);
@@ -133,9 +114,9 @@ function daffodil(p){
 	  p.fill(255,255,255);
 	  p.rotate(-145);
 	  for(var d = 0;d < 5; d ++){
-	    if(d == 2){
+	    if(d === 2){
 	      p.drawPetal(-80);
-	     }else if(d == 1 || d == 3){
+	     }else if(d === 1 || d === 3){
 	      p.drawPetal(-70);
 	    }else{
 	      p.drawPetal(-60);
@@ -172,9 +153,9 @@ function daffodil(p){
 	  p.rotate(-145);
 	  for(var d = 0;d < 5; d ++){
 	    p.line(0,0,0,-10);
-	    if(d == 2){
+	    if(d === 2){
 	      p.drawPetal(-80);
-	     }else if(d == 1 || d == 3){
+	     }else if(d === 1 || d === 3){
 	      p.drawPetal(-70);
 	    }else{
 	      p.drawPetal(-60);
@@ -220,5 +201,12 @@ function daffodil(p){
         p.ellipse(25,0, radius,radius/1.5); 
 	 }     
 	}
+	p.push()
+	p.translate(200, 400);
+	p.strokeWeight(5);
+	p.stroke(90,95,90,255);
+	p.branch(0);
+	p.pop()
+	  
 }
 export default daffodil
