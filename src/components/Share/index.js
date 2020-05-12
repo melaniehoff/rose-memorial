@@ -15,7 +15,6 @@ class GetShare extends Component {
       dedication: '',
       optional_note:'',
       optional_photo:'',
-      rose_svg:'',
       rose_id:'',
       onUpdateUploadedPhoto: updateUploadedPhoto,
       onPhotosUploaded: photosUploaded
@@ -23,7 +22,6 @@ class GetShare extends Component {
     this.handleDedication = this.handleDedication.bind(this);
     this.handleNote = this.handleNote.bind(this);
     this.handlePhoto = this.handlePhoto.bind(this);
-    this.handleRose = this.handleRose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -39,25 +37,6 @@ class GetShare extends Component {
     this.setState({optional_photo: event.target.value});
   }
 
-  handleRose(event) {
-   // svgbase64 would be dynamically created through the p5 sketch. 
-      document.getElementById('save-rose').classList.add("submitted");
-      document.getElementById('rose-saved').classList.add("submitted");
-      const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
-      const url = `https://api.cloudinary.com/v1_1/${
-            process.env.REACT_APP_CLOUD_NAME
-            }/upload`;
-    
-            request.post(url)
-                .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
-                .field('file', dataURI)
-                .field('multiple','false')
-                .end((error, response) => {
-                    console.log(response)
-                    this.setState({rose_id: [response.body["public_id"],response.body["delete_token"]]})
-                    this.setState({rose_svg: response.body["url"]});
-                });
-  }
 
   onPhotoSelected(files) {
         const url = `https://api.cloudinary.com/v1_1/${
@@ -99,45 +78,63 @@ class GetShare extends Component {
 
     }
   handleSubmit(event) {
-  	//send info to airtable
-  const {dedication, optional_note, optional_photo, rose_svg, rose_id} = this.state
-	base('RoseGarden').create([
-	  {
-	    "fields": {
-	      "Timestamp": Date.now(),
-	      "Dedication": dedication,
-	      "OptionalNote": optional_note,
-        "OptionalPhoto": [{"url": optional_photo}],
-	      "RoseSVG": [{"url": rose_svg}],
-	      "Public": "Yes"
-	    }
-	  }
-	], function(err, records) {
-	  if (err) {
-	    console.error(err);
-	    return;
-	  }
-	  records.forEach(function (record) {
-	    
 
-      const url = `https://@api.cloudinary.com/v1_1/${
-            process.env.REACT_APP_CLOUD_NAME
-            }/delete_by_token`;
-    
-            request.post(url)
-                .field('token', rose_id[1])
-                .end((error, response) => {
-                   if(error){
-                      console.log('done deletting')
-                   }else{
-                    console.log(error)
-                   }
-                    
-                });
-      document.getElementById('submission').classList.add("submitted")
+    //save roses in cloudinary
+  const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
+  const url = `https://api.cloudinary.com/v1_1/${
+        process.env.REACT_APP_CLOUD_NAME
+        }/upload`;
 
-	  });
-	});
+        request.post(url)
+            .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
+            .field('file', dataURI)
+            .field('multiple','false')
+            .end((error, response) => {
+                console.log(response)
+                this.setState({rose_id: [response.body["public_id"],response.body["delete_token"]]})
+                
+                //send info to airtable 
+                  const {dedication, optional_note, optional_photo, rose_id} = this.state
+                  base('RoseGarden').create([
+                    {
+                      "fields": {
+                        "Timestamp": Date.now(),
+                        "Dedication": dedication,
+                        "OptionalNote": optional_note,
+                        "OptionalPhoto": [{"url": optional_photo}],
+                        "RoseSVG": [{"url": response.body["url"]}],
+                        "Public": "Yes"
+                      }
+                    }
+                  ], function(err, records) {
+                    if (err) {
+                      console.error(err);
+                      return;
+                    }
+                    document.getElementById('submission').classList.add("submitted")
+
+                    setTimeout(function(){
+
+                            const url = `https://@api.cloudinary.com/v1_1/${
+                                  process.env.REACT_APP_CLOUD_NAME
+                                  }/delete_by_token`;
+                          
+                                  request.post(url)
+                                      .field('token', rose_id[1])
+                                      .end((error, response) => {
+                                         if(error){
+                                            console.log('done deletting')
+                                         }else{
+                                          console.log(error)
+                                         }
+                                          
+                                      });
+                            document.getElementById('submission').classList.add("submitted")
+
+                    },2000)
+                  });
+            });
+
 
     event.preventDefault();
  
@@ -145,7 +142,7 @@ class GetShare extends Component {
 
 
   render() {
-  	const {dedication, optional_note, optional_photo, rose_svg} = this.state; 
+  	const {dedication, optional_note, optional_photo} = this.state; 
     return (
       <React.Fragment>
         <div id='flower'></div>
@@ -178,15 +175,6 @@ class GetShare extends Component {
                     )
                 }
             />
-          </label>
-
-          <label>
-            Rose:<br/>
-            
-            <a id='save-rose' href="#" onClick={this.handleRose}>
-              Click to save current rose
-            </a>
-            <span id='rose-saved'>Current rose saved</span>
           </label>
 
 
