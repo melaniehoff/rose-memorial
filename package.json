@@ -6,11 +6,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "airtable": "^0.8.1",
+    "cloudinary-react": "^1.5.0",
+    "filestack-react": "^3.1.0",
     "netlify-lambda": "^1.6.3",
     "node-fetch": "^2.6.0",
+    "p5": "^1.0.0",
+    "p5.js-svg": "^0.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-p5-wrapper": "^2.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-script-tag": "^1.1.2",
+    "react-scripts": "3.4.1",
+    "superagent": "^5.2.2"
   },
   "scripts": {
     "start": "npm-run-all --parallel start:app start:server",
@@ -38,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "npm-run-all": "^4.1.5"
   },
   "proxy": "http://localhost:9000"

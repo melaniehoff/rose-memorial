@@ -1,26 +1,72 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
+import {GetShare, Home} from './components'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const pub = process.env.PUBLIC_URL;
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        err : null,
+        isLoaded : false,
+        records : []
+    };
+  }
+  componentDidMount() {
+      fetch(".netlify/functions/main")
+    .then( response => response.json())
+        .then( (data) => {
+          this.setState({
+              isLoaded : true,
+              meow : data,
+              records: data.records
+          });
+        console.log('airtable', data.records)
+      })
+    .catch(err => {
+    this.setState({
+              isLoaded: true,
+              err
+          });
+    console.log(err)
+  });
+  }
+
+render() {
+    const { records } = this.state;
+    return (
+      <Router>
+        <div className="App">
+          {/* LOGO */}
+          <header className="App-header">
+          </header>
+          {/* CALENDAR SEPARATE PAGE */}
+          <nav>
+          <Link to="/share">Share your rose</Link>
+          </nav>
+          {/* CONTENT */}
+
+
+          {/* NAVIGATION */}
+          <Switch>
+            <Route path="/share">
+              <GetShare />
+            </Route>
+            <Route path="/">
+              <Home records={records} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
