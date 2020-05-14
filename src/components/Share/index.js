@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Airtable from "airtable";
 import request from "superagent";
-import { photosUploaded, updateUploadedPhoto } from "../../actions";
 import P5Wrapper from "react-p5-wrapper";
 import sketch from "../../utils/p5/sketch";
 
@@ -15,13 +14,13 @@ class Share extends Component {
       optional_note: "",
       optional_photo: "",
       rose_id: "",
-      onUpdateUploadedPhoto: updateUploadedPhoto,
-      onPhotosUploaded: photosUploaded,
     };
     this.handleDedication = this.handleDedication.bind(this);
     this.handleNote = this.handleNote.bind(this);
     this.handlePhoto = this.handlePhoto.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showWidget = this.showWidget.bind(this);
+    this.checkUploadResult = this.checkUploadResult.bind(this);
   }
 
   handleDedication(event) {
@@ -31,50 +30,36 @@ class Share extends Component {
   handleNote(event) {
     this.setState({ optional_note: event.target.value });
   }
-
-  handlePhoto(event) {
-    this.setState({ optional_photo: event.target.value });
-  }
-
-  onPhotoSelected(files) {
-    const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`;
-
-    for (let file of files) {
-      const photoId = this.photoId++;
-      const fileName = file.name;
-
-      request
-        .post(url)
-        .field("upload_preset", process.env.REACT_APP_PRESET_NAME)
-        .field("file", file)
-        .field("multiple", "false")
-        .on("progress", (progress) =>
-          this.onPhotoUploadProgress(photoId, file.name, progress)
-        )
-        .end((error, response) => {
-          this.onPhotoUploaded(photoId, fileName, response);
-        });
+  checkUploadResult = (resultEvent)=> {
+    if(resultEvent.event === 'success'){
+      console.log(this.props.currentUser.id);
+      this.props.postPhoto({user_id: this.props.currrentUser.id,
+        caption: '',
+        url: resultEvent.info.secure_url}).then(this.props.history.push(`/profile`))
     }
+   }
+   showWidget = (myWidget)=> {
+    console.log(myWidget)
+    myWidget.open()
+   }
+  handlePhoto(event) {
+    // this.setState({ optional_photo: event.target.value });
+    // console.log(event.target.value)
+    // const dataURI = document
+    //   .getElementsByTagName("canvas")[0]
+    //   .getAttribute("data-uri");
+    // const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`;
+
+    // request
+    //   .post(url)
+    //   .field("upload_preset", process.env.REACT_APP_PRESET_NAME)
+    //   .field("file", event.target.files[0].name)
+    //   .field("multiple", "false")
+    //   .end((error, response) => {
+    //     console.log(response)
+    //   });
   }
 
-  onPhotoUploadProgress(id, fileName, progress) {
-    this.state.onUpdateUploadedPhoto({
-      id: id,
-      fileName: fileName,
-      progress: progress,
-    });
-  }
-
-  onPhotoUploaded(id, fileName, response) {
-    this.state.onUpdateUploadedPhoto({
-      id: id,
-      fileName: fileName,
-      response: response,
-    });
-
-    this.state.onPhotosUploaded([response.body]);
-    this.setState({ optional_photo: response.body["url"] });
-  }
   handleSubmit(event) {
     //save roses in cloudinary
     const dataURI = document
@@ -141,9 +126,17 @@ class Share extends Component {
     event.preventDefault();
   }
 
+
   render() {
+    let myWidget = window.cloudinary.createUploadWidget({
+      cloudName: "rose-memorial",
+      uploadPreset: "rose-memorial"},
+      (error, result)=>{ this.checkUploadResult(result) })
+
     const { dedication, optional_note } = this.state;
+
     return (
+
       <React.Fragment>
         <div id="flower"></div>
         <P5Wrapper sketch={sketch} />
@@ -170,10 +163,14 @@ class Share extends Component {
               accept="image/*"
               multiple={false}
               ref={(fileInputEl) => (this.fileInputEl = fileInputEl)}
-              onChange={() => this.onPhotoSelected(this.fileInputEl.files)}
+              onChange={this.handlePhoto}
             />
-          </label>
 
+            <div id='photo-form-container'>
+              <button onClick={() => this.showWidget(myWidget)}>Upload Photo</button>
+            </div>
+          </label>
+         
           <input type="submit" value="Submit" />
         </form>
       </React.Fragment>
