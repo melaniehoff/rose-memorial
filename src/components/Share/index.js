@@ -17,9 +17,9 @@ class Share extends Component {
     };
     this.handleDedication = this.handleDedication.bind(this);
     this.handleNote = this.handleNote.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.showWidget = this.showWidget.bind(this);
     this.checkUploadResult = this.checkUploadResult.bind(this);
+    this.showWidget = this.showWidget.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleDedication(event) {
@@ -29,24 +29,24 @@ class Share extends Component {
   handleNote(event) {
     this.setState({ optional_note: event.target.value });
   }
-  checkUploadResult = (resultEvent)=> {
-    if(resultEvent.event === 'success'){
-      this.setState({
-          optional_photo: resultEvent.info.secure_url,
-        });
-      document.getElementById('photo-button').classList = 'submitted'
-    }
-   }
-   showWidget = (myWidget)=> {
 
-    myWidget.open()
-   }
+  checkUploadResult = (resultEvent) => {
+    if (resultEvent.event === "success") {
+      const nextState = Object.assign(this.state, {
+        optional_photo: resultEvent.info.secure_url,
+      });
+      this.setState(nextState);
+      document.getElementById("photo-button").classList = "submitted";
+    }
+  }
+
+  showWidget = (myWidget) => {
+    myWidget.open();
+  }
 
   handleSubmit(event) {
     //save roses in cloudinary
-    const dataURI = document
-      .getElementsByTagName("canvas")[0]
-      .getAttribute("data-uri");
+    const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
     const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`;
 
     request
@@ -55,9 +55,8 @@ class Share extends Component {
       .field("file", dataURI)
       .field("multiple", "false")
       .end((error, response) => {
-        this.setState({
-          rose_id: [response.body["public_id"], response.body["delete_token"]],
-        });
+        const nextState = Object.assign(this.state, {rose_id: [response.body["public_id"], response.body["delete_token"]]});
+        this.setState(nextState);
 
         //send info to airtable
         const {
@@ -107,19 +106,18 @@ class Share extends Component {
     event.preventDefault();
   }
 
-
   render() {
     const uploadTag = {
       cloudName: "rose-memorial",
-      uploadPreset: "rose_memorial"
-    }
-    let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => { this.checkUploadResult(result) })
+      uploadPreset: "rose_memorial",
+    };
+    let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => {this.checkUploadResult(result)});
     const { dedication, optional_note } = this.state;
 
     return (
       <React.Fragment>
         <div id="flower"></div>
-          <P5Wrapper sketch={sketch} />
+        <P5Wrapper sketch={sketch} />
         <div id="submission">
           <label>
             Name:
@@ -136,11 +134,18 @@ class Share extends Component {
           <label>
             Optional Photo:
             <div>
-              <button id='photo-button' onClick={() => this.showWidget(myWidget)}>Upload Photo</button>
+              <button
+                id="photo-button"
+                onClick={() => this.showWidget(myWidget)}
+              >
+                Upload Photo
+              </button>
               <div>upload a different photo</div>
             </div>
           </label>
-          <button id='submit-button' onClick={this.handleSubmit}>Submit Memory</button>
+          <button id="submit-button" onClick={this.handleSubmit}>
+            Submit Memory
+          </button>
         </div>
       </React.Fragment>
     );
