@@ -55,7 +55,6 @@ class Share extends Component {
       .field("file", dataURI)
       .field("multiple", "false")
       .end((error, response) => {
-        // console.log(response);
         this.setState({
           rose_id: [response.body["public_id"], response.body["delete_token"]],
         });
@@ -110,18 +109,17 @@ class Share extends Component {
 
 
   render() {
-    let myWidget = window.cloudinary.createUploadWidget({
+    const uploadTag = {
       cloudName: "rose-memorial",
-      uploadPreset: "rose_memorial"},
-      (error, result)=>{ this.checkUploadResult(result) })
-
+      uploadPreset: "rose_memorial"
+    }
+    let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => { this.checkUploadResult(result) })
     const { dedication, optional_note } = this.state;
 
     return (
-
       <React.Fragment>
         <div id="flower"></div>
-        <P5Wrapper sketch={sketch} />
+          <P5Wrapper sketch={sketch} />
         <div id="submission">
           <label>
             Name:
@@ -131,12 +129,10 @@ class Share extends Component {
               onChange={this.handleDedication}
             />
           </label>
-
           <label>
             Optional Note:
             <textarea value={optional_note} onChange={this.handleNote} />
           </label>
-
           <label>
             Optional Photo:
             <div>
@@ -144,8 +140,7 @@ class Share extends Component {
               <div>upload a different photo</div>
             </div>
           </label>
-         <button id='submit-button' onClick={this.handleSubmit}>Submit Memory</button>
-         
+          <button id='submit-button' onClick={this.handleSubmit}>Submit Memory</button>
         </div>
       </React.Fragment>
     );
