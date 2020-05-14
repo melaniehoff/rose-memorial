@@ -8,7 +8,7 @@ import sketch from '../../utils/p5/sketch';
 
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
 const uri = ''
-class GetShare extends Component {
+class Share extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -186,4 +186,4 @@ class GetShare extends Component {
 
  }
 
-export default GetShare;
+export default Share;
