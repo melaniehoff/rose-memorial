@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import Airtable from 'airtable'
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 import request from 'superagent';
 import { photosUploaded, updateUploadedPhoto } from '../../actions';
 import P5Wrapper from 'react-p5-wrapper';
 import sketch from '../../utils/p5/sketch';
 
 const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
-const uri = ''
 class Share extends Component {
   constructor(props) {
     super(props);
@@ -142,7 +140,7 @@ class Share extends Component {
 
 
   render() {
-  	const {dedication, optional_note, optional_photo} = this.state; 
+  	const {dedication, optional_note} = this.state; 
     return (
       <React.Fragment>
         <div id='flower'></div>
