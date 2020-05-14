@@ -17,7 +17,6 @@ class Share extends Component {
     };
     this.handleDedication = this.handleDedication.bind(this);
     this.handleNote = this.handleNote.bind(this);
-    this.handlePhoto = this.handlePhoto.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showWidget = this.showWidget.bind(this);
     this.checkUploadResult = this.checkUploadResult.bind(this);
@@ -32,33 +31,14 @@ class Share extends Component {
   }
   checkUploadResult = (resultEvent)=> {
     if(resultEvent.event === 'success'){
-      console.log(this.props.currentUser.id);
-      this.props.postPhoto({user_id: this.props.currrentUser.id,
-        caption: '',
-        url: resultEvent.info.secure_url}).then(this.props.history.push(`/profile`))
+      this.setState({
+          optional_photo: resultEvent.info.secure_url,
+        });
     }
    }
    showWidget = (myWidget)=> {
-    console.log(myWidget)
     myWidget.open()
    }
-  handlePhoto(event) {
-    // this.setState({ optional_photo: event.target.value });
-    // console.log(event.target.value)
-    // const dataURI = document
-    //   .getElementsByTagName("canvas")[0]
-    //   .getAttribute("data-uri");
-    // const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`;
-
-    // request
-    //   .post(url)
-    //   .field("upload_preset", process.env.REACT_APP_PRESET_NAME)
-    //   .field("file", event.target.files[0].name)
-    //   .field("multiple", "false")
-    //   .end((error, response) => {
-    //     console.log(response)
-    //   });
-  }
 
   handleSubmit(event) {
     //save roses in cloudinary
@@ -130,7 +110,7 @@ class Share extends Component {
   render() {
     let myWidget = window.cloudinary.createUploadWidget({
       cloudName: "rose-memorial",
-      uploadPreset: "rose-memorial"},
+      uploadPreset: "rose_memorial"},
       (error, result)=>{ this.checkUploadResult(result) })
 
     const { dedication, optional_note } = this.state;
@@ -157,16 +137,7 @@ class Share extends Component {
 
           <label>
             Optional Photo:
-            <input
-              type="file"
-              id="fileupload"
-              accept="image/*"
-              multiple={false}
-              ref={(fileInputEl) => (this.fileInputEl = fileInputEl)}
-              onChange={this.handlePhoto}
-            />
-
-            <div id='photo-form-container'>
+            <div>
               <button onClick={() => this.showWidget(myWidget)}>Upload Photo</button>
             </div>
           </label>
