@@ -34,9 +34,11 @@ class Share extends Component {
       this.setState({
           optional_photo: resultEvent.info.secure_url,
         });
+      document.getElementById('photo-button').classList = 'submitted'
     }
    }
    showWidget = (myWidget)=> {
+
     myWidget.open()
    }
 
@@ -120,7 +122,7 @@ class Share extends Component {
       <React.Fragment>
         <div id="flower"></div>
         <P5Wrapper sketch={sketch} />
-        <form id="submission" onSubmit={this.handleSubmit}>
+        <div id="submission">
           <label>
             Name:
             <input
@@ -138,12 +140,13 @@ class Share extends Component {
           <label>
             Optional Photo:
             <div>
-              <button onClick={() => this.showWidget(myWidget)}>Upload Photo</button>
+              <button id='photo-button' onClick={() => this.showWidget(myWidget)}>Upload Photo</button>
+              <div>upload a different photo</div>
             </div>
           </label>
+         <button id='submit-button' onClick={this.handleSubmit}>Submit Memory</button>
          
-          <input type="submit" value="Submit" />
-        </form>
+        </div>
       </React.Fragment>
     );
   }
