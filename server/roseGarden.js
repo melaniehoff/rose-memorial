@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-const process_api_key = process.env.AIRTABLE_API_KEY;
+const process_api_key = process.env.REACT_APP_AIRTABLE_API_KEY;
 const MAX_RECORDS = 500;
 
 exports.handler = async (event) => {
