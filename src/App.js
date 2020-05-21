@@ -6,7 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import {GetShare, Home} from './components'
+import {Share, Home} from './components'
 
 const pub = process.env.PUBLIC_URL;
 
@@ -57,7 +57,7 @@ render() {
           {/* NAVIGATION */}
           <Switch>
             <Route path="/share">
-              <GetShare />
+              <Share />
             </Route>
             <Route path="/">
               <Home records={records} />

@@ -1,189 +1,155 @@
-import React, { Component } from 'react';
-import Airtable from 'airtable'
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
-import request from 'superagent';
-import { photosUploaded, updateUploadedPhoto } from '../../actions';
-import P5Wrapper from 'react-p5-wrapper';
-import sketch from '../../utils/p5/sketch';
+import React, { Component } from "react";
+import Airtable from "airtable";
+import request from "superagent";
+import P5Wrapper from "react-p5-wrapper";
+import sketch from "../../utils/p5/sketch";
 
-const base = new Airtable({apiKey: process.env.REACT_APP_AIRTABLE_API_KEY}).base('appZuPErukOoOExF9');
-const uri = ''
-class GetShare extends Component {
+const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base("appZuPErukOoOExF9");
+
+class Share extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dedication: '',
-      optional_note:'',
-      optional_photo:'',
-      rose_id:'',
-      onUpdateUploadedPhoto: updateUploadedPhoto,
-      onPhotosUploaded: photosUploaded
+      dedication: "",
+      optional_note: "",
+      optional_photo: "",
+      rose_id: "",
     };
     this.handleDedication = this.handleDedication.bind(this);
     this.handleNote = this.handleNote.bind(this);
-    this.handlePhoto = this.handlePhoto.bind(this);
+    this.checkUploadResult = this.checkUploadResult.bind(this);
+    this.showWidget = this.showWidget.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleDedication(event) {
-    this.setState({dedication: event.target.value});
+    this.setState({ dedication: event.target.value });
   }
 
   handleNote(event) {
-    this.setState({optional_note: event.target.value});
+    this.setState({ optional_note: event.target.value });
   }
 
-  handlePhoto(event) {
-    this.setState({optional_photo: event.target.value});
+  checkUploadResult = (resultEvent) => {
+    if (resultEvent.event === "success") {
+      const nextState = Object.assign(this.state, {
+        optional_photo: resultEvent.info.secure_url,
+      });
+      this.setState(nextState);
+      document.getElementById("photo-button").classList = "submitted";
+    }
   }
 
+  showWidget = (myWidget) => {
+    myWidget.open();
+  }
 
-  onPhotoSelected(files) {
-        const url = `https://api.cloudinary.com/v1_1/${
-            process.env.REACT_APP_CLOUD_NAME
-            }/upload`;
-    
-
-        for (let file of files) {
-            const photoId = this.photoId++;
-            const fileName = file.name;
-
-            request.post(url)
-                .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
-                .field('file', file)
-                .field('multiple','false')
-                .on('progress', (progress) => this.onPhotoUploadProgress(photoId, file.name, progress))
-                .end((error, response) => {
-                    this.onPhotoUploaded(photoId, fileName, response);
-                });
-        }
-    }
-   onPhotoUploadProgress(id, fileName, progress) {
-        this.state.onUpdateUploadedPhoto({
-            id: id,
-            fileName: fileName,
-            progress: progress,
-        });
-    }
-
-    onPhotoUploaded(id, fileName, response) {
-        this.state.onUpdateUploadedPhoto({
-            id: id,
-            fileName: fileName,
-            response: response,
-        });
-
-        this.state.onPhotosUploaded([response.body]);
-        this.setState({optional_photo: response.body['url']});
-
-    }
   handleSubmit(event) {
-
     //save roses in cloudinary
-  const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
-  const url = `https://api.cloudinary.com/v1_1/${
-        process.env.REACT_APP_CLOUD_NAME
-        }/upload`;
+    const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
+    const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`;
 
-        request.post(url)
-            .field('upload_preset', process.env.REACT_APP_PRESET_NAME)
-            .field('file', dataURI)
-            .field('multiple','false')
-            .end((error, response) => {
-                console.log(response)
-                this.setState({rose_id: [response.body["public_id"],response.body["delete_token"]]})
-                
-                //send info to airtable 
-                  const {dedication, optional_note, optional_photo, rose_id} = this.state
-                  base('RoseGarden').create([
-                    {
-                      "fields": {
-                        "Timestamp": Date.now(),
-                        "Dedication": dedication,
-                        "OptionalNote": optional_note,
-                        "OptionalPhoto": [{"url": optional_photo}],
-                        "RoseSVG": [{"url": response.body["url"]}],
-                        "Public": "Yes"
-                      }
-                    }
-                  ], function(err, records) {
-                    if (err) {
-                      console.error(err);
-                      return;
-                    }
-                    document.getElementById('submission').classList.add("submitted")
+    request
+      .post(url)
+      .field("upload_preset", process.env.REACT_APP_PRESET_NAME)
+      .field("file", dataURI)
+      .field("multiple", "false")
+      .end((error, response) => {
+        const nextState = Object.assign(this.state, {rose_id: [response.body["public_id"], response.body["delete_token"]]});
+        this.setState(nextState);
 
-                    setTimeout(function(){
+        //send info to airtable
+        const {
+          dedication,
+          optional_note,
+          optional_photo,
+          rose_id,
+        } = this.state;
 
-                            const url = `https://@api.cloudinary.com/v1_1/${
-                                  process.env.REACT_APP_CLOUD_NAME
-                                  }/delete_by_token`;
-                          
-                                  request.post(url)
-                                      .field('token', rose_id[1])
-                                      .end((error, response) => {
-                                         if(error){
-                                            console.log('done deletting')
-                                         }else{
-                                          console.log(error)
-                                         }
-                                          
-                                      });
-                            document.getElementById('submission').classList.add("submitted")
-
-                    },2000)
-                  });
-            });
-
+        const submissionCallBack = (err, records) => {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          document.getElementById("submission").classList.add("submitted");
+          const timeoutCallBack = () => {
+            const url = `https://@api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/delete_by_token`;
+            request
+              .post(url)
+              .field("token", rose_id[1])
+              .end((error, response) => {
+                if (error) {
+                  console.log("done deletting");
+                } else {
+                  console.log(error);
+                }
+              });
+            document.getElementById("submission").classList.add("submitted");
+          };
+          setTimeout(timeoutCallBack, 2000);
+        };
+        const submissionArray = [
+          {
+            fields: {
+              Timestamp: Date.now(),
+              Dedication: dedication,
+              OptionalNote: optional_note,
+              OptionalPhoto: [{ url: optional_photo }],
+              RoseSVG: [{ url: response.body["url"] }],
+              Public: "Yes",
+            },
+          },
+        ];
+        base("RoseGarden").create(submissionArray, submissionCallBack);
+      });
 
     event.preventDefault();
- 
   }
 
-
   render() {
-  	const {dedication, optional_note, optional_photo} = this.state; 
+    const uploadTag = {
+      cloudName: "rose-memorial",
+      uploadPreset: "rose_memorial",
+    };
+    let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => {this.checkUploadResult(result)});
+    const { dedication, optional_note } = this.state;
+
     return (
       <React.Fragment>
-        <div id='flower'></div>
+        <div id="flower"></div>
         <P5Wrapper sketch={sketch} />
-        <form id='submission' onSubmit={this.handleSubmit}>
+        <div id="submission">
           <label>
             Name:
-            <input type="text" value={dedication} onChange={this.handleDedication} />
+            <input
+              type="text"
+              value={dedication}
+              onChange={this.handleDedication}
+            />
           </label>
-
           <label>
             Optional Note:
             <textarea value={optional_note} onChange={this.handleNote} />
           </label>
-
           <label>
             Optional Photo:
-          
-            <input
-                type="file"
-                id="fileupload"
-                accept="image/*"
-                multiple={false}
-                ref={fileInputEl =>
-                    (this.fileInputEl = fileInputEl)
-                }
-                onChange={() =>
-                    this.onPhotoSelected(
-                        this.fileInputEl.files
-                    )
-                }
-            />
+            <div>
+              <button
+                id="photo-button"
+                onClick={() => this.showWidget(myWidget)}
+              >
+                Upload Photo
+              </button>
+              <div>upload a different photo</div>
+            </div>
           </label>
-
-
-          <input type="submit" value="Submit" />
-        </form>
+          <button id="submit-button" onClick={this.handleSubmit}>
+            Submit Memory
+          </button>
+        </div>
       </React.Fragment>
     );
   }
+}
 
- }
-
-export default GetShare;
+export default Share;

@@ -23,7 +23,7 @@ canvas{
   position: absolute;
 }
 
-form{
+#submission{
   text-align: left;
   margin: 0 auto;
   background: #f8f8f8;
@@ -64,7 +64,7 @@ textarea{
   height: 200px;
   display: block;
 }
-#submission.submitted label{
+#submission.submitted label, #submission.submitted button{
   display: none;
 }
 #save-rose.submitted{
@@ -75,6 +75,15 @@ textarea{
 }
 #rose-saved{
  display: none;
+}
+#photo-button.submitted + div{
+  display: block;
+}
+#photo-button + div{
+  display: none;
+}
+#photo-button.submitted{
+/*  display: none;*/
 }
 #submission.submitted input[type='submit']{
   display: none;
