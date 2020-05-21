@@ -20,7 +20,7 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-      fetch(".netlify/functions/roseGarden")
+      fetch(".netlify/functions/garden")
     .then( response => response.json())
         .then( (data) => {
           this.setState({
