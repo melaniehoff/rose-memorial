@@ -108,8 +108,8 @@ class Share extends Component {
 
   render() {
     const uploadTag = {
-      cloudName: "rose-memorial",
-      uploadPreset: "rose_memorial",
+      cloudName: process.env.REACT_APP_CLOUD_NAME,
+      uploadPreset: process.env.REACT_APP_PRESET_NAME,
     };
     let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => {this.checkUploadResult(result)});
     const { dedication, optional_note } = this.state;

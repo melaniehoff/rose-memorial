@@ -20,7 +20,7 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-      fetch(".netlify/functions/main")
+      fetch(".netlify/functions/roseGarden")
     .then( response => response.json())
         .then( (data) => {
           this.setState({
@@ -28,7 +28,7 @@ class App extends React.Component {
               meow : data,
               records: data.records
           });
-        console.log('airtable', data.records)
+        console.log('airtable', data)
       })
     .catch(err => {
     this.setState({
