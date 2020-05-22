@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import {RoseWall} from '../';
 
 
-
+// TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ class Home extends Component {
    	console.log(records)
    	return <div>{records}</div>
 
-   		
+
    }
 
    render() {
@@ -33,7 +34,12 @@ class Home extends Component {
 
 
     return (
-      <div>{this.renderFlowers()}</div>
+      // <div>{this.renderFlowers()}</div>
+      <div>
+      <RoseWall/>
+      </div>
+
+
     );
   }
 }
