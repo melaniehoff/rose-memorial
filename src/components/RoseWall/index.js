@@ -2,39 +2,36 @@ import React, { Component } from 'react';
 
 
 class RoseWall extends Component {
-constructor(props) {
-  super(props);
-  this.state = {
-    roses: [],
-  };
-  this.renderFlowers = this.renderFlowers.bind(this);
- }
+  constructor(props) {
+    super(props);
+    this.state = {
+      rosesHere: false
+    };
+    this.clickHandler =this.clickHandler.bind(this)
+   }
 
-renderFlowers(){
-	const records = [];
-	console.log(this.props)
-	for (var i = this.props.records.length - 1; i >= 0; i--) {
-		records.push(
-		<div key={this.props.records[i].id} className="station">
-        <img src={this.props.records[i].fields.RoseSVG[0].url}/>
-
-     </div>
-     )
-	}
-	console.log(records)
-	return <div>{records}</div>
+  clickHandler() {
+    this.setState({rosesHere: true})
+  }
 
 
-}
-
-render() {
-	const { roses } = this.state;
-
-
- return (
-   <div>{this.renderFlowers()}</div>
- );
-}
-
+  render() {
+    console.log(this.props)
+    const {records} = this.props
+    const roses = records.map((x)=>{
+      return(
+        <div key={x.id} className="station">
+          <img src={x.fields.RoseSVG[0].url}/>
+          <p>{x.fields.Dedication}</p>
+         </div>
+       )
+      })
+    return(
+      <div>
+      {this.state.rosesHere ? roses : <p>Welcome</p>}
+      <button onClick={this.clickHandler} />
+      </div>
+      );
+  }
 }
 export default RoseWall

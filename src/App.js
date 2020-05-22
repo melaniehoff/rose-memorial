@@ -28,7 +28,7 @@ class App extends React.Component {
               meow : data,
               records: data.records
           });
-        console.log('airtable', data)
+        // console.log('airtable', data)
       })
     .catch(err => {
     this.setState({

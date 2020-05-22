@@ -30,13 +30,13 @@ class Home extends Component {
    }
 
    render() {
-   	const { roses } = this.state;
-
+   	// const { roses } = this.state;
+    // console.log(this.props)
 
     return (
       // <div>{this.renderFlowers()}</div>
       <div>
-      <RoseWall/>
+      <RoseWall {...this.props}/>
       </div>
 
 
