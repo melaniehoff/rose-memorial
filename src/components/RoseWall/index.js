@@ -13,6 +13,7 @@ class RoseWall extends Component {
 
   clickHandler() {
     this.setState({rosesHere: true})
+    document.getElementById("modal-button").style.visibility = "hidden";
   }
 
 
@@ -23,7 +24,9 @@ class RoseWall extends Component {
       return(
 
         <div key={x.id} className="station">
+        <div className="trim">
           <img src={x.fields.RoseSVG[0].url}/>
+          </div>
           <p>{x.fields.Dedication}</p>
          </div>
        )
@@ -32,8 +35,11 @@ class RoseWall extends Component {
       <div>
       <div className="rose-container">
         <div className="rose-content">
-      {this.state.rosesHere ? roses : <p>Welcome</p>}
-      <button onClick={this.clickHandler} />
+      {this.state.rosesHere ? roses : 
+        <p>Welcome</p>
+
+      }
+      <button id="modal-button" onClick={this.clickHandler}/>
       </div>
       </div>
       </div>

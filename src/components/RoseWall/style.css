@@ -1,11 +1,17 @@
 .station {
 overflow:auto;
 width: 200px;
-  border: 1px solid white;
+border: #fff groove 2px;
+background-color: #E7EEF5;
 }
 
 .station img{
- width: 200px;
+width: 200px;
+}
+
+.trim { 
+	margin-top: -40px;
+	overflow: hidden; 
 }
 
 
@@ -13,10 +19,8 @@ width: 200px;
   display: inline-grid;
   grid-template-rows: repeat(4, 150px, 200px);
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
   padding: 10px;
-  margin: auto;
-
+  margin: 0;
 }
 
 .rose-content p {
