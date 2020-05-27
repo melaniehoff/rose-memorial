@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css';
 
 
 class RoseWall extends Component {
@@ -20,6 +21,7 @@ class RoseWall extends Component {
     const {records} = this.props
     const roses = records.map((x)=>{
       return(
+
         <div key={x.id} className="station">
           <img src={x.fields.RoseSVG[0].url}/>
           <p>{x.fields.Dedication}</p>
@@ -28,8 +30,12 @@ class RoseWall extends Component {
       })
     return(
       <div>
+      <div className="rose-container">
+        <div className="rose-content">
       {this.state.rosesHere ? roses : <p>Welcome</p>}
       <button onClick={this.clickHandler} />
+      </div>
+      </div>
       </div>
       );
   }

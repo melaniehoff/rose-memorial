@@ -1,0 +1,31 @@
+.station {
+overflow:auto;
+width: 200px;
+  border: 1px solid white;
+}
+
+.station img{
+ width: 200px;
+}
+
+
+.rose-content {
+  display: inline-grid;
+  grid-template-rows: repeat(4, 150px, 200px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  margin: auto;
+
+}
+
+.rose-content p {
+    margin-block-end: .5em;
+}
+
+
+button {
+  display: block;
+  margin: auto;
+  width: 100px;
+}
