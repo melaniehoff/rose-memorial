@@ -21,7 +21,7 @@ width: 200px;
   grid-template-rows: repeat(4, 150px, 200px);
   grid-template-columns: repeat(4, 1fr);
   padding: 10px;
-  margin: 0;
+  margin-top: 3em;
 }
 
 .rose-content p {
@@ -33,4 +33,5 @@ button {
   display: block;
   margin: auto;
   width: 100px;
+  height: 100px;
 }
