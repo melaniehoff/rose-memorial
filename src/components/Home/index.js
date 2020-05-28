@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import {RoseWall} from '../';
+import './style.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
@@ -37,6 +44,9 @@ class Home extends Component {
       // <div>{this.renderFlowers()}</div>
       <div>
       <RoseWall {...this.props}/>
+         <nav>
+          <Link to="/share">Share your rose</Link>
+          </nav>
       </div>
 
 

@@ -44,14 +44,9 @@ render() {
     return (
       <Router>
         <div className="App">
-          {/* LOGO */}
-          <header className="App-header">
-          </header>
-          {/* CALENDAR SEPARATE PAGE */}
-          <nav>
-          <Link to="/share">Share your rose</Link>
-          </nav>
-          {/* CONTENT */}
+{/* <nav>
+        <Link to="/share">Share your rose</Link>
+          </nav>*/}
 
 
           {/* NAVIGATION */}
