@@ -13,7 +13,7 @@ class RoseWall extends Component {
 
   clickHandler() {
     this.setState({rosesHere: true})
-    document.getElementById("modal-button").style.visibility = "hidden";
+    document.getElementById("modal-button").style.display = "none";
   }
 
 

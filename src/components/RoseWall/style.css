@@ -3,14 +3,15 @@
 overflow:auto;
 width: 200px;
 border: #fff groove 2px;
-background-color: #E7EEF5;
+background-color: #c2cdd7;
 }
 
 .station img{
 width: 200px;
 }
 
-.trim { 
+/*to trim the png height, im thinking the tall one is perhaps too tall?
+*/.trim { 
 	margin-top: -40px;
 	overflow: hidden; 
 }
@@ -18,10 +19,11 @@ width: 200px;
 
 .rose-content {
   display: inline-grid;
-  grid-template-rows: repeat(4, 150px, 200px);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 150px, 200px);
+  grid-template-columns: repeat(3, 1fr);
   padding: 10px;
   margin-top: 3em;
+  padding-bottom: 3em;
 }
 
 .rose-content p {
