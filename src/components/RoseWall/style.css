@@ -1,8 +1,13 @@
 
+
+
+
 .station {
 overflow:auto;
 width: 200px;
 border: #fff groove 2px;
+background-image: url(./sky3.jpg);
+background-size: 200px;
 background-color: #E8EEF4;
 }
 
@@ -22,7 +27,7 @@ width: 200px;
   grid-template-rows: repeat(4, 150px, 200px);
   grid-template-columns: repeat(4, 1fr);
   padding: 10px;
-  margin-top: 3em;
+  margin-top: 1em;
   padding-bottom: 3em;
 }
 
