@@ -3,7 +3,7 @@
 overflow:auto;
 width: 200px;
 border: #fff groove 2px;
-background-color: #c2cdd7;
+background-color: #E8EEF4;
 }
 
 .station img{
@@ -19,8 +19,8 @@ width: 200px;
 
 .rose-content {
   display: inline-grid;
-  grid-template-rows: repeat(2, 150px, 200px);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 150px, 200px);
+  grid-template-columns: repeat(4, 1fr);
   padding: 10px;
   margin-top: 3em;
   padding-bottom: 3em;
