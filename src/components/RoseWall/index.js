@@ -24,10 +24,11 @@ class RoseWall extends Component {
       return(
 
         <div key={x.id} className="station">
+          <p>{x.fields.Dedication}</p>
         <div className="trim">
           <img src={x.fields.RoseSVG[0].url}/>
           </div>
-          <p>{x.fields.Dedication}</p>
+
          </div>
        )
       })
@@ -35,7 +36,7 @@ class RoseWall extends Component {
       <div>
       <div className="rose-container">
         <div className="rose-content">
-      {this.state.rosesHere ? roses : 
+      {this.state.rosesHere ? roses :
         <p>Welcome</p>
 
       }
