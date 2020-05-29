@@ -1,14 +1,12 @@
 
-
-
-
 .station {
 overflow:auto;
 width: 200px;
 border: #fff groove 2px;
-background-image: url(./sky3.jpg);
+/*background-image: url(./sky3.jpg);*/
 background-size: 200px;
-background-color: #E8EEF4;
+/*background-color: #E8EEF4;*/
+background-color: rgba(232, 238, 244, 0.5);
 }
 
 .station img{
@@ -29,6 +27,7 @@ width: 200px;
   padding: 10px;
   margin-top: 1em;
   padding-bottom: 3em;
+/*  background-image: url(./sky3.jpg);*/
 }
 
 .rose-content p {
