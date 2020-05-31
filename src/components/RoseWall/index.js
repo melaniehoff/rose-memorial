@@ -24,10 +24,11 @@ class RoseWall extends Component {
       return(
 
         <div key={x.id} className="station">
-          <p>{x.fields.Dedication}</p>
+
         <div className="trim">
           <img src={x.fields.RoseSVG[0].url}/>
           </div>
+          <p>{x.fields.Dedication}</p>
 
          </div>
        )

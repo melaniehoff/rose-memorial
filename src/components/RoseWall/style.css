@@ -19,14 +19,16 @@
 
 body {
 		/* background-color: rgba(255,255,255,.2); */
-		background-image: url(./sky3.jpg);
-		background-size: auto;
+		/* background-image: url(./sky3.jpg); */
+		background-image: url('./grass2.jpg');
+		background-size: 300px;
+		background-repeat: repeat;
 		background-position: center left;
 }
 
 .station {
 	overflow:auto;
-	border: rgba(255, 255, 255, 0.5) groove 2px;
+	/* border: rgba(255, 255, 255, 0.5) groove 2px; */
 	/* background-image: url(./sky3.jpg); */
 	background-size: 11vw;
 	width: 12vw;
@@ -34,25 +36,37 @@ body {
 	/* background-color: #C1C8D7; */
 	overflow: hidden;
 	position: relative;
-	margin: 0px;
+	margin: .2vw;
 	-webkit-transition: all .3s ease-in-out;
    -moz-transition: all .3s ease-in-out;
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
 	 cursor: pointer;
+	 /* border-radius: 100%; */
 }
+
+.station:nth-child(2n) {
+	margin-top: 6vw;
+	margin-bottom: -6vw;
+}
+
+
+
+
 
 .station img{
 	width: 12vw;
 	margin-bottom: -5px;
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+	filter:         drop-shadow(5px 5px 5px #222);
 }
 
 /*to trim the png height, im thinking the tall one is perhaps too tall?*/
 .trim {
-	/* margin-top: -40px; */
+	margin-top: -40px;
 	overflow: hidden;
-	position: absolute;
-	bottom: 0px;
+	/* position: absolute;
+	bottom: 0px; */
 }
 
 .station:hover img {
@@ -74,19 +88,19 @@ body {
 .rose-content p {
 	margin-block-end: .5em;
 	margin-block-start: .5em;
-	font-size: .9vw;
-	text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
-	font-family: 'Canela Web';
-	color: #353a37;
-	font-style: italic;
+	font-size: .8vw;
+	text-shadow: 1px 1px 5px rgba(0,0,0, 0.9);
+	/* font-family: 'Canela Web'; */
+	color: #fff;
+}
+
+
+.station:hover {
+	background-color: #032102;
 }
 
 .station:hover p {
-	color: #171c19;
-}
-
-.station:hover {
-	background-color: #e1e6ef;
+	color: #FFB5A8;
 }
 
 
