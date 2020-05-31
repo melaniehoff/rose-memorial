@@ -35,7 +35,7 @@ class RoseWall extends Component {
       <div>
       <div className="rose-container">
         <div className="rose-content">
-      {this.state.rosesHere ? roses : 
+      {this.state.rosesHere ? roses :
         <p>Welcome</p>
 
       }
