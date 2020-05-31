@@ -1,5 +1,5 @@
 function tallFlower(p){	
-	var num = 60;
+	var num = 30;
 	var num2 = 30;
 	var currentTimeStamp = Date.now().toString().split('');
 	var timeArray = [];
