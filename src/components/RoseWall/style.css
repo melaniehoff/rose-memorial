@@ -1,22 +1,45 @@
 
 
 
+		 @font-face {
+		    font-family: 'Canela Web';
+		    src: url('../../fonts/CanelaWeb-Thin.woff') format('woff');
+		    font-weight: 100;
+		    font-style: normal;
+		}
+
+		@font-face {
+		    font-family: 'Canela Web';
+		    src: url('../../fonts/CanelaWeb-Regular.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+
+
+body {
+		/* background-color: rgba(255,255,255,.2); */
+		background-image: url(./sky3.jpg);
+		background-size: auto;
+		background-position: center left;
+}
 
 .station {
 	overflow:auto;
-	border: #fff groove 2px;
+	border: rgba(255, 255, 255, 0.5) groove 2px;
 	/* background-image: url(./sky3.jpg); */
 	background-size: 11vw;
 	width: 12vw;
 	height: 12vw;
-	background-color: #E8EEF4;
+	/* background-color: #C1C8D7; */
 	overflow: hidden;
 	position: relative;
 	margin: 0px;
-	-webkit-transition: all 1s ease-in-out;
-   -moz-transition: all 1s ease-in-out;
-   -o-transition: all 1s ease-in-out;
-   transition: all 1s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+   -moz-transition: all .3s ease-in-out;
+   -o-transition: all .3s ease-in-out;
+   transition: all .3s ease-in-out;
+	 cursor: pointer;
 }
 
 .station img{
@@ -52,7 +75,18 @@
 	margin-block-end: .5em;
 	margin-block-start: .5em;
 	font-size: .9vw;
-	text-shadow: 1px 2px #fff;
+	text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+	font-family: 'Canela Web';
+	color: #353a37;
+	font-style: italic;
+}
+
+.station:hover p {
+	color: #171c19;
+}
+
+.station:hover {
+	background-color: #e1e6ef;
 }
 
 
