@@ -90,13 +90,37 @@ body {
   padding-bottom: 3em;
 }
 
+.info {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	background-image: url(./sky3.jpg);
+	background-position: left bottom;
+	display: table;
+}
+
+.info-text {
+	display: table-cell;
+  vertical-align: middle;
+}
+.info-text p {
+	font-size: 1.2vw !important;
+	width: 50vw !important;
+	margin-left: 25vw;
+	color: #2A3617 !important;
+	text-shadow: none !important;
+}
+
 .rose-content p {
 	margin-block-end: .5em;
 	margin-block-start: .5em;
 	font-size: .8vw;
 	text-shadow: 1px 1px 5px rgba(0,0,0, 0.9);
 	/* font-family: 'Canela Web'; */
-	color: rgba(255,255,255,.6);
+	color: rgba(255,255,255,.7);
+	line-height: 1.4;
 }
 
 .rose-content p span {
