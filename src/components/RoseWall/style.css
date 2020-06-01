@@ -75,8 +75,9 @@ body {
 }
 
 .station:hover img {
-	transform-origin: 0 0;
-	scale: 2;
+	/* width: 15vw;
+	margin-left: -.5vw;
+	margin-top: -.5vw; */
 }
 
 
@@ -98,9 +99,13 @@ body {
 	color: rgba(255,255,255,.6);
 }
 
+.rose-content p span {
+	margin-bottom: 20px;
+	display: block;
+}
 
 .station:hover {
-	background: radial-gradient(#141d06, transparent);
+	/* background: radial-gradient(#141d06, transparent); */
 }
 
 .station:hover p {
