@@ -1,5 +1,10 @@
 
-
+* {
+	-webkit-transition: all .3s ease-in-out;
+   -moz-transition: all .3s ease-in-out;
+   -o-transition: all .3s ease-in-out;
+   transition: all .3s ease-in-out;
+}
 
 		 @font-face {
 		    font-family: 'Canela Web';
@@ -30,9 +35,9 @@ body {
 	overflow:auto;
 	/* border: rgba(255, 255, 255, 0.5) groove 2px; */
 	/* background-image: url(./sky3.jpg); */
-	background-size: 11vw;
-	width: 12vw;
-	height: 12vw;
+	/* background-size: 11vw; */
+	width: 14vw;
+	height: 14vw;
 	/* background-color: #C1C8D7; */
 	overflow: hidden;
 	position: relative;
@@ -55,15 +60,15 @@ body {
 
 
 .station img{
-	width: 12vw;
-	margin-bottom: -5px;
+	width: 14vw;
+	margin-bottom: 0px;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
 	filter:         drop-shadow(5px 5px 5px #222);
 }
 
 /*to trim the png height, im thinking the tall one is perhaps too tall?*/
 .trim {
-	margin-top: -40px;
+	margin-top: -3vw;
 	overflow: hidden;
 	/* position: absolute;
 	bottom: 0px; */
@@ -71,7 +76,6 @@ body {
 
 .station:hover img {
 	transform-origin: 0 0;
-	margin-bottom: -5px;
 	scale: 2;
 }
 
@@ -91,12 +95,12 @@ body {
 	font-size: .8vw;
 	text-shadow: 1px 1px 5px rgba(0,0,0, 0.9);
 	/* font-family: 'Canela Web'; */
-	color: #fff;
+	color: rgba(255,255,255,.6);
 }
 
 
 .station:hover {
-	background-color: #032102;
+	background: radial-gradient(#141d06, transparent);
 }
 
 .station:hover p {
