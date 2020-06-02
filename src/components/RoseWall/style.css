@@ -1,23 +1,5 @@
 
-<<<<<<< HEAD
-.station {
-	overflow:auto;
-	width: 200px;
-	border: #fff groove 2px;
-	/*background-image: url(./sky3.jpg);*/
-	background-size: 11vw;
-	width: 12vw;
-	height: 12vw;
-	position: relative;
-	/*background-color: #E8EEF4;*/
-	margin: 0px;
-	background-color: rgba(232, 238, 244, 0.5);
-	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
-	cursor: pointer;
-=======
+
 * {
 	-webkit-transition: all .3s ease-in-out;
    -moz-transition: all .3s ease-in-out;
@@ -25,32 +7,31 @@
    transition: all .3s ease-in-out;
 }
 
-		 @font-face {
-		    font-family: 'Canela Web';
-		    src: url('../../fonts/CanelaWeb-Thin.woff') format('woff');
-		    font-weight: 100;
-		    font-style: normal;
-		}
+@font-face {
+  font-family: 'Canela Web';
+  src: url('../../fonts/CanelaWeb-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
 
-		@font-face {
-		    font-family: 'Canela Web';
-		    src: url('../../fonts/CanelaWeb-Regular.woff') format('woff');
-		    font-weight: normal;
-		    font-style: normal;
-		}
+@font-face {
+  font-family: 'Canela Web';
+  src: url('../../fonts/CanelaWeb-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 
 body {
-		/* background-color: rgba(255,255,255,.2); */
-		/* background-image: url(./sky3.jpg); */
-
-		/* background-color: #000; */
-		background-image: url('./grass2.jpg');
-		/* background-image: url('./soil.jpg'); */
-		background-size: 300px;
-		background-repeat: repeat;
-		background-position: center left;
+	/* background-color: rgba(255,255,255,.2); */
+	/* background-image: url(./sky3.jpg); */
+	/* background-color: #000; */
+	background-image: url('./grass2.jpg');
+	/* background-image: url('./soil.jpg'); */
+	background-size: 300px;
+	background-repeat: repeat;
+	background-position: center left;
 }
 
 .station {
@@ -69,8 +50,6 @@ body {
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
 	 cursor: pointer;
-	 /* border-radius: 100%; */
->>>>>>> wall-style
 }
 
 .station:nth-child(2n) {
@@ -78,48 +57,29 @@ body {
 	margin-bottom: -6vw;
 }
 
-
-
-
-
 .station img{
-<<<<<<< HEAD
 	width: 12vw;
 	margin-bottom: -5px;
 }
 
 /*to trim the png height, im thinking the tall one is perhaps too tall?
-*/.trim {
+*/
+.trim {
 	/* margin-top: -40px; */
 	overflow: hidden;
-	position: absolute;
-	bottom: 0px;
-=======
 	width: 14vw;
 	margin-bottom: 0px;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
 	filter:         drop-shadow(5px 5px 5px #222);
 }
 
-/*to trim the png height, im thinking the tall one is perhaps too tall?*/
-.trim {
-	margin-top: -3vw;
-	overflow: hidden;
-	/* position: absolute;
-	bottom: 0px; */
-}
 
 /* .station:hover {
 	background-image: url('./soil.jpg');
 	background-size: 200px;
 } */
 
-.station:hover img {
-	/* width: 15vw;
-	margin-left: -.5vw;
-	margin-top: -.5vw; */
->>>>>>> wall-style
-}
+
 
 
 .rose-content {
@@ -147,6 +107,7 @@ body {
 	display: table-cell;
   vertical-align: middle;
 }
+
 .info-text p {
 	font-size: 1.2vw !important;
 	width: 50vw !important;
@@ -158,12 +119,10 @@ body {
 .rose-content p {
 	margin-block-end: .5em;
 	margin-block-start: .5em;
-<<<<<<< HEAD
 	font-size: .9vw;
 	text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
 	color: #353a37;
 	/* font-style: italic; */
-=======
 	font-size: .8vw;
 	text-shadow: 1px 1px 5px rgba(0,0,0, 0.9);
 	/* font-family: 'Canela Web'; */
@@ -182,12 +141,8 @@ body {
 
 .station:hover p {
 	color: #FFB5A8;
->>>>>>> wall-style
 }
 
-.station:hover p {
-	color: #171c19;
-}
 
 button {
   display: block;
