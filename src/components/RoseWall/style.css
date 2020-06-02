@@ -25,7 +25,10 @@
 body {
 		/* background-color: rgba(255,255,255,.2); */
 		/* background-image: url(./sky3.jpg); */
+
+		/* background-color: #000; */
 		background-image: url('./grass2.jpg');
+		/* background-image: url('./soil.jpg'); */
 		background-size: 300px;
 		background-repeat: repeat;
 		background-position: center left;
@@ -74,6 +77,11 @@ body {
 	bottom: 0px; */
 }
 
+/* .station:hover {
+	background-image: url('./soil.jpg');
+	background-size: 200px;
+} */
+
 .station:hover img {
 	/* width: 15vw;
 	margin-left: -.5vw;
@@ -96,8 +104,8 @@ body {
 	left: 0px;
 	width: 100vw;
 	height: 100vh;
-	background-image: url(./sky3.jpg);
-	background-position: left bottom;
+	background-image: url(./sky3.jpg), url('./grass2.jpg');
+	background-position: left top;
 	display: table;
 }
 
