@@ -74,6 +74,8 @@ class RoseWall extends Component {
 
 
         <div className="info">
+          <div className="bottom-grass">
+          </div>
           <div className="info-text">
             <p className="medium-text">
               <span>

@@ -3,6 +3,7 @@ import Airtable from "airtable";
 import request from "superagent";
 import P5Wrapper from "react-p5-wrapper";
 import sketch from "../../utils/p5/sketch";
+import './style.css';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base("appZuPErukOoOExF9");
 
