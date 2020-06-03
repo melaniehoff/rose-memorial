@@ -92,14 +92,27 @@ body {
 /*  background-image: url(./sky3.jpg);*/
 }
 
+
+.bottom-grass {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 15vh;
+	background-image: url('./grass2.jpg');
+	background-size: 300px;
+	background-repeat: repeat;
+	background-position: center left;
+}
+
 .info {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 100vw;
 	height: 100vh;
-	background-image: url(./sky3.jpg), url('./grass2.jpg');
-	background-position: left top;
+	background-image: url(./sky4.jpg), url('./grass2.jpg');
+	background-position: left bottom;
 	display: table;
 }
 
@@ -109,7 +122,7 @@ body {
 }
 
 .info-text p {
-	font-size: 1.2vw !important;
+	font-size: 1.1vw !important;
 	width: 50vw !important;
 	margin-left: 25vw;
 	color: #2A3617 !important;
