@@ -167,7 +167,9 @@ class Share extends Component {
             Submit Dedication
           </button>
         </div>
-
+        <nav>
+         <a href="/">Back to Garden</a>
+         </nav>
         {this.state.formHere ? '' :
 
 
@@ -182,6 +184,13 @@ class Share extends Component {
             <button className="medium-text" id="modal-button" onClick={this.clickHandler}> Submit a Dedication</button>
             </p>
         </div>
+
+
+
+
+        {/* <div id='about-garden' className="medium-text">
+           <a href="/">About this Garden</a>
+          </div> */}
       </div>
 
       }
