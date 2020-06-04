@@ -132,17 +132,17 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 }
 
 .rose-content .info-text p {
-	background: rgba(0,0,0,0.3);
+	/* background: rgba(0,0,0,0.3); */
     width: 56vw;
     color: #ffedcd;
     text-shadow: none;
     padding: 25px;
     margin-left: 21vw;
+		text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
 }
 .rose-content p {
 	margin-block-end: .5em;
 	margin-block-start: .5em;
-	text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
 	color: #353a37;
 	text-shadow: 1px 1px 5px rgba(0,0,0, 0.9);
 	color: rgba(255,255,255,.7);
