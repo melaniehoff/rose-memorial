@@ -15,14 +15,20 @@ class Share extends Component {
       optional_note: "",
       optional_photo: "",
       rose_id: "",
+      formHere: false,
     };
     this.handleDedication = this.handleDedication.bind(this);
     this.handleNote = this.handleNote.bind(this);
     this.checkUploadResult = this.checkUploadResult.bind(this);
     this.showWidget = this.showWidget.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clickHandler =this.clickHandler.bind(this)
   }
-
+  clickHandler() {
+      document.getElementById('submission').classList.add('show');
+      this.setState({formHere: true})
+      document.getElementById("modal-button").style.display = "none";    
+  }
   handleDedication(event) {
     this.setState({ dedication: event.target.value });
   }
@@ -37,6 +43,9 @@ class Share extends Component {
         optional_photo: resultEvent.info.secure_url,
       });
       this.setState(nextState);
+      document.getElementById("photo-image-preview").src = resultEvent.info.secure_url;
+      document.getElementById("photo-image-preview").classList = "show";
+      document.getElementById("inner-photo").textContent = "upload a different photo";
       document.getElementById("photo-button").classList = "submitted";
     }
   }
@@ -44,7 +53,12 @@ class Share extends Component {
   showWidget = (myWidget) => {
     myWidget.open();
   }
-
+  showSubmit(){
+    document.getElementById('submit-button').classList.add('on');
+    document.getElementById('canvas-holder').classList.add('on');
+    document.getElementById('submission').classList.add('on');
+    document.getElementById('review-button').classList.add('on');
+  }
   handleSubmit(event) {
     //save roses in cloudinary
     const dataURI = document.getElementsByTagName("canvas")[0].getAttribute("data-uri");
@@ -118,36 +132,70 @@ class Share extends Component {
     return (
       <React.Fragment>
         <div id="flower"></div>
-        <P5Wrapper sketch={sketch} />
+        <div id="canvas-holder">
+          <P5Wrapper sketch={sketch} />
+        </div>
         <div id="submission">
           <label>
-            Name:
+            <span className='medium-text'>Dedicated in Memory of:</span><br/>
             <input
+              className="medium-text"
               type="text"
               value={dedication}
               onChange={this.handleDedication}
             />
           </label>
           <label>
-            Optional Note:
-            <textarea value={optional_note} onChange={this.handleNote} />
+            <span className='medium-text'>Leave a Note:</span>
+            <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
           </label>
           <label>
-            Optional Photo:
             <div>
+              <img id='photo-image-preview' src=''/>
               <button
                 id="photo-button"
                 onClick={() => this.showWidget(myWidget)}
               >
-                Upload Photo
+                <span id='inner-photo'>upload a photo (optional)</span>
               </button>
-              <div>upload a different photo</div>
             </div>
           </label>
+          <button id="review-button" onClick={this.showSubmit}>
+            Review Dedication
+          </button>
           <button id="submit-button" onClick={this.handleSubmit}>
-            Submit Memory
+            Submit Dedication
           </button>
         </div>
+
+        {this.state.formHere ? '' :
+
+
+        <div className="info">
+      
+          <div className="info-text">
+            <p className="medium-text">
+              <span>
+              Welcome to the CLOUD9 Memorial Garden, a space for collective remembrance with care, gentleness and respect.
+              This time is especially challenging because we are limited in how we can gather to mourn and remember.
+              We recognize creating intentional space to grieve and celebrate collective memory as vital   during this period of mass loss and isolation.
+
+              </span>
+              <span>
+              This is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love on Ur Desktop)</a>, as our community continues to plant new seeds and mourn all
+              of Ours that we have lost in this time, due to state violence, due to Covid and due to the continued systems centered on harming Black people,
+              Indigenous people, brown people, low income people, trans people, undocumented people, and marginalized people.
+              </span>
+              <span>
+              We invite you to plant seeds of liberation to transform our collective grief.
+              </span>
+
+            <button className="medium-text" id="modal-button" onClick={this.clickHandler}> Submit a Dedication</button>
+            </p>
+        </div>
+      </div>
+
+      }
       </React.Fragment>
     );
   }

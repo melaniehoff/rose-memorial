@@ -38,8 +38,8 @@ body {
 	overflow:visible;
 }
 .rose-container{
-   overflow-x: hidden;
-   width:100%;
+/*   overflow-x: hidden;
+   width:100%;*/
 
 }
 .rose-container.on .station{
@@ -114,7 +114,7 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 }
 
 .info {
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	left: 0px;
 	z-index: 4;

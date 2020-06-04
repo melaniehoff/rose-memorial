@@ -1,0 +1,209 @@
+#canvas-holder{
+	opacity: 0;
+}
+#canvas-holder,canvas{
+	transition:0;
+}
+canvas-holder> div{
+	transition:0;
+}
+#canvas-holder.on{
+	opacity: 1;
+}
+#submit-button, #review-button.on{
+	display:none;
+}
+
+#submit-button.on{
+	display:block;
+}
+#photo-image-preview{
+	display:none;
+}
+#photo-image-preview.show{
+	display:block;
+	width: 200px;
+	margin:0 auto;
+}
+/*#submission.on{
+    float: left;
+    width: 50vw;
+    text-align: left;
+}
+#submission.on textarea{
+	width: 90%;
+	border:none;
+}
+#submission.on input[type='text']{
+	width:90%;
+	border:none;
+}
+#submission.on #photo-image-preview.show{
+	width: 400px;
+	margin-left:0;
+	display:inline-block;
+	vertical-align: top;
+}*/
+#flower + div#canvas-holder.on{
+	display:block;
+	position:relative;
+	left:0;
+	border-radius:0;
+	padding:0;
+	background:none;
+	margin:0 auto;
+}
+#flower + div#canvas-holder.on{
+	margin-top:-75px;
+}
+/*#submission.on #photo-button{
+  display:inline-block;
+  margin-left:10px;
+  vertical-align: top;
+}
+#submission.on #submit-button{
+
+}*/
+/* TEMP SUBMISSION FORM STYLES*/
+#submission.on textarea, #submission.on input[type='text']{
+	border:0.5px solid #ffedcd66;
+}
+.info-text{
+background: rgba(0,0,0,0.3);
+}
+.info {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 4;
+	width: 100vw;
+	height: 100vh;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size:cover;
+	display: table;
+}
+
+.info-text {
+	display: table-cell;
+  	vertical-align: middle;
+}
+#submission.show{
+	filter:none;
+}
+.info-text p span {
+	margin-bottom: 20px;
+	display: block;
+}
+.info-text p {
+	
+    width: 56vw;
+    color: #ffedcd;
+    text-shadow: none;
+    padding: 25px;
+    margin-left: 21vw;
+}
+textarea, input[type='text']{
+	color:#ffedcd;
+	margin-top:10px;
+	background: rgba(0,0,0,0);
+	border:1px solid #ffedcd;
+}
+textarea:focus, input[type='text']:focus{
+	border:1px solid #ffedcd;
+	outline:none;
+}
+#flower + div {
+  position: absolute;
+  left:60%;
+  padding:25px;
+  border-radius: 0;
+}
+#submission.on{
+	padding-top:0;
+	margin-top:0;
+}
+textarea{
+	margin:10px auto;
+}
+#photo-button{
+	background:rgba(0,0,0,0);
+}
+#photo-button span{
+	border-bottom: 1px dotted #ffedcd;
+}
+#submission{
+	filter:blur(10px);
+  text-align: center;
+  margin: 0 auto;
+  color:#ffedcd;
+  padding: 25px 50px 50px;
+  max-width: 1080px;
+}
+label{
+  width: 100%;
+  margin: 2rem 0;
+  display: block;
+}
+label a{
+  background: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: inline-block;
+  color:black;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+input[type='submit']{
+  background: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: inline-block;
+  color:black;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+label a:hover{
+  opacity: 0.9;
+}
+input[type='file']{
+  display: block;
+}
+textarea{
+  width: 40%;
+  height: 200px;
+  display: block;
+}
+#submission.submitted label, #submission.submitted button{
+  display: none;
+}
+#save-rose.submitted{
+ display: none;
+}
+#rose-saved.submitted{
+ display: block;
+}
+#modal-button{
+	background: rgba(0,0,0,0.3);
+	margin-top:50px;
+}
+#rose-saved{
+ display: none;
+}
+#photo-button.submitted + div{
+  display: block;
+}
+#photo-button + div{
+  display: none;
+}
+#photo-button.submitted{
+/*  display: none;*/
+}
+#submission.submitted input[type='submit']{
+  display: none;
+}
+#submission.submitted:after{
+  content:"thank you";
+}
+
+/* END SUBMISSION FORM */

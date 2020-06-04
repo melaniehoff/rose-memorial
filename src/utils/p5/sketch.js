@@ -42,18 +42,18 @@ function sketch (p) {
     canvas.setAttribute("data-uri", dataURL.toString());
   }
 
-  p.mouseReleased = function(){
-    if(p.mouseX > 0 && p.mouseX< p.width && p.mouseY > 0 && p.mouseY < p.height){
-      p.erase();
-      p.push()
-      p.rotate(0)
-      p.translate(0,0)
-      p.rect(0,0, p.width, p.height);
-      p.pop()
-      p.noErase();
-      p.redraw();
-    }
-  }
+  // p.mouseReleased = function(){
+  //   if(p.mouseX > 0 && p.mouseX< p.width && p.mouseY > 0 && p.mouseY < p.height){
+  //     p.erase();
+  //     p.push()
+  //     p.rotate(0)
+  //     p.translate(0,0)
+  //     p.rect(0,0, p.width, p.height);
+  //     p.pop()
+  //     p.noErase();
+  //     p.redraw();
+  //   }
+  // }
 
 };
 
