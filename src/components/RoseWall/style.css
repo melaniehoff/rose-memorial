@@ -238,4 +238,8 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 		transform:translateY(50px);
 	}
 
+	#about-garden {
+		display: none;
+	}
+
 }
