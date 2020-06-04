@@ -17,9 +17,9 @@ class RoseWall extends Component {
     var elmnt = document.getElementById("rose-content");
     // window.scroll(400, 400)
       document.getElementById("rose-container").classList.add('on');
-      zoomInstance = window.panzoom(document.getElementById("rose-content"),{  
-          smoothScroll: false, 
-          zoomSpeed: 0.65,   
+      zoomInstance = window.panzoom(document.getElementById("rose-content"),{
+          smoothScroll: false,
+          zoomSpeed: 0.65,
           maxZoom: 1,
           minZoom: 0.4,
           beforeWheel: function(e) {
@@ -35,7 +35,7 @@ class RoseWall extends Component {
       })
       this.setState({rosesHere: true})
       document.getElementById("modal-button").style.display = "none";
-      
+
   }
   zoomToRose(el){
     console.log(el)
@@ -74,7 +74,7 @@ class RoseWall extends Component {
 
 
         <div className="info">
-      
+
           <div className="info-text">
             <p className="medium-text">
               <span>
@@ -102,7 +102,9 @@ class RoseWall extends Component {
 
       </div>
       </div>
-      <div id='welcome-garden' className="medium-text"><span>Welcome to the garden.</span><div className='inner'><span>Desktop: Use + - keys to zoom & arrow keys to Pan</span> <br/><span>Mobile: Pinch to Zoom</span></div></div>
+      <div id='welcome-garden' className="medium-text">
+        {/* <span>Welcome to the garden.</span> */}
+      <div className='inner'><span>Desktop: Use + - keys to zoom & arrow keys to Pan</span> <br/><span>Mobile: Pinch to Zoom</span></div></div>
 
       </div>
       );
