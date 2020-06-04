@@ -1,5 +1,6 @@
 
 
+
 * {
 	-webkit-transition: all .3s ease-in-out;
    -moz-transition: all .3s ease-in-out;
@@ -7,89 +8,96 @@
    transition: all .3s ease-in-out;
 }
 
-@font-face {
-  font-family: 'Canela Web';
-  src: url('../../fonts/CanelaWeb-Thin.woff') format('woff');
-  font-weight: 100;
-  font-style: normal;
+
+
+#welcome-garden{
+	position:fixed;
+	text-align: right;
+	top:0;
+	right:0;
+	padding:25px;
+	z-index: 2;
+	color: #ffedcd;
+	text-decoration: none;
 }
-
-@font-face {
-  font-family: 'Canela Web';
-  src: url('../../fonts/CanelaWeb-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+#welcome-garden .inner{
+  font-size:0.6em;
+  margin-top:5px;
 }
-
-
-
+#welcome-garden span{
+	background:rgba(0,0,0,0.3);
+}
 body {
-	/* background-color: rgba(255,255,255,.2); */
-	/* background-image: url(./sky3.jpg); */
-	/* background-color: #000; */
 	background-image: url('./grass2.jpg');
-	/* background-image: url('./soil.jpg'); */
 	background-size: 300px;
 	background-repeat: repeat;
 	background-position: center left;
 }
+.rose-container.on{
+	width:auto;
+	overflow:visible;
+}
+.rose-container{
+   overflow-x: hidden;
+   width:100%;
 
+}
+.rose-container.on .station{
+	filter:none;
+}
+.rose-container .station{
+   filter:blur(10px);
+}
 .station {
-	overflow:auto;
-	/* border: rgba(255, 255, 255, 0.5) groove 2px; */
-	/* background-image: url(./sky3.jpg); */
-	/* background-size: 11vw; */
-	width: 14vw;
-	height: 14vw;
-	/* background-color: #C1C8D7; */
-	overflow: hidden;
+	overflow:visible;
+	width: 30vw;
+	height: 30vw;
+	display:inline-block;
 	position: relative;
 	margin: .2vw;
 	-webkit-transition: all .3s ease-in-out;
    -moz-transition: all .3s ease-in-out;
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
-	 cursor: pointer;
+   cursor: pointer;
 }
-
+div#rose-content:focus, body, .App, #root, .rose-container, nav{
+    outline: none;
+}
 .station:nth-child(2n) {
-	margin-top: 6vw;
-	margin-bottom: -6vw;
+	transform:translateY(200px);
 }
-
+.station:nth-child(6)::before {
+  content: "\A";
+}
 .station img{
-	width: 12vw;
+	width: 28vw;
 	margin-bottom: -5px;
 }
 
-/*to trim the png height, im thinking the tall one is perhaps too tall?
-*/
 .trim {
-	/* margin-top: -40px; */
-	overflow: hidden;
-	width: 14vw;
+	width: 30vw;
 	margin-bottom: 0px;
 	-webkit-filter: drop-shadow(5px 5px 5px #222);
 	filter:         drop-shadow(5px 5px 5px #222);
 }
+.station:hover img{
+ transform:scale(1.2);
 
-
-/* .station:hover {
-	background-image: url('./soil.jpg');
-	background-size: 200px;
-} */
-
-
+}
+.station:hover p{
+  transform:translateY(25px);
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter:         drop-shadow(5px 5px 5px #222);
+}
 
 
 .rose-content {
-  display: inline-grid;
-  grid-template-rows: repeat(4, 150px, 200px);
-  grid-template-columns: repeat(4, 1fr);
+  display: block;
+  width: 200vw;
   padding: 10px;
   margin-top: 1em;
   padding-bottom: 3em;
-/*  background-image: url(./sky3.jpg);*/
 }
 
 
@@ -109,36 +117,34 @@ body {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	z-index: 4;
 	width: 100vw;
 	height: 100vh;
-	background-image: url(./sky4.jpg), url('./grass2.jpg');
-	background-position: left bottom;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size:cover;
 	display: table;
 }
 
-.info-text {
+.rose-content .info-text {
 	display: table-cell;
-  vertical-align: middle;
+  	vertical-align: middle;
 }
 
-.info-text p {
-	font-size: 1.1vw !important;
-	width: 50vw !important;
-	margin-left: 25vw;
-	color: #2A3617 !important;
-	text-shadow: none !important;
-}
+.rose-content .info-text p {
+	background: rgba(0,0,0,0.3);
+    width: 56vw;
+    color: #ffedcd;
+    text-shadow: none;
+    padding: 25px;
+    margin-left: 21vw;
 
 .rose-content p {
 	margin-block-end: .5em;
 	margin-block-start: .5em;
-	font-size: .9vw;
 	text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
 	color: #353a37;
-	/* font-style: italic; */
-	font-size: .8vw;
 	text-shadow: 1px 1px 5px rgba(0,0,0, 0.9);
-	/* font-family: 'Canela Web'; */
 	color: rgba(255,255,255,.7);
 	line-height: 1.4;
 }
@@ -149,7 +155,7 @@ body {
 }
 
 .station:hover {
-	/* background: radial-gradient(#141d06, transparent); */
+
 }
 
 .station:hover p {
@@ -157,9 +163,49 @@ body {
 }
 
 
-button {
-  display: block;
-  margin: auto;
-  width: 100px;
-  height: 100px;
+.station:hover .rose-preview{
+	display: block;
+    color: #ffedcd;
+    width: 100%;
+}
+
+.rose-preview{
+	display:none;
+	position: absolute;
+	text-overflow: ellipsis;
+}
+
+.rose-preview p{
+	display:block;
+	margin:0 auto;
+	width: 250px;
+	font-size:0.8rem;
+	color:#ffedcd;
+	height: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*----------MOBILE STYLES-------------*/
+
+@media(max-width:768px){
+
+	.rose-content .info-text p{
+		width: 80vw;
+		margin-left:5vw;
+	}
+	.rose-content{
+		padding:0;
+	}
+	.rose-preview p{
+		width:100%;
+	}
+	.station{
+		margin: 1.2vw;
+	}
+	.station:nth-child(2n) {
+		transform:translateY(50px);
+	}
+
 }

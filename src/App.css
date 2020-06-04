@@ -5,6 +5,64 @@
    btn--blue //a class that changes buttons to blue
 */
 
+/*----TYPOGRAPHY----*/
+  .small-text{
+    font-family:source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  font-size: 0.8em;
+  }
+  .medium-text{
+    font-family:source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  font-size: 1.2em;
+  }
+  .large-text{
+    font-family:source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  font-size: 2em;
+  }
+/*@font-face {
+  font-family: 'Canela Web';
+  src: url('../../fonts/CanelaWeb-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Canela Web';
+  src: url('../../fonts/CanelaWeb-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}*/
+
+/*----BUTTONS----*/
+button:hover{
+  opacity: 0.8;
+}
+button {
+    display: block;
+    cursor:pointer;
+    margin: auto;
+    background: rgba(0,0,0,0.5);
+    width: 100px;
+    height: 100px;
+    outline: none;
+    color: #ffedcd;
+    box-shadow: none;
+    border: none;
+}
+/*-- NAV --*/
+nav{
+  position:fixed;
+  text-align: left;
+  top:0;
+  left:0;
+  z-index: 9;
+  padding:25px;
+}
+nav a, a:visited{
+  background:rgba(0,0,0,0.3);
+}
 /* TEMP SUBMISSION FORM STYLES*/
 canvas{
   margin-bottom:50px;
@@ -129,4 +187,27 @@ textarea{
   to {
     transform: rotate(360deg);
   }
+}
+
+@media(max-width:768px) {
+  /*----Nav----*/
+  nav{
+    bottom:0;
+    top:auto;
+    width: calc(100% - 50px);
+    text-align: center;
+  }
+     /*----TYPOGRAPHY----*/
+  
+  .small-text{
+  font-size: 0.5em;
+  }
+  .medium-text{
+  font-size: 0.8em;
+  }
+  .large-text{
+  font-size: 1em;
+  }
+  /*----END TYPOGRAPHY----*/
+  
 }
