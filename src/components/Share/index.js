@@ -168,7 +168,7 @@ class Share extends Component {
           </button>
         </div>
         <nav>
-         <a href="/">Back to Garden</a>
+         <a href="/">↩ back to the garden</a>
          </nav>
         {this.state.formHere ? '' :
 
