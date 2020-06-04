@@ -14,10 +14,12 @@ class Share extends Component {
       dedication: "",
       optional_note: "",
       optional_photo: "",
+      optional_link: "",
       rose_id: "",
       formHere: false,
     };
     this.handleDedication = this.handleDedication.bind(this);
+    this.handleLink = this.handleLink.bind(this);
     this.handleNote = this.handleNote.bind(this);
     this.checkUploadResult = this.checkUploadResult.bind(this);
     this.showWidget = this.showWidget.bind(this);
@@ -31,6 +33,9 @@ class Share extends Component {
   }
   handleDedication(event) {
     this.setState({ dedication: event.target.value });
+  }
+  handleLink(event) {
+    this.setState({ optional_link: event.target.value });
   }
 
   handleNote(event) {
@@ -79,6 +84,7 @@ class Share extends Component {
           optional_note,
           optional_photo,
           rose_id,
+          optional_link
         } = this.state;
 
         const submissionCallBack = (err, records) => {
@@ -109,6 +115,7 @@ class Share extends Component {
               Timestamp: Date.now(),
               Dedication: dedication,
               OptionalNote: optional_note,
+              OptionalLink: optional_link,
               OptionalPhoto: [{ url: optional_photo }],
               RoseSVG: [{ url: response.body["url"] }],
               Public: "Yes",
@@ -127,7 +134,7 @@ class Share extends Component {
       uploadPreset: process.env.REACT_APP_PRESET_NAME,
     };
     let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => {this.checkUploadResult(result)});
-    const { dedication, optional_note } = this.state;
+    const { dedication, optional_note, optional_link } = this.state;
 
     return (
       <React.Fragment>
@@ -148,6 +155,15 @@ class Share extends Component {
           <label>
             <span className='medium-text'>Leave a Note:</span>
             <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
+          </label>
+          <label>
+            <span className='medium-text'>Leave a link:</span><br/>
+            <input
+              className="medium-text"
+              type="text"
+              value={optional_link}
+              onChange={this.handleLink}
+            />
           </label>
           <label>
             <div>
