@@ -57,17 +57,17 @@ function realrose(p){
 	p.createThorn = function(x,y){
 	  p.push()
 	  p.noStroke()
-	  p.fill(green[0]-10,green[1]-10,green[2]-10,green[3]);
+	  p.fill(green[0]-20,green[1]-20,green[2]-20,green[3]);
 	  p.triangle(x, y, x-10, y-10, x, y-12)
 	  p.pop()
 	  p.push()
 	  p.noStroke()
-	  p.fill(green[0]-10,green[1]-10,green[2]-10,green[3]);
+	  p.fill(green[0]-20,green[1]-20,green[2]-20,green[3]);
 	  p.triangle(x, y-10, x+8, y-16, x, y-26)
 	  p.pop()
 	  p.push()
 	  p.noStroke()
-	  p.fill(green[0]-10,green[1]-10,green[2]-10,green[3]);
+	  p.fill(green[0]-20,green[1]-20,green[2]-20,green[3]);
 	  p.triangle(x, y-30, x-10, y-40, x, y-44)
 	  p.pop()
 	}
