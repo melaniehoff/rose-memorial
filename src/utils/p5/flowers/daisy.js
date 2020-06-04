@@ -5,6 +5,7 @@ function daisy(p) {
 	var num2 = 50;
 	const currentTimeStamp = Date.now().toString().split('');
   	const timeArray = [];
+  	var green = [p.random(100,145),p.random(140,150),p.random(70,95),255];
 
 	for(var x = 0; x < 6; x++){
 	  var a = parseInt(currentTimeStamp[x]) + parseInt(currentTimeStamp[5-x]);
@@ -38,8 +39,21 @@ function daisy(p) {
 	     p.branch(depth + 1);
 	   
 	   } else{
-	      p.scale(0.8);
-	      p.branchlette(0);
+   			p.scale(0.7);
+     		p.line(0,0,0,-1 * num2);
+        	p.push()
+         	p.push()
+       		p.createFlower(0,-1 * num2);
+       		p.fill(255,190,0)
+       		p.pop()
+       		p.push()
+       		p.fill(90,95,90,255)
+       		p.stroke(0)
+       		p.strokeWeight(1)
+       		p.ellipse(0, -1 * num2 -10, 12, 12);
+      		p.createRings(0,-1 * num2);
+       		p.pop()
+          	p.pop()
 	   }
 
 	}
@@ -149,9 +163,9 @@ function daisy(p) {
 
 	p.drawLeaf = function(l){
 	  
-	  p.stroke(90,95,90,200);
+	  p.stroke(green[0]-10,green[1]-10,green[2]-10,green[3]);
 	  p.strokeWeight(2);
-	  p.fill(100,115,100,230);
+	  p.fill(green[0],green[1],green[2],green[3]);
 	  p.beginShape();
 	  p.vertex(0, 0);
 	  p.vertex(-15, -l/6);
@@ -183,7 +197,7 @@ function daisy(p) {
  	  p.push()
 	  p.translate(p.width/2, p.height);
 	  p.strokeWeight(5);
-	  p.stroke(90,95,90,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
 	  p.branch(0);
 	  p.pop()
 

@@ -1,10 +1,10 @@
 
 function orangeBlossom(p){
-	var num = 20;
+	var num = 10;
 	var num2 = 20;
 	var currentTimeStamp = Date.now().toString().split('');
 	var timeArray = [];
-
+	var green = [p.random(100,145),p.random(140,150),p.random(70,95),255];
 	for(var x = 0; x < 6; x++){
 	  var a = parseInt(currentTimeStamp[x]) + parseInt(currentTimeStamp[5-x]);
 	  timeArray.push(a);
@@ -123,8 +123,8 @@ function orangeBlossom(p){
 
 	p.drawFlorette = function(){
 	  p.push()
-	  p.stroke(145,137,71,255);
-	  p.fill(145,137,71,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
+	  p.fill(green[0],green[1],green[2],green[3]);
 	  p.rotate(-130);
 	  for(var d = 0;d < 5; d ++){
 	    p.line(0,0,0,-10);
@@ -156,9 +156,9 @@ function orangeBlossom(p){
  	  p.push();
 	  p.translate(200, 400);
 	  p.strokeWeight(3);
-	  p.stroke(145,137,71,255);
-	  p.line(0,0,0, -2 * num);
-	  p.translate(0,-2 * num); 
+	  p.stroke(green[0],green[1],green[2],green[3]);
+	  p.line(0,0,0, -5 * num);
+	  p.translate(0,-5 * num); 
 	  p.branch(0);
       p.pop();
 }

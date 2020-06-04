@@ -1,10 +1,10 @@
 
 function jasmine(p){
-	var num = 40;
+	var num = 30;
 	var num2 = 50;
 	var currentTimeStamp = Date.now().toString().split('');
 	var timeArray = [];
-
+	var green = [p.random(100,145),p.random(140,150),p.random(70,95),255];
 	for(var x = 0; x < 6; x++){
 	  var a = parseInt(currentTimeStamp[x]) + parseInt(currentTimeStamp[5-x]);
 	  timeArray.push(a);
@@ -90,7 +90,7 @@ function jasmine(p){
 	       	p.fill(255,190,0)
 	       	p.pop()
 	       	p.push()
-	       	p.fill(90,95,90,255)
+	       	p.fill(green[0],green[1],green[2],green[3]);
 	       	p.noStroke()
 	       	p.ellipse(0, -1 * num2 -10, 5, 5);
 	       	p.pop()
@@ -100,7 +100,7 @@ function jasmine(p){
 	       	p.fill(255,190,0)
 	       	p.pop()
 	       	p.push()
-	       	p.fill(90,95,90,255)
+	       	p.fill(green[0],green[1],green[2],green[3]);
 	       	p.noStroke()
 	       	p.ellipse(0, -1 * num2 -10, 5, 5);
 	       	p.pop()
@@ -124,8 +124,8 @@ function jasmine(p){
 	}
 
 	p.drawFlorette = function(l, depth3){
-	  p.stroke(90,95,90,255);
-	  p.fill(90,95,90,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
+	  p.fill(green[0],green[1],green[2],green[3]);
 	  var b = p.map(parseInt(timeArray[depth3]), 0, 9, 0, 5)
 	   p.rotate(depth3 * b)
 	   if(depth3 < 10){
@@ -157,7 +157,7 @@ function jasmine(p){
 	  p.push();
 	  p.translate(200, 400);
 	  p.strokeWeight(3);
-	  p.stroke(90,95,90,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
 	  p.branch(0);
 	  p.pop();
 }

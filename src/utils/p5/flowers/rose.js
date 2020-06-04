@@ -4,6 +4,7 @@ function rose(p){
 	var num2 = 70;
 	var currentTimeStamp = Date.now().toString().split('');
 	var timeArray = [];
+	var green = [p.random(100,145),p.random(140,150),p.random(70,95),255];
 
 	for(var x = 0; x < 6; x++){
 	  var a = parseInt(currentTimeStamp[x]) + parseInt(currentTimeStamp[5-x]);
@@ -140,8 +141,8 @@ function rose(p){
 
 
 	p.drawLeaf = function(l){
-	  p.stroke(90,95,90,255);
-	  p.fill(90,95,90,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
+	  p.fill(green[0],green[1],green[2],green[3]);
 	  p.beginShape();
 	  p.curveVertex(0, 0);
 	  p.curveVertex(-5, l/40);
@@ -154,7 +155,7 @@ function rose(p){
 	  p.push();
 	  p.translate(200, 400);
 	  p.strokeWeight(5);
-	  p.stroke(90,95,90,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
 	  p.branch(0);
 	  p.pop();
 }

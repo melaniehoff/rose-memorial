@@ -1,8 +1,9 @@
 function tallFlower(p){	
-	var num = 30;
+	var num = 20;
 	var num2 = 30;
 	var currentTimeStamp = Date.now().toString().split('');
 	var timeArray = [];
+	var green = [p.random(100,145),p.random(140,150),p.random(70,95),255];
 
 	for(var x = 0; x < 6; x++){
 	  var a = parseInt(currentTimeStamp[x]) + parseInt(currentTimeStamp[5-x]);
@@ -123,8 +124,8 @@ function tallFlower(p){
 
 	p.drawFlorette = function(){
 	  p.push()
-	  p.stroke(145,137,71,255);
-	  p.fill(145,137,71,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
+	  p.fill(green[0],green[1],green[2],green[3]);
 	  p.rotate(-130);
 	  for(var d = 0;d < 5; d ++){
 	    p.line(0,0,0,-10);
@@ -154,7 +155,7 @@ function tallFlower(p){
 	  p.push();
 	  p.translate(200, 400);
 	  p.strokeWeight(3);
-	  p.stroke(145,137,71,255);
+	  p.stroke(green[0],green[1],green[2],green[3]);
 	  p.branch(0);
       p.pop();
 }

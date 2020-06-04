@@ -7,6 +7,12 @@ import rose from './flowers/rose';
 import orangeBlossom from './flowers/orangeblossom';
 import daffodil from './flowers/daffodil';
 import tallFlower from './flowers/tallflower';
+import realrose from './flowers/realrose';
+import roseopened from './flowers/roseopened';
+import tuliprose from './flowers/tuliprose';
+import fourpetalflower from './flowers/fourpetalflower';
+import floppypoppy from './flowers/floppypoppy';
+import brightflower from './flowers/brightflower';
 
 function sketch (p) {
 
@@ -18,7 +24,7 @@ function sketch (p) {
   }
 
   p.draw = function (){
-    const myRandom = p.random([0,1,2,3,4,5,6,7])
+    const myRandom = p.random([0,1,2,3,4,5,6,7,8,9,10,11,12,13])
     if(myRandom === 0){
       daisy(p)
     }else if(myRandom === 1){
@@ -33,6 +39,18 @@ function sketch (p) {
      orangeBlossom(p)
     } else if(myRandom === 6){
      daffodil(p)
+    } else if(myRandom === 7){
+     realrose(p)
+    } else if(myRandom === 8){
+     roseopened(p)
+    } else if(myRandom === 9){
+     tuliprose(p)
+    } else if(myRandom === 10){
+     fourpetalflower(p)
+    } else if(myRandom === 11){
+     floppypoppy(p)
+    } else if(myRandom === 12){
+     brightflower(p)
     } else{
      tallFlower(p)
     }
