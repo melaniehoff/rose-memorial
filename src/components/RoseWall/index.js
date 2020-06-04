@@ -57,7 +57,9 @@ class RoseWall extends Component {
         <div key={x.id} id={x.id} className="station" onClick={() => this.zoomToRose(x.id)}>
 
         <div className="trim">
-          <img src={x.fields.RoseSVG[0].url}/>
+          {!x.fields.RoseSVG[0] ? '' :
+            <img src={x.fields.RoseSVG[0].url}/>
+          }
           </div>
           <p>{x.fields.Dedication}</p>
           <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
