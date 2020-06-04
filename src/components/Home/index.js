@@ -47,7 +47,13 @@ class Home extends Component {
          <nav>
           <Link to="/share">Share your flower dedication</Link>
           </nav>
+
+
+
       </div>
+
+
+
 
 
     );

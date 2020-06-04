@@ -27,6 +27,36 @@
 #welcome-garden span{
 	background:rgba(0,0,0,0.3);
 }
+
+
+
+
+#about-garden{
+	position:fixed;
+	text-align: right;
+	bottom:0;
+	left:0;
+	padding:25px;
+	z-index: 2;
+	color: #ffedcd;
+	text-decoration: none;
+}
+#about-garden .inner{
+  font-size:0.6em;
+  margin-top:5px;
+}
+#about-garden span{
+	background:rgba(0,0,0,0.3);
+}
+
+#about-garden a {
+	color: #ffedcd;
+	text-decoration: none !important;
+	border-bottom: 1px dotted wheat;
+	background: rgba(0,0,0,0.3);
+}
+
+
 body {
 	background-image: url('./grass2.jpg');
 	background-size: 300px;
