@@ -1,7 +1,7 @@
 
 function orangeBlossom(p){
 	var num = 10;
-	var num2 = 20;
+	var num2 = 10;
 	var currentTimeStamp = Date.now().toString().split('');
 	var timeArray = [];
 	var green = [p.random(100,145),p.random(140,150),p.random(70,95),255];
