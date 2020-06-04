@@ -138,7 +138,7 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
     text-shadow: none;
     padding: 25px;
     margin-left: 21vw;
-
+}
 .rose-content p {
 	margin-block-end: .5em;
 	margin-block-start: .5em;
