@@ -141,7 +141,7 @@ function brightflower(p){
 	        p.fill(255,190,0)
 	        p.pop()
 	        p.push()
-	        p.fill(90,95,90,255)
+	        p.fill(green[0],green[1],green[2],255)
 	        p.noStroke()
 	        p.ellipse(0, -2 * num2 -10, 5, 5);
 	        p.pop()

@@ -45,7 +45,7 @@ function realrose(p){
 	       	 p.createFlower(0,-2 * num2);
 	         p.pop()
 	         p.push()
-	         p.fill(90,95,90,255)
+	         p.fill(green[0],green[1],green[2],green[3])
 	         p.noStroke()
 	         p.ellipse(0, -2 * num2 -5, 15, 15);
 	         p.pop()
@@ -57,17 +57,17 @@ function realrose(p){
 	p.createThorn = function(x,y){
 	  p.push()
 	  p.noStroke()
-	  p.fill(green[0]-20,green[1]-20,green[2]-20,green[3]);
+	  p.fill(green[0]-40,green[1]-40,green[2]-40,green[3]);
 	  p.triangle(x, y, x-10, y-10, x, y-12)
 	  p.pop()
 	  p.push()
 	  p.noStroke()
-	  p.fill(green[0]-20,green[1]-20,green[2]-20,green[3]);
+	  p.fill(green[0]-40,green[1]-40,green[2]-40,green[3]);
 	  p.triangle(x, y-10, x+8, y-16, x, y-26)
 	  p.pop()
 	  p.push()
 	  p.noStroke()
-	  p.fill(green[0]-20,green[1]-20,green[2]-20,green[3]);
+	  p.fill(green[0]-40,green[1]-40,green[2]-40,green[3]);
 	  p.triangle(x, y-30, x-10, y-40, x, y-44)
 	  p.pop()
 	}
@@ -180,7 +180,7 @@ function realrose(p){
 	        p.fill(255,190,0)
 	        p.pop()
 	        p.push()
-	        p.fill(90,95,90,255)
+	        p.fill(green[0],green[1],green[2],green[3])
 	        p.noStroke()
 	        p.ellipse(0, -2 * num2 -10, 5, 5);
 	        p.pop()
@@ -189,7 +189,7 @@ function realrose(p){
 	       	 p.createFlower(0,-2 * num2);
 	         p.pop()
 	         p.push()
-	         p.fill(90,95,90,255)
+	         p.fill(green[0],green[1],green[2],green[3])
 	         p.noStroke()
 	         p.ellipse(0, -2 * num2 -5, 15, 15);
 	         p.pop()
