@@ -79,6 +79,9 @@ body {
 .rose-container .station{
    filter:blur(10px);
 }
+.station:hover{
+ border: none;
+}
 .station {
 	overflow:visible;
 	width: 30vw;

@@ -54,16 +54,16 @@ class RoseWall extends Component {
     const roses = records.map((x)=>{
       return(
 
-        <div key={x.id} id={x.id} className="station" onClick={() => this.zoomToRose(x.id)}>
+        <a href={'/flower/'+x.id} key={x.id} id={x.id} className="station" >
 
         <div className="trim">
-          {!x.fields.RoseSVG[0] ? '' :
+          {!x.fields.RoseSVG ? '' :
             <img src={x.fields.RoseSVG[0].url}/>
           }
           </div>
           <p>{x.fields.Dedication}</p>
           <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
-         </div>
+         </a>
        )
       })
 

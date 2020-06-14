@@ -39,6 +39,9 @@
 button:hover{
   opacity: 0.8;
 }
+a{
+  color:#ffedcd;
+}
 button {
     display: block;
     cursor:pointer;

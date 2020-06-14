@@ -3,10 +3,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  RouteComponentProps,
+  useParams
 } from "react-router-dom";
 import './App.css';
-import {Share, Home} from './components'
+import {Share, Home, Flower} from './components'
 
 
 const pub = process.env.PUBLIC_URL;
@@ -21,7 +23,7 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-      fetch(".netlify/functions/roseGarden")
+    fetch("/.netlify/functions/roseGarden")
     .then( response => response.json())
         .then( (data) => {
           this.setState({
@@ -42,6 +44,7 @@ class App extends React.Component {
 
 render() {
     const { records } = this.state;
+
     return (
       <Router>
         <div className="App">
@@ -54,6 +57,9 @@ render() {
           <Switch>
             <Route path="/share">
               <Share />
+            </Route>
+            <Route path="/flower/:id"  >
+              <Flower records={records}/>
             </Route>
             <Route path="/">
               <Home records={records} />
