@@ -7,6 +7,13 @@
 canvas-holder> div{
 	transition:0;
 }
+#submission.submitted #submission-link{
+	display:inline-block;
+	margin-top:2rem;
+}
+#submission-link{
+	display:none;
+}
 #canvas-holder.on{
 	opacity: 1;
 }
@@ -202,8 +209,9 @@ textarea{
 #submission.submitted input[type='submit']{
   display: none;
 }
-#submission.submitted:after{
+#submission.submitted:before{
   content:"thank you";
+  font-size:1.2rem;
 }
 
 /* END SUBMISSION FORM */

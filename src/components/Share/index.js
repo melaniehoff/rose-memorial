@@ -93,6 +93,8 @@ class Share extends Component {
             return;
           }
           document.getElementById("submission").classList.add("submitted");
+          document.getElementById("submission-link").href = "/flower/"+records[0].id
+
           const timeoutCallBack = () => {
             const url = `https://@api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/delete_by_token`;
             request
@@ -106,6 +108,7 @@ class Share extends Component {
                 }
               });
             document.getElementById("submission").classList.add("submitted");
+
           };
           setTimeout(timeoutCallBack, 2000);
         };
@@ -172,16 +175,17 @@ class Share extends Component {
                 id="photo-button"
                 onClick={() => this.showWidget(myWidget)}
               >
-                <span id='inner-photo'>upload a photo (optional)</span>
+                <span className='small-text' id='inner-photo'>upload a photo (optional)</span>
               </button>
             </div>
           </label>
-          <button id="review-button" onClick={this.showSubmit}>
+          <button className='medium-text' id="review-button" onClick={this.showSubmit}>
             Review Dedication
           </button>
-          <button id="submit-button" onClick={this.handleSubmit}>
+          <button className='medium-text' id="submit-button" onClick={this.handleSubmit}>
             Submit Dedication
-          </button>
+          </button><br/>
+          <a className='medium-text' id='submission-link'>View Flower Page</a>
         </div>
         <nav>
          <a href="/">↩ back to the garden</a>
@@ -200,6 +204,7 @@ class Share extends Component {
             <button className="medium-text" id="modal-button" onClick={this.clickHandler}> Submit a Dedication</button>
             </p>
         </div>
+
 
 
 
