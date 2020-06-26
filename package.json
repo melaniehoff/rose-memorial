@@ -27,7 +27,7 @@
     "start": "npm-run-all --parallel start:app start:server",
     "start:app": "react-scripts start",
     "start:server": "netlify-lambda serve ./server",
-    "build": "run-p build:**",
+    "build": "CI=false run-p build:**",
     "build:app": "react-scripts build",
     "build:lambda": "netlify-lambda build ./server",
     "test": "react-scripts test",
