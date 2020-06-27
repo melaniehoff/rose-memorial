@@ -1,4 +1,4 @@
-document.ready(function(){
+
 setInterval(function makeDiv(){
     var divsize = ((Math.random()*2) + 1).toFixed();
     var color = ((Math.random()*255) + 100).toFixed();
@@ -24,7 +24,7 @@ setInterval(function makeDiv(){
 
 
 
-})
+
 
 
 

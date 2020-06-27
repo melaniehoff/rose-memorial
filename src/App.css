@@ -95,6 +95,11 @@ nav a, a:visited{
 .App-link {
   color: #61dafb;
 }
+.star{
+  position:fixed;
+  z-index: -1;
+
+}
 
 @keyframes App-logo-spin {
   from {

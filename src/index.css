@@ -13,8 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #a3a3a3;
+
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-    background-image: url(./assets/sky.jpg);
+
 }
