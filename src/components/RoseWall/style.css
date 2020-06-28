@@ -58,8 +58,9 @@
 
 
 body {
-	background-color:#1a2819;
-	background-image: url('./star.png');
+	background:black;
+/*	background-color:#1a2819;
+	background-image: url('./star.png');*/
 	background-size: 400px;
 	background-repeat: repeat;
 	background-position: center left;
