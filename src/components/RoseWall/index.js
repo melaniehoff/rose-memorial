@@ -1,51 +1,74 @@
 import React, { Component } from 'react';
 import './style.css';
-// import zoom from "../../utils/zoom";
-let zoomInstance;
+
+
 class RoseWall extends Component {
   constructor(props) {
     super(props);
     this.state = {
       rosesHere: false,
-      zoomInstance: ''
+      zoomLevel:0
     };
     this.clickHandler =this.clickHandler.bind(this)
-    this.zoomToRose =this.zoomToRose.bind(this)
    }
 
   clickHandler() {
     var elmnt = document.getElementById("rose-content");
     // window.scroll(400, 400)
       document.getElementById("rose-container").classList.add('on');
-      zoomInstance = window.panzoom(document.getElementById("rose-content"),{
-          smoothScroll: false,
-          zoomSpeed: 0.65,
-          maxZoom: 1,
-          minZoom: 0.4,
-          beforeWheel: function(e) {
-            // allow wheel-zoom only if altKey is down. Otherwise - ignore
-            var shouldIgnore = !e.altKey;
-            return shouldIgnore;
-          },
-          // beforeMouseDown: function(e) {
-          //   // allow mouse-down panning only if altKey is down. Otherwise - ignore
-          //   var shouldIgnore = !e.altKey;
-          //   return shouldIgnore;
-          // }
-      })
       this.setState({rosesHere: true})
       document.getElementById("modal-button").style.display = "none";
 
-  }
-  zoomToRose(el){
-    console.log(el)
-    var x = document.querySelector("#" + el).offsetLeft;
-    var y = document.querySelector("#" + el).offsetTop;
+      const log = document.getElementById('rose-content');
 
-    // window.zoom.to({
-    //   element: document.querySelector("#" + el)
-    // });
+      document.addEventListener('keypress', logKey);
+
+      function logKey(e) {
+        if(`${e.code}` == "Equal"){
+           //plus
+          if(document.getElementById("rose-container").classList.contains('five')){
+            document.getElementById("rose-container").classList.remove('five');
+            document.getElementById("rose-container").classList.add('four');
+           }else if(document.getElementById("rose-container").classList.contains('four')){
+            document.getElementById("rose-container").classList.remove('four');
+            document.getElementById("rose-container").classList.add('three');
+           }else if(document.getElementById("rose-container").classList.contains('three')){
+            document.getElementById("rose-container").classList.remove('three');
+            document.getElementById("rose-container").classList.add('two');
+           }else if(document.getElementById("rose-container").classList.contains('two')){
+            document.getElementById("rose-container").classList.remove('two');
+            document.getElementById("rose-container").classList.add('one');
+           }else if(document.getElementById("rose-container").classList.contains('one')){
+            document.getElementById("rose-container").classList.remove('one');
+           }else {
+           
+          }
+           document.getElementById("rose-container").classList.remove('one');
+        }else if(`${e.code}` == "Minus"){
+           //minus
+           if(document.getElementById("rose-container").classList.contains('one')){
+            document.getElementById("rose-container").classList.remove('one');
+            document.getElementById("rose-container").classList.add('two');
+           }else if(document.getElementById("rose-container").classList.contains('two')){
+            document.getElementById("rose-container").classList.remove('two');
+            document.getElementById("rose-container").classList.add('three');
+           }else if(document.getElementById("rose-container").classList.contains('three')){
+            document.getElementById("rose-container").classList.remove('three');
+            document.getElementById("rose-container").classList.add('four');
+           }else if(document.getElementById("rose-container").classList.contains('four')){
+            document.getElementById("rose-container").classList.remove('four');
+            document.getElementById("rose-container").classList.add('five');
+           }else if(document.getElementById("rose-container").classList.contains('five')){
+           
+           }else {
+           document.getElementById("rose-container").classList.add('one');
+          }
+        }
+
+      }
+
   }
+
 
   render() {
     window.scroll(400, 400)

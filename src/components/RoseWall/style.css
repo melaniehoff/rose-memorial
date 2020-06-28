@@ -74,6 +74,22 @@ body {
    width:100%;*/
 
 }
+.rose-container.five{
+	transform:scale(0.5);
+}
+.rose-container.four{
+	transform:scale(0.6);
+}
+.rose-container.three{
+	transform:scale(0.7);
+}
+.rose-container.two{
+	transform:scale(0.8);
+}
+.rose-container.one{
+	transform:scale(0.9);
+}
+
 .rose-container.on .station{
 	filter:none;
 }

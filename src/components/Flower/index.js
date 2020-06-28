@@ -26,7 +26,7 @@ class Flower extends Component {
 	   	for (var i = this.props.records.length - 1; i >= 0; i--) {
 	   		if(this.props.records[i].id == this.props.match.params.id){
 	   			records.push(
-		   		 <div key={this.props.records[i].id} id={this.props.records[i].id} className="single-flower" onClick={() => this.zoomToRose(this.props.records[i].id)}>
+		   		 <div key={this.props.records[i].id} id={this.props.records[i].id} className="single-flower" >
 		           <div className='flower'>
 				        <div className="trim">
 				          {!this.props.records[i].fields.RoseSVG ? '' :
