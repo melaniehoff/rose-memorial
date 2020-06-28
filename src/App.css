@@ -98,9 +98,13 @@ nav a, a:visited{
 .star{
   position:fixed;
   z-index: -1;
-
+  transition:3s;
+  opacity:0;
 }
+.star.on{
 
+  opacity:1;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

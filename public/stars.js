@@ -1,5 +1,4 @@
-
-setInterval(function makeDiv(){
+function makeDiv(){
     var divsize = ((Math.random()*2) + 1).toFixed();
     var color = ((Math.random()*255) + 100).toFixed();
     $newdiv = $('<div/>').css({
@@ -14,12 +13,32 @@ setInterval(function makeDiv(){
     $newdiv.css({
         'position':'fixed',
         'left':posx+'px',
-        'top':posy+'px',
-        'display':'none'
-    }).appendTo( 'body' ).fadeIn(1000).delay(1000).fadeOut(1000, function(){
-       $(this).remove();
-       
-    }); 
+        'top':posy+'px'
+    })
+
+// $newdiv.hide()
+$newdiv.appendTo( 'body' );
+$newdiv.fadeIn(100, function(){
+  $(this).addClass('on')
+}).delay(3000).queue(function(next) {
+          $(this).removeClass('on')
+      }).delay(1000).fadeOut(5000, function(){
+    $(this).remove();
+})
+
+}
+
+setInterval(function (){
+    makeDiv();
+    makeDiv();
+    makeDiv();
+    makeDiv();
+    makeDiv();
+    makeDiv();
+    makeDiv();
+    makeDiv();
+
+
 }, 100);
 
 
