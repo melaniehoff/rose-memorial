@@ -16,6 +16,9 @@ class RoseWall extends Component {
     var elmnt = document.getElementById("rose-content");
     // window.scroll(400, 400)
       document.getElementById("rose-container").classList.add('on');
+      document.getElementsByTagName("nav")[0].classList.add('on');
+      document.getElementById("welcome-garden").classList.add('on');
+      document.getElementById("about-garden").classList.add('on');
       this.setState({rosesHere: true})
       document.getElementById("modal-button").style.display = "none";
 
@@ -119,7 +122,7 @@ class RoseWall extends Component {
               We invite you to plant seeds of liberation to transform our collective grief.
               </span>
 
-            <button className="medium-text" id="modal-button" onClick={this.clickHandler}> Enter Garden</button>
+            <button className="medium-text" id="modal-button" onClick={this.clickHandler}><span className='medium-text'> Enter Garden</span></button>
             </p>
         </div>
       </div>

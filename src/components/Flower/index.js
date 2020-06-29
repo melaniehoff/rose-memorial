@@ -54,7 +54,7 @@ class Flower extends Component {
     return (
     	<div>
     	<div>{this.renderFlower()}</div>
-    	<nav>
+    	<nav className='medium-text'>
          <a href="/">↩ back to the garden</a>
          </nav>
          </div>

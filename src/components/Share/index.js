@@ -187,7 +187,7 @@ class Share extends Component {
           </button><br/>
           <a className='medium-text' id='submission-link'>View Flower Page</a>
         </div>
-        <nav>
+        <nav className='medium-text'>
          <a href="/">↩ back to the garden</a>
          </nav>
         {this.state.formHere ? '' :
