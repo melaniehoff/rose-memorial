@@ -45,7 +45,7 @@ class Home extends Component {
       <div>
       <RoseWall {...this.props}/>
          <nav className='medium-text'>
-          <Link to="/share">share your flower dedication</Link>
+          <Link className='medium-text' to="/share">share your flower dedication</Link>
           </nav>
 
 

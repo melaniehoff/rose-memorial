@@ -251,6 +251,11 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 	   width:100%;
 
 	}
+	.rose-container.on{
+overflow-x: scroll;
+	   width:100%;
+
+	}
 	.rose-content{
 		padding:0;
 	}
@@ -272,6 +277,19 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 
 		filter:blur(10px);
 	}
+		#welcome-garden{
+			position:fixed;
+			top:0;
+			right:0;
+		}
+	nav{
+		position:fixed;
+		bottom:0;
+		left:0;
+     width: 100vw;
+     padding:10px 0;
+
+	}
 	#welcome-garden.on, #about-garden.on, nav.on{
 
 		filter:none;
@@ -284,7 +302,11 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 	height: 94vh;
 }
 	#about-garden {
-		display: none;
+		position: fixed;
+		bottom:25px;
+		width:100vw;
+		text-align:center;
+		padding:10px 0;
 	}
 
 }
