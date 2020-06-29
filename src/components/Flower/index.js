@@ -52,7 +52,12 @@ class Flower extends Component {
 
    render() {
     return (
+    	<div>
     	<div>{this.renderFlower()}</div>
+    	<nav>
+         <a href="/">↩ back to the garden</a>
+         </nav>
+         </div>
     )
   }
 }
