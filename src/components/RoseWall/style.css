@@ -243,8 +243,9 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 @media(max-width:768px){
 
 	.rose-content .info-text p{
-		width: 80vw;
-		margin-left:5vw;
+		width: calc(100% - 20px);
+		padding:10px;
+        margin-left:0;
 	}
 	.rose-container{
 	   overflow-x: hidden;
@@ -300,6 +301,22 @@ overflow-x: scroll;
 	z-index: 99999;
 	top:5vh;
 	height: 94vh;
+}
+.trim{
+	  width: 52vw;
+}
+
+#welcome-garden .inner{
+  font-size:1rem;
+
+}
+.station{
+	width: 52vw;
+	height: 52vw;
+}
+.station img{
+
+	    width: 50vw;
 }
 	#about-garden {
 		position: fixed;
