@@ -33,6 +33,7 @@ class Flower extends Component {
 				            <img src={this.props.records[i].fields.RoseSVG[0].url}/>
 				          }
 				        </div>
+				         
 			        </div>
 			        <div className='flower-info'>
 			         <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}</p>
@@ -41,6 +42,9 @@ class Flower extends Component {
 				          }
 			         <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
 			         {linkCheck(this.props.records[i].fields)}
+			         {!this.props.records[i].fields.RoseSVG ? '' :
+				        <a className='medium-text' href={this.props.records[i].fields.RoseSVG[0].url} download>download flower</a>
+				    	}
 			         </div>
 		         </div>
 		        )

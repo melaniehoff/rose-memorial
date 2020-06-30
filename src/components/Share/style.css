@@ -215,3 +215,51 @@ textarea{
 }
 
 /* END SUBMISSION FORM */
+
+/*----------MOBILE STYLES-------------*/
+
+@media(max-width:768px){
+
+
+	.info-text p{
+
+		padding:0;
+	}
+	#flower + div, #flower + div#canvas-holder.on{
+		float:none;
+		position: absolute;
+		bottom:25px;
+		display: block;
+		left:-50px;
+		padding:0;
+	}
+	#root{
+		overflow-x: hidden;
+	}
+		#submission textarea{
+		width:95%;
+	}
+	#submission{
+		
+		width:calc(100% - 20px);
+		padding:10px;
+		padding-bottom:400px;
+	}
+	.App{
+		position:relative;
+	}
+	#submission.submitted:before{
+	  content:"thank you";
+	  font-size:1rem;
+	  margin-top:1rem;
+	}
+	.info-text{
+		display: block;
+		position: fixed;
+		overflow: scroll;
+		top:5vh;
+		left:0;
+		padding:0 10px;
+		height:95vh;
+	}
+}
