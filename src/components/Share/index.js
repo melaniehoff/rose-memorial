@@ -4,6 +4,7 @@ import request from "superagent";
 import P5Wrapper from "react-p5-wrapper";
 import sketch from "../../utils/p5/sketch";
 import './style.css';
+import {VideoEmbed} from '../';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base("appZuPErukOoOExF9");
 
@@ -15,11 +16,14 @@ class Share extends Component {
       optional_note: "",
       optional_photo: "",
       optional_link: "",
+      optional_video_link: "",
+      toggle_video: false,
       rose_id: "",
       formHere: false,
     };
     this.handleDedication = this.handleDedication.bind(this);
     this.handleLink = this.handleLink.bind(this);
+    this.handleVideoLink = this.handleVideoLink.bind(this);
     this.handleNote = this.handleNote.bind(this);
     this.checkUploadResult = this.checkUploadResult.bind(this);
     this.showWidget = this.showWidget.bind(this);
@@ -36,6 +40,10 @@ class Share extends Component {
   }
   handleLink(event) {
     this.setState({ optional_link: event.target.value });
+  }
+  handleVideoLink(event) {
+    this.setState({ optional_video_link: event.target.value });
+    this.setState({toggle_video: event.target.value})
   }
 
   handleNote(event) {
@@ -83,6 +91,7 @@ class Share extends Component {
           dedication,
           optional_note,
           optional_photo,
+          optional_video_link,
           rose_id,
           optional_link
         } = this.state;
@@ -119,6 +128,7 @@ class Share extends Component {
               Dedication: dedication,
               OptionalNote: optional_note,
               OptionalLink: optional_link,
+              OptionalVideoLink: optional_video_link,
               OptionalPhoto: [{ url: optional_photo }],
               RoseSVG: [{ url: response.body["url"] }],
               Public: "Yes",
@@ -137,7 +147,7 @@ class Share extends Component {
       uploadPreset: process.env.REACT_APP_PRESET_NAME,
     };
     let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => {this.checkUploadResult(result)});
-    const { dedication, optional_note, optional_link } = this.state;
+    const { dedication, optional_note, optional_link, optional_video_link, toggle_video } = this.state;
 
     return (
       <React.Fragment>
@@ -177,6 +187,18 @@ class Share extends Component {
               >
                 <span className='small-text' id='inner-photo'>upload a photo (optional)</span>
               </button>
+            </div>
+          </label>
+          <label>
+            <span className='medium-text'>Leave a video link, supports youtube & vimeo (optional):</span><br/>
+            <input
+              className="medium-text"
+              type="text"
+              value={optional_video_link}
+              onChange={this.handleVideoLink}
+            />
+            <div id='video-preview'>
+              {this.state.toggle_video ? <VideoEmbed videoUrl={this.state.toggle_video}/> : ""}
             </div>
           </label>
           <button className='medium-text' id="review-button" onClick={this.showSubmit}>

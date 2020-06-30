@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import {VideoEmbed} from '../';
 
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
 
@@ -42,9 +43,13 @@ class Flower extends Component {
 				          }
 			         <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
 			         {linkCheck(this.props.records[i].fields)}
+			         <br></br>
 			         {!this.props.records[i].fields.RoseSVG ? '' :
 				        <a className='medium-text' href={this.props.records[i].fields.RoseSVG[0].url} download>download flower</a>
 				    	}
+				    	{!this.props.records[i].fields.OptionalVideoLink ? '' :
+				    	    	<VideoEmbed videoUrl={this.props.records[i].fields.OptionalVideoLink}/>
+				    	    }
 			         </div>
 		         </div>
 		        )

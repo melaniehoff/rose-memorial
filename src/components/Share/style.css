@@ -11,6 +11,9 @@ canvas-holder> div{
 	display:inline-block;
 	margin-top:2rem;
 }
+#broken-video{
+	display: none;
+}
 #submission-link{
 	display:none;
 }
