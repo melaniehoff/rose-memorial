@@ -30,7 +30,7 @@ class Flower extends Component {
 		           <div className='flower'>
 				        <div className="trim">
 				          {!this.props.records[i].fields.RoseSVG ? '' :
-				            <img src={this.props.records[i].fields.RoseSVG[0].url}/>
+				            <img alt={this.props.records[i].fields.Dedication + " Flower"} src={this.props.records[i].fields.RoseSVG[0].url}/>
 				          }
 				        </div>
 				         
@@ -38,7 +38,7 @@ class Flower extends Component {
 			        <div className='flower-info'>
 			         <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}</p>
 			         {!this.props.records[i].fields.OptionalPhoto ? '' :
-				            <img src={this.props.records[i].fields.OptionalPhoto[0].url}/>
+				            <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
 				          }
 			         <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
 			         {linkCheck(this.props.records[i].fields)}

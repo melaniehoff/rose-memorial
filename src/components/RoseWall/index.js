@@ -84,7 +84,7 @@ class RoseWall extends Component {
 
         <div className="trim">
           {!x.fields.RoseSVG ? '' :
-            <img src={x.fields.RoseSVG[0].url}/>
+            <img alt={x.fields.Dedication + " Flower"} src={x.fields.RoseSVG[0].url}/>
           }
           </div>
           <p>{x.fields.Dedication}</p>
