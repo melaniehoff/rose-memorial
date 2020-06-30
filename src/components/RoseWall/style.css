@@ -28,8 +28,16 @@
 	background:rgba(0,0,0,0.3);
 }
 
-
-
+@keyframes pulse {
+  0% {opacity: 0.5;}
+  50% {opacity: 1;}
+  100% {opacity: 0.5;}
+}
+button{
+  animation-name: pulse;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
 
 #about-garden{
 	position:fixed;

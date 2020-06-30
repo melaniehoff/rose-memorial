@@ -4,35 +4,37 @@
 	max-width: 1580px;
 }
 .flower{
-  display: inline-block;
+  display: block;
   vertical-align: top;
-  float:left;
+  float:none;
 
 }
 .flower .trim{
 	width: 350px;
+	display: block;
+	margin:0 auto;
 }
 .flower img{
 	width: 600px;
-	margin-left:-150px;
 	margin-top:-200px;
-	margin-right:50px;
+	margin-left:-120px;
 	
 }
 .flower-info{
-	display: inline-block;
+	padding-bottom:5rem;
+	display: block;
 	vertical-align: top;
 	color:white;
-	float:left;
+	float:none;
 	line-height: 1.9rem;
 	max-width: 1080px;
 	margin:3rem auto;
 	position: relative;
 	min-height: 80vh;
-	text-align: left;
+	text-align: center;
 }
 .flower-info img{
-	max-width: 700px
+	max-width: 300px
 }
 
 @media(max-width:768px){
