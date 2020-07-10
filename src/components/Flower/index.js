@@ -19,7 +19,7 @@ class Flower extends Component {
 				if (!OptionalLink) return ('')
 				else {
 					const prefix = OptionalLink.slice(3)
-					if (prefix !== 'http') return (<a className='medium-text' href={`https://${OptionalLink}`}>{OptionalLink}</a>) 
+					if (prefix !== 'http') return (<a className='medium-text' href={`https://${OptionalLink}`}>{OptionalLink}</a>)
 					else return (<a className='medium-text' href={OptionalLink}>{OptionalLink}</a>)
 				}
 			}
@@ -28,14 +28,24 @@ class Flower extends Component {
 	   		if(this.props.records[i].id == this.props.match.params.id){
 	   			records.push(
 		   		 <div key={this.props.records[i].id} id={this.props.records[i].id} className="single-flower" >
+
 		           <div className='flower'>
 				        <div className="trim">
 				          {!this.props.records[i].fields.RoseSVG ? '' :
 				            <img alt={this.props.records[i].fields.Dedication + " Flower"} src={this.props.records[i].fields.RoseSVG[0].url}/>
 				          }
 				        </div>
-				         
+
 			        </div>
+
+              <div id='download-flower' className="medium-text">
+              {!this.props.records[i].fields.RoseSVG ? '' :
+               <a className='medium-text' href={this.props.records[i].fields.RoseSVG[0].url} download>download flower</a>
+             }
+             </div>
+
+
+
 			        <div className='flower-info'>
 			         <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}</p>
 			         {!this.props.records[i].fields.OptionalPhoto ? '' :
@@ -44,9 +54,12 @@ class Flower extends Component {
 			         <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
 			         {linkCheck(this.props.records[i].fields)}
 			         <br></br>
-			         {!this.props.records[i].fields.RoseSVG ? '' :
-				        <a className='medium-text' href={this.props.records[i].fields.RoseSVG[0].url} download>download flower</a>
-				    	}
+
+
+
+
+
+
 				    	{!this.props.records[i].fields.OptionalVideoLink ? '' :
 				    	    	<VideoEmbed videoUrl={this.props.records[i].fields.OptionalVideoLink}/>
 				    	    }
@@ -54,7 +67,7 @@ class Flower extends Component {
 		         </div>
 		        )
 	   		}
-	   		
+
 	   	}
 	   	return <div>{records}</div>
    }
@@ -64,7 +77,7 @@ class Flower extends Component {
     	<div>
     	<div>{this.renderFlower()}</div>
     	<nav id='flower-nav' className='medium-text'>
-         <a href="/">↩ back to the garden</a>
+         <a href="/" className='medium-text'>↩ back to the garden</a>
          </nav>
          </div>
     )

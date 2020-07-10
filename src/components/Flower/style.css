@@ -1,3 +1,18 @@
+#download-flower{
+	position:fixed;
+	text-align: right;
+	bottom:0;
+	left:0;
+	padding:25px;
+	z-index: 2;
+}
+
+#download-flower a {
+	color: #fff !important;
+	text-decoration: none !important;
+	border-bottom: 1px dotted wheat;
+}
+
 .single-flower{
 	text-align: center;
 	margin:0 auto;
@@ -7,6 +22,9 @@
   display: block;
   vertical-align: top;
   float:none;
+	width: 50vw;
+	position: fixed;
+	left: 0px;
 
 }
 .flower .trim{
@@ -18,20 +36,25 @@
 	width: 600px;
 	margin-top:-200px;
 	margin-left:-120px;
-	
+
 }
 .flower-info{
+	width: 50vw;
+	position: absolute;
+	right: 0px;
 	padding-bottom:5rem;
 	display: block;
 	vertical-align: top;
-	color:white;
+	/* color:white; */
+	color: #ffedcd;
 	float:none;
 	line-height: 1.9rem;
-	max-width: 1080px;
-	margin:3rem auto;
-	position: relative;
+	text-align: left;
+	/* max-width: 1080px; */
+	/* margin:3rem auto; */
+	/* position: relative; */
 	min-height: 80vh;
-	text-align: center;
+	/* text-align: center; */
 }
 .flower-info img{
 	max-width: 300px
