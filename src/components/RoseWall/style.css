@@ -20,11 +20,32 @@
 	color: #ffedcd;
 	text-decoration: none;
 }
+
 #welcome-garden .inner{
   font-size:0.6em;
   margin-top:5px;
 }
 #welcome-garden span{
+	background:rgba(0,0,0,0.3);
+}
+
+
+#garden-creds{
+	position:fixed;
+	text-align: right;
+	bottom:0;
+	right:0;
+	padding:25px;
+	z-index: 2;
+	color: #ffedcd;
+	text-decoration: none;
+}
+
+#garden-creds .inner{
+  font-size:0.6em;
+  margin-top:5px;
+}
+#garden-creds span{
 	background:rgba(0,0,0,0.3);
 }
 
@@ -58,11 +79,12 @@ button{
 }
 
 #about-garden a {
-	color: #ffedcd;
+	color: #fff;
 	text-decoration: none !important;
 	border-bottom: 1px dotted wheat;
 	background: rgba(0,0,0,0.3);
 }
+
 
 
 body {
@@ -199,6 +221,16 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
     margin-left: 21vw;
 		text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
 }
+
+.rose-content .info-text p a {
+	color: #ffedcd;
+}
+
+.rose-content .info-text p a:hover {
+	color: #fff !important;
+}
+
+
 .rose-content p {
 	margin-block-end: .5em;
 	margin-block-start: .5em;
@@ -208,10 +240,17 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 
 }
 
+button#modal-button span{
+	/* border-bottom: 1px dotted wheat; */
+	display: inline;
+	color: #fff !important;
+}
+
 p.dedication-name {
 	font-family: 'orpheus bold';
 	font-size: 1.2vw;
-	letter-spacing: 1;
+	color: #ffedcd;
+	/* letter-spacing: 1; */
 }
 
 .rose-content p span {
@@ -224,13 +263,13 @@ p.dedication-name {
 }
 
 .station:hover p {
-	color: #FFB5A8;
+	color: #fff;
 }
 
 
 .station:hover .rose-preview{
 	display: block;
-    color: #ffedcd;
+    color: #fff;
     width: 100%;
 }
 
@@ -241,10 +280,11 @@ p.dedication-name {
 }
 
 .rose-preview p{
+	letter-spacing: 1px;
 	display:block;
 	margin:0 auto;
 	width: 250px;
-	font-size:0.8rem;
+	font-size:1vw;
 	color:#ffedcd;
 	height: 50px;
     text-overflow: ellipsis;
@@ -284,11 +324,12 @@ overflow-x: scroll;
 		transform:translateY(50px);
 	}
 	button#modal-button span{
-		border-bottom: 1px dotted wheat;
+		/* border-bottom: 1px dotted wheat; */
 		display: inline;
+		color: #fff !important;
 	}
 
-	#welcome-garden, #about-garden, nav{
+	#welcome-garden, #garden-creds, #about-garden, nav{
 
 		filter:blur(10px);
 	}
@@ -297,6 +338,13 @@ overflow-x: scroll;
 			top:0;
 			right:0;
 		}
+
+		#garden-creds{
+			position:fixed;
+			bottom:0;
+			right:0;
+		}
+
 	nav{
 		position:fixed;
 		bottom:0;
@@ -320,10 +368,10 @@ overflow-x: scroll;
 	  width: 52vw;
 }
 
-#welcome-garden .inner{
-  font-size:1rem;
+/* #welcome-garden .inner{
+  font-size:1vw;
+} */
 
-}
 .station{
 	width: 52vw;
 	height: 52vw;

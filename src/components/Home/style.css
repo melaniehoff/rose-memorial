@@ -1,6 +1,6 @@
 nav a, a:visited{
 	/*border: 5px solid blue;*/
-	color: #ffedcd;
+	color: #fff;
 	font-size: 1.2em;
 	text-decoration: none !important;
 	border-bottom: 1px dotted wheat;
@@ -8,7 +8,7 @@ nav a, a:visited{
 
 
 nav a, a:hover{
-	color: #fff;
+	color: #ffedcd;
 	border-bottom: 1px dotted #fff;
 }
 
