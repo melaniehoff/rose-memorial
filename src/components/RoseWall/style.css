@@ -205,7 +205,13 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 	color: #353a37;
 	text-shadow: 1px 1px 5px rgba(0,0,0, 0.9);
 	color: rgba(255,255,255,.7);
-	line-height: 1.4;
+
+}
+
+p.dedication-name {
+	font-family: 'orpheus bold';
+	font-size: 1.2vw;
+	letter-spacing: 1;
 }
 
 .rose-content p span {

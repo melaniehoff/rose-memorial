@@ -44,7 +44,7 @@ class RoseWall extends Component {
            }else if(document.getElementById("rose-container").classList.contains('one')){
             document.getElementById("rose-container").classList.remove('one');
            }else {
-           
+
           }
            document.getElementById("rose-container").classList.remove('one');
         }else if(`${e.code}` == "Minus"){
@@ -62,7 +62,7 @@ class RoseWall extends Component {
             document.getElementById("rose-container").classList.remove('four');
             document.getElementById("rose-container").classList.add('five');
            }else if(document.getElementById("rose-container").classList.contains('five')){
-           
+
            }else {
            document.getElementById("rose-container").classList.add('one');
           }
@@ -87,7 +87,7 @@ class RoseWall extends Component {
             <img alt={x.fields.Dedication + " Flower"} src={x.fields.RoseSVG[0].url}/>
           }
           </div>
-          <p>{x.fields.Dedication}</p>
+          <p className='dedication-name'>{x.fields.Dedication}</p>
           <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
          </a>
        )

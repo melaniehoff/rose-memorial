@@ -1,25 +1,65 @@
 /* ~kebab case~ */
 /* element--child
-   element--modification(i.e. color) 
+   element--modification(i.e. color)
    btn--text //a text element inside a button
    btn--blue //a class that changes buttons to blue
 */
 
 /*----TYPOGRAPHY----*/
+
+
+@font-face {
+    font-family: 'orpheus';
+    src: url('./fonts/orpheuspro-light-webfont.woff2') format('woff2'),
+         url('./fonts/orpheuspro-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'orpheus bold';
+    src: url('./fonts/orpheuspro-bold-webfont.woff2') format('woff2'),
+         url('./fonts/orpheuspro-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Canela Web';
+    src: url('./fonts/CanelaWeb-Thin.woff2') format('woff2'),
+        url('./fonts/CanelaWeb-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Canela Web';
+    src: url('./fonts/CanelaWeb-Regular.woff2') format('woff2'),
+        url('./fonts/CanelaWeb-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
   .small-text{
-    font-family:source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-  font-size: 0.8rem;
+    font-size: 0.8vw;
+    font-family: 'orpheus bold';
   }
   .medium-text{
-    font-family:source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-  font-size: 1.2rem;
+    font-family: 'orpheus';
+    font-weight: bold;
+    font-size: 1.7vw;
+    text-shadow: 0px 4px #000;
+    line-height: 1.2;
+    letter-spacing: 1;
   }
   .large-text{
-    font-family:source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-  font-size: 2rem;
+    font-size: 2vw;
+	  font-family: 'orpheus bold';
   }
 /*@font-face {
   font-family: 'Canela Web';
@@ -123,7 +163,7 @@ nav a, a:visited{
     text-align: center;
   }
      /*----TYPOGRAPHY----*/
-  
+
   .small-text{
   font-size: 0.8rem;
   }
@@ -134,5 +174,5 @@ nav a, a:visited{
   font-size: 1.2rem;
   }
   /*----END TYPOGRAPHY----*/
-  
+
 }
