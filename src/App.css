@@ -169,14 +169,17 @@ nav a, a:visited{
   }
      /*----TYPOGRAPHY----*/
 
-  .small-text{
-  font-size: 0.8rem;
+  .small-text, .dedication-name, .small-text{
+  /* font-size: 0.8rem; */
+  font-size: 14px !important;
   }
   .medium-text{
-  font-size: 1rem;
+  /* font-size: 1rem; */
+  font-size: 22px !important;
   }
   .large-text{
-  font-size: 1.2rem;
+  /* font-size: 1.2rem !important; */
+  font-size: 30px !important;
   }
   /*----END TYPOGRAPHY----*/
 
