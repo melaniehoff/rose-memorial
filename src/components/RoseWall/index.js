@@ -147,8 +147,8 @@ class RoseWall extends Component {
             </div>
         </div>
 
-        <div id='about-garden' className="medium-text">
-           <a className="medium-text" href="/">about this garden</a>
+        <div id='about-garden' className="medium-text-link">
+           <a className="medium-text-link" href="/">about this garden</a>
           </div>
 
 

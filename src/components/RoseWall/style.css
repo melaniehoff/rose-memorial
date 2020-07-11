@@ -247,7 +247,9 @@ button#modal-button span{
 }
 
 p.dedication-name {
-	font-family: 'orpheus bold';
+	/* font-family: 'fierre bold'; */
+	font-family: 'Canela Web';
+	font-weight: bold;
 	font-size: 1.2vw;
 	color: #ffedcd;
 	/* letter-spacing: 1; */
