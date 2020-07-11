@@ -5,7 +5,7 @@
    btn--blue //a class that changes buttons to blue
 */
 
-/*----FONTS----*/
+/*----TYPOGRAPHY----*/
 
 
 @font-face {
@@ -15,6 +15,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 
 @font-face {
     font-family: 'fierre bold';
@@ -41,7 +42,6 @@
     font-style: normal;
 }
 
-/*----TYPOGRAPHY----*/
 
 
 
