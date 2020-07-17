@@ -45,25 +45,22 @@ class Flower extends Component {
              </div>
 
 
+              <div className='flower-info-container'>
+    			       <div className='flower-info'>
+                      <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}</p>
+                      {!this.props.records[i].fields.OptionalPhoto ? '' :
+                      <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
+                      }
+                      <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
+                      {linkCheck(this.props.records[i].fields)}
+                      <br></br>
 
-			        <div className='flower-info'>
-			         <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}</p>
-			         {!this.props.records[i].fields.OptionalPhoto ? '' :
-				            <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
-				          }
-			         <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
-			         {linkCheck(this.props.records[i].fields)}
-			         <br></br>
-
-
-
-
-
-
-				    	{!this.props.records[i].fields.OptionalVideoLink ? '' :
-				    	    	<VideoEmbed videoUrl={this.props.records[i].fields.OptionalVideoLink}/>
-				    	    }
+                      {!this.props.records[i].fields.OptionalVideoLink ? '' :
+                      <VideoEmbed videoUrl={this.props.records[i].fields.OptionalVideoLink}/>
+                      }
 			         </div>
+             </div>
+
 		         </div>
 		        )
 	   		}
@@ -76,8 +73,8 @@ class Flower extends Component {
     return (
     	<div>
     	<div>{this.renderFlower()}</div>
-    	<nav id='flower-nav' className='medium-text'>
-         <a href="/" className='medium-text'>↩ back to the garden</a>
+    	<nav id='flower-nav' className='medium-text-link'>
+         <a href="/" className='medium-text-link'>↩ back to the garden</a>
          </nav>
          </div>
     )

@@ -42,22 +42,32 @@
 	margin-left:-120px;
 
 }
-.flower-info{
-	width: 50vw;
+.flower-info-container{
+	width: 45vw;
 	position: absolute;
-	right: 0px;
-	padding-bottom:5rem;
-	display: block;
-	vertical-align: top;
-	/* color:white; */
+	left: 50vw;
+	height: 100vh;
+	display: table;
+}
+
+.flower-info{
+	display: table-cell;
+  vertical-align: middle;
 	color: #ffedcd;
-	float:none;
 	line-height: 1.9rem;
 	text-align: left;
+	padding-top: 10vh;
+	padding-bottom:5rem;
+	/*
+	display: block;
+	vertical-align: top;
+	float:none; */
+
+	/* color:white; */
 	/* max-width: 1080px; */
 	/* margin:3rem auto; */
 	/* position: relative; */
-	min-height: 80vh;
+	/* min-height: 80vh; */
 	/* text-align: center; */
 }
 .flower-info img{
