@@ -182,7 +182,7 @@ nav a, a:visited{
   /* font-size: 0.8rem; */
   font-size: 14px !important;
   }
-  .medium-text{
+  .medium-text, .medium-text-link{
   /* font-size: 1rem; */
   font-size: 22px !important;
   }

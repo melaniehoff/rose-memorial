@@ -5,12 +5,14 @@
 	left:0;
 	padding:25px;
 	z-index: 2;
+
 }
 
 #download-flower a {
 	color: #fff !important;
 	text-decoration: none !important;
 	border-bottom: 1px dotted wheat;
+	background: rgba(0,0,0,.3);
 }
 
 .single-flower{
@@ -75,7 +77,83 @@
 }
 
 @media(max-width:768px){
-	.flower, .flower-info{
+
+	#download-flower{
+		position:absolute;
+		text-align: center;
+		margin: 0px auto;
+		top: 50vh;
+		padding:0px;
+		width: 100vw;
+		z-index: 2;
+	}
+
+
+	.flower{
+	  display: block;
+	  vertical-align: top;
+	  float:none;
+		width: 100vw;
+		position: relative;
+		left: 0px;
+
+	}
+	.flower .trim{
+		width: 60%;
+		/* width: 90%; */
+		width: 100vw;
+		height: 50vh;
+		display: block;
+		margin:0 auto;
+		top: -5vh;;
+		position: absolute;
+	}
+	.flower img{
+		/* width: 600px; */
+		/* min-width: 100%; */
+		width: 100%;
+		margin-top:0px;
+		margin-left:0px;
+
+	}
+	.flower-info-container{
+		width: 90vw;
+		position: relative;
+		left: 5vw;
+		top: 50vh;
+		height: 100vh;
+		display:block;
+	}
+
+	.flower-info{
+		display: block;
+	  vertical-align: top;
+		color: #ffedcd;
+		line-height: 1.9rem;
+		text-align: center;
+		padding-top: 10vh;
+		padding-bottom:5rem;
+		/*
+		display: block;
+		vertical-align: top;
+		float:none; */
+
+		/* color:white; */
+		/* max-width: 1080px; */
+		/* margin:3rem auto; */
+		/* position: relative; */
+		/* min-height: 80vh; */
+		/* text-align: center; */
+	}
+	.flower-info img{
+		max-width: 300px
+	}
+
+
+
+
+
+	/* .flower, .flower-info{
 		display: block;
 		float:none;
 		text-align: center;
@@ -92,7 +170,7 @@
 		margin:3rem auto;
 		position: relative;
 		padding:10px;
-	}
+	} */
     nav#flower-nav{
 
 		 filter:none;

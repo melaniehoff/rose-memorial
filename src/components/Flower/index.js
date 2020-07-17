@@ -38,9 +38,9 @@ class Flower extends Component {
 
 			        </div>
 
-              <div id='download-flower' className="medium-text">
+              <div id='download-flower' className="medium-text-link">
               {!this.props.records[i].fields.RoseSVG ? '' :
-               <a className='medium-text' href={this.props.records[i].fields.RoseSVG[0].url} download>download flower</a>
+               <a className='medium-text-link' href={this.props.records[i].fields.RoseSVG[0].url} download>download flower</a>
              }
              </div>
 
