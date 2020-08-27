@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import cookie from "react-cookies";
 
 
 class RoseWall extends Component {
@@ -12,7 +13,7 @@ class RoseWall extends Component {
     this.clickHandler =this.clickHandler.bind(this)
    }
    componentDidMount(){
-    if(localStorage.getItem('rosesHere') == 'true'){
+    if(cookie.load('rosesHere') == 'true'){
         this.clickHandler()
     }
    }
@@ -23,7 +24,7 @@ class RoseWall extends Component {
       document.getElementById("welcome-garden").classList.add('on');
       document.getElementById("about-garden").classList.add('on');
       this.setState({rosesHere: true})
-      localStorage.setItem('rosesHere', true);
+      cookie.save('rosesHere', true,{sameSite:true, maxAge: 10}); //ten seconds max before welcome screen will pop up again
       document.getElementById("modal-button").style.display = "none";
       const log = document.getElementById('rose-content');
       document.addEventListener('keypress', logKey);
