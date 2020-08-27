@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import {VideoEmbed} from '../';
-
+import slugify from 'react-slugify';
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
@@ -25,7 +25,8 @@ class Flower extends Component {
 			}
 	   	const records = [];
 	   	for (var i = this.props.records.length - 1; i >= 0; i--) {
-	   		if(this.props.records[i].id == this.props.match.params.id){
+        console.log(slugify(this.props.records[i].fields.Dedication))
+	   		if(slugify(this.props.records[i].fields.Dedication) == this.props.match.params.id.split('_')[0]){
 	   			records.push(
 		   		 <div key={this.props.records[i].id} id={this.props.records[i].id} className="single-flower" >
 
@@ -66,7 +67,12 @@ class Flower extends Component {
 	   		}
 
 	   	}
-	   	return <div>{records}</div>
+      records.reverse()
+      var x = 0;
+      if(this.props.match.params.id.split('_')[1]){
+        x =  parseInt(this.props.match.params.id.split('_')[1])
+      }
+	   	return <div>{records[x]}</div>
    }
 
    render() {

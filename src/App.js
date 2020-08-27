@@ -56,7 +56,7 @@ render() {
           {/* NAVIGATION */}
           <Switch>
             <Route path="/share">
-              <Share />
+              <Share flowers={records} />
             </Route>
             <Route path="/flower/:id"  >
               <Flower records={records}/>

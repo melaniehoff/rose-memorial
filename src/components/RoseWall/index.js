@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import cookie from "react-cookies";
-
+import slugify from 'react-slugify';
 
 class RoseWall extends Component {
   constructor(props) {
@@ -77,10 +77,21 @@ class RoseWall extends Component {
     window.scroll(400, 400)
     console.log(this.props)
     const {records} = this.props
-    const roses = records.map((x)=>{
+    const roses = records.map((x, i)=>{
+      var url = slugify(x.fields.Dedication)
+      var flowerArray = [];
+      console.log(i)
+      for (var j = 0; j <= i; j++) {
+        if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
+          flowerArray.push(records[j])
+        } 
+      }
+      if(flowerArray.length > 0){
+        url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
+      }
       return(
 
-        <a href={'/flower/'+x.id} key={x.id} id={x.id} className="station" >
+        <a href={'/flower/'+url} key={x.id} id={x.id} className="station" >
 
         <div className="trim">
           {!x.fields.RoseSVG ? '' :

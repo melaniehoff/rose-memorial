@@ -5,7 +5,7 @@ import P5Wrapper from "react-p5-wrapper";
 import sketch from "../../utils/p5/sketch";
 import './style.css';
 import {VideoEmbed} from '../';
-
+import slugify from 'react-slugify';
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base("appZuPErukOoOExF9");
 
 class Share extends Component {
@@ -97,13 +97,23 @@ class Share extends Component {
         } = this.state;
 
         const submissionCallBack = (err, records) => {
+          const {flowers} = this.props
           if (err) {
             console.error(err);
             return;
           }
           document.getElementById("submission").classList.add("submitted");
-          document.getElementById("submission-link").href = "/flower/"+records[0].id
-
+          var flowerArray = []
+          for (var i = flowers.length - 1; i >= 0; i--) {
+            if(flowers[i].fields.Dedication == records[0].fields.Dedication && records[0].id != flowers[i].id){
+              flowerArray.push(flowers[i])
+            }
+          }
+          if(flowerArray.length > 0){
+            document.getElementById("submission-link").href = "/flower/"+ slugify(records[0].fields.Dedication) + "_"+ flowerArray.length;
+          }else{
+          document.getElementById("submission-link").href = "/flower/"+slugify(records[0].fields.Dedication)
+          }
           const timeoutCallBack = () => {
             const url = `https://@api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/delete_by_token`;
             request
@@ -142,6 +152,7 @@ class Share extends Component {
   }
 
   render() {
+    const{flowers} = this.props
     const uploadTag = {
       cloudName: process.env.REACT_APP_CLOUD_NAME,
       uploadPreset: process.env.REACT_APP_PRESET_NAME,
