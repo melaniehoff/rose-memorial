@@ -28,18 +28,18 @@ $newdiv.fadeIn(100, function(){
 
 }
 
-setInterval(function (){
-    makeDiv();
-    makeDiv();
-    makeDiv();
-    makeDiv();
-    makeDiv();
-    makeDiv();
-    makeDiv();
-    makeDiv();
+// setInterval(function (){
+//     makeDiv();
+//     makeDiv();
+//     makeDiv();
+//     makeDiv();
+//     makeDiv();
+//     makeDiv();
+//     makeDiv();
+//     makeDiv();
 
 
-}, 100);
+// }, 100);
 
 
 
