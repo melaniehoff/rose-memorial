@@ -18,7 +18,6 @@ class RoseWall extends Component {
    }
   clickHandler() {
     var elmnt = document.getElementById("rose-content");
-    // window.scroll(400, 400)
       document.getElementById("rose-container").classList.add('on');
       document.getElementsByTagName("nav")[0].classList.add('on');
       document.getElementById("welcome-garden").classList.add('on');
@@ -26,11 +25,8 @@ class RoseWall extends Component {
       this.setState({rosesHere: true})
       localStorage.setItem('rosesHere', true);
       document.getElementById("modal-button").style.display = "none";
-
       const log = document.getElementById('rose-content');
-
       document.addEventListener('keypress', logKey);
-
       function logKey(e) {
         if(`${e.code}` == "Equal"){
            //plus
@@ -72,9 +68,7 @@ class RoseWall extends Component {
            document.getElementById("rose-container").classList.add('one');
           }
         }
-
       }
-
   }
 
 
@@ -153,7 +147,7 @@ class RoseWall extends Component {
         </div>
 
         <div id='about-garden' className="medium-text-link">
-           <a className="medium-text-link" href="/">about this garden</a>
+           <a className="medium-text-link" href="/about">about this garden</a>
           </div>
 
 
