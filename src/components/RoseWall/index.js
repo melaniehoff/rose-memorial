@@ -20,6 +20,12 @@ class RoseWall extends Component {
   clickHandler() {
     var elmnt = document.getElementById("rose-content");
       document.getElementById("rose-container").classList.add('on');
+      const makeVisible0 = document.getElementsByClassName("hidden")[0]
+      const makeVisible1 = document.getElementsByClassName("hidden")[1]
+      const makeVisible2 = document.getElementsByClassName("hidden")[2]
+      makeVisible0.classList.remove('hidden')
+      makeVisible1.classList.remove('hidden')
+      makeVisible2.classList.remove('hidden')
       document.getElementsByTagName("nav")[0].classList.add('on');
       document.getElementById("welcome-garden").classList.add('on');
       document.getElementById("about-garden").classList.add('on');
@@ -135,26 +141,16 @@ class RoseWall extends Component {
 
       </div>
       </div>
-        <div id='welcome-garden' className="medium-text">
+        <div id='welcome-garden' className="medium-text hidden">
           {/* <span>Welcome to the garden.</span> */}
             <div className='small-text'>
               <span>desktop: use + - keys to zoom & arrow keys to pan</span> <br/>
               <span>mobile: pinch to zoom</span>
             </div>
         </div>
-
-        <div id='garden-creds' className="medium-text">
-          {/* <span>Welcome to the garden.</span> */}
-            <div className='small-text'>
-
-            </div>
-        </div>
-
-        <div id='about-garden' className="medium-text-link">
+        <div id='about-garden' className="medium-text-link hidden">
            <a className="medium-text-link" href="/about">about this garden</a>
           </div>
-
-
       </div>
       );
   }
