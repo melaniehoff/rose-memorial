@@ -110,11 +110,11 @@ class RoseWall extends Component {
               <span>
               Welcome to the CLOUD9 Memorial Garden, a space for collective remembrance with care, gentleness and respect. Pandemic times limit how we can gather to mourn and remember. During periods of mass loss and isolation, creating intentional spaces to enact and celebrate collective memory is vital. Our community continues to plant new seeds for all of ours that we have lost in this time, due to state violence, due to Covid and due to the continued systems centered on harming Black people, Indigenous people, brown people, low income people, trans people, undocumented people, and marginalized people. We invite you to transform personal grief into collective healing, growth and liberation.
               </span>
+              <span className="subtitle">
+              This garden is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love On Ur Desktop)</a>
+              </span>
 
             <button className="medium-text" id="modal-button" onClick={this.clickHandler}><span className='medium-text'> Enter Garden</span></button>
-            <span className="subtitle">
-            This garden is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love On Ur Desktop)</a>
-            </span>
             </p>
         </div>
       </div>
