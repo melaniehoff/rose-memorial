@@ -8,7 +8,12 @@
    transition: all .3s ease-in-out;
 }
 
-
+.subtitle {
+			font-style: italic;
+    padding-top: 2em;
+    font-size: .8em;
+    color: grey;
+}
 
 #welcome-garden{
 	position:fixed;
