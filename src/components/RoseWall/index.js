@@ -143,7 +143,7 @@ class RoseWall extends Component {
         <div id='garden-creds' className="medium-text">
           {/* <span>Welcome to the garden.</span> */}
             <div className='small-text'>
-              <span>site credits test</span>
+
             </div>
         </div>
 
