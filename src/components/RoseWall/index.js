@@ -11,7 +11,11 @@ class RoseWall extends Component {
     };
     this.clickHandler =this.clickHandler.bind(this)
    }
-
+   componentDidMount(){
+    if(localStorage.getItem('rosesHere') == 'true'){
+        this.clickHandler()
+    }
+   }
   clickHandler() {
     var elmnt = document.getElementById("rose-content");
     // window.scroll(400, 400)
@@ -20,6 +24,7 @@ class RoseWall extends Component {
       document.getElementById("welcome-garden").classList.add('on');
       document.getElementById("about-garden").classList.add('on');
       this.setState({rosesHere: true})
+      localStorage.setItem('rosesHere', true);
       document.getElementById("modal-button").style.display = "none";
 
       const log = document.getElementById('rose-content');
