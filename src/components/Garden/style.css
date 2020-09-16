@@ -1,0 +1,21 @@
+nav a, a:visited{
+	/*border: 5px solid blue;*/
+	color: #fff;
+	/* font-size: 1.2em; */
+	text-decoration: none !important;
+	border-bottom: 1px dotted wheat;
+}
+
+
+nav a, a:hover{
+	color: #ffedcd;
+	border-bottom: 1px dotted #fff;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+p a {
+	border-bottom: 1px dotted wheat;
+}

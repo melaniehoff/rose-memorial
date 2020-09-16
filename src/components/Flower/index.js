@@ -80,7 +80,7 @@ class Flower extends Component {
     	<div>
     	<div>{this.renderFlower()}</div>
     	<nav id='flower-nav' className='medium-text-link'>
-         <a href="/" className='medium-text-link'>↩ back to the garden</a>
+         <a href="/garden" className='medium-text-link'>↩ back to the garden</a>
          </nav>
          </div>
     )

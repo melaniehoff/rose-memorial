@@ -8,7 +8,7 @@ import {
   useParams
 } from "react-router-dom";
 import './App.css';
-import {Share, Home, Flower, About} from './components'
+import {Share, Home,Garden, Flower, About} from './components'
 
 
 const pub = process.env.PUBLIC_URL;
@@ -63,6 +63,9 @@ render() {
             </Route>
             <Route exact path="/about">
               <About />
+            </Route>
+            <Route exact path="/garden">
+              <Garden records={records} />
             </Route>
             <Route path="/">
               <Home records={records} />
