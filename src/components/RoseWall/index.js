@@ -95,7 +95,11 @@ class RoseWall extends Component {
       if(flowerArray.length > 0){
         url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
       }
+      if(!x.fields.Private){
+
+      
       return(
+
 
         <a href={'/flower/'+url} key={x.id} id={x.id} className="station" >
 
@@ -107,7 +111,7 @@ class RoseWall extends Component {
           <p className='dedication-name'>{x.fields.Dedication}</p>
           <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
          </a>
-       )
+       )}
       })
 
     return(

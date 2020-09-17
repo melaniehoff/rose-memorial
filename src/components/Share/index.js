@@ -140,8 +140,7 @@ class Share extends Component {
               OptionalLink: optional_link,
               OptionalVideoLink: optional_video_link,
               OptionalPhoto: [{ url: optional_photo }],
-              RoseSVG: [{ url: response.body["url"] }],
-              Public: "Yes",
+              RoseSVG: [{ url: response.body["url"] }]
             },
           },
         ];
