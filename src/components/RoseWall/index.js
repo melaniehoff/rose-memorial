@@ -37,7 +37,16 @@ class RoseWall extends Component {
       function logKey(e) {
         if(`${e.code}` == "Equal"){
            //plus
-          if(document.getElementById("rose-container").classList.contains('five')){
+          if(document.getElementById("rose-container").classList.contains('eight')){
+            document.getElementById("rose-container").classList.remove('eight');
+            document.getElementById("rose-container").classList.add('seven');
+           }else if(document.getElementById("rose-container").classList.contains('seven')){
+            document.getElementById("rose-container").classList.remove('seven');
+            document.getElementById("rose-container").classList.add('six');
+           }else if(document.getElementById("rose-container").classList.contains('six')){
+            document.getElementById("rose-container").classList.remove('six');
+            document.getElementById("rose-container").classList.add('five');
+           }else if(document.getElementById("rose-container").classList.contains('five')){
             document.getElementById("rose-container").classList.remove('five');
             document.getElementById("rose-container").classList.add('four');
            }else if(document.getElementById("rose-container").classList.contains('four')){
@@ -70,6 +79,15 @@ class RoseWall extends Component {
             document.getElementById("rose-container").classList.remove('four');
             document.getElementById("rose-container").classList.add('five');
            }else if(document.getElementById("rose-container").classList.contains('five')){
+            document.getElementById("rose-container").classList.remove('five');
+            document.getElementById("rose-container").classList.add('six');
+           }else if(document.getElementById("rose-container").classList.contains('six')){
+            document.getElementById("rose-container").classList.remove('six');
+            document.getElementById("rose-container").classList.add('seven');
+           }else if(document.getElementById("rose-container").classList.contains('seven')){
+            document.getElementById("rose-container").classList.remove('seven');
+            document.getElementById("rose-container").classList.add('eight');
+           }else if(document.getElementById("rose-container").classList.contains('eight')){
 
            }else {
            document.getElementById("rose-container").classList.add('one');

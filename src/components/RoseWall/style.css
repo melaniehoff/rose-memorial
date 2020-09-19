@@ -108,6 +108,15 @@ body {
    width:100%;*/
 
 }
+.rose-container.eight{
+	transform:scale(0.2);
+}
+.rose-container.seven{
+	transform:scale(0.3);
+}
+.rose-container.six{
+	transform:scale(0.4);
+}
 .rose-container.five{
 	transform:scale(0.5);
 }
