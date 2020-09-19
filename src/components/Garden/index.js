@@ -102,6 +102,7 @@ class Garden extends Component {
       if(flowerArray.length > 0){
         url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
       }
+      if(!x.fields.Private){
       return(
 
         <a href={'/flower/'+url} key={x.id} id={x.id} className="station" >
@@ -115,6 +116,7 @@ class Garden extends Component {
           <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
          </a>
        )
+    }
       })
 
     return(

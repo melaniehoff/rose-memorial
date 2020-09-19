@@ -3,7 +3,7 @@ import './style.css';
 import {VideoEmbed} from '../';
 import slugify from 'react-slugify';
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
-
+import ReactMarkdown from "react-markdown";
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Flower extends Component {
 
@@ -52,7 +52,7 @@ class Flower extends Component {
                       {!this.props.records[i].fields.OptionalPhoto ? '' :
                       <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
                       }
-                      <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
+                      <div className='rose-note'><p className='medium-text'><ReactMarkdown  source={this.props.records[i].fields.OptionalNote}/></p></div>
                       {linkCheck(this.props.records[i].fields)}
                       <br></br>
 
