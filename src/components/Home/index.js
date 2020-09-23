@@ -23,12 +23,14 @@ class Home extends Component {
    	const records = [];
    	console.log(this.props)
    	for (var i = this.props.records.length - 1; i >= 0; i--) {
+      if(!this.props.records[i].fields.Private){
    		records.push(
    		<div key={this.props.records[i].id} className="station">
            <img src={this.props.records[i].fields.RoseSVG[0].url}/>
 
         </div>
         )
+      }
    	}
    	console.log(records)
    	return <div>{records}</div>
@@ -44,7 +46,7 @@ class Home extends Component {
       // <div>{this.renderFlowers()}</div>
       <div>
       <RoseWall {...this.props}/>
-         <nav className='medium-text-link'>
+         <nav className='medium-text-link hidden'>
           <Link className='medium-text-link' to="/share">share your flower dedication</Link>
           </nav>
 

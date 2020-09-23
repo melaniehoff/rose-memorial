@@ -1,4 +1,6 @@
 export { default as Home} from './Home'
+export { default as Garden} from './Garden'
+export { default as About} from './About'
 export { default as Share } from './Share'
 export { default as Flower } from './Flower'
 export { default as RoseWall } from './RoseWall'

@@ -79,6 +79,9 @@ a {
     line-height: 1.2;
     letter-spacing: 0.5px;
   }
+  .hidden{
+    visibility: hidden;
+  }
   .large-text{
     font-size: 2.8vw;
     font-family: 'Canela Web';

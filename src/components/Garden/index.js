@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import './style.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import cookie from "react-cookies";
 import slugify from 'react-slugify';
 
-class RoseWall extends Component {
+class Garden extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rosesHere: false,
+      rosesHere: true,
       zoomLevel:0
     };
     this.clickHandler =this.clickHandler.bind(this)
@@ -37,16 +43,7 @@ class RoseWall extends Component {
       function logKey(e) {
         if(`${e.code}` == "Equal"){
            //plus
-          if(document.getElementById("rose-container").classList.contains('eight')){
-            document.getElementById("rose-container").classList.remove('eight');
-            document.getElementById("rose-container").classList.add('seven');
-           }else if(document.getElementById("rose-container").classList.contains('seven')){
-            document.getElementById("rose-container").classList.remove('seven');
-            document.getElementById("rose-container").classList.add('six');
-           }else if(document.getElementById("rose-container").classList.contains('six')){
-            document.getElementById("rose-container").classList.remove('six');
-            document.getElementById("rose-container").classList.add('five');
-           }else if(document.getElementById("rose-container").classList.contains('five')){
+          if(document.getElementById("rose-container").classList.contains('five')){
             document.getElementById("rose-container").classList.remove('five');
             document.getElementById("rose-container").classList.add('four');
            }else if(document.getElementById("rose-container").classList.contains('four')){
@@ -79,15 +76,6 @@ class RoseWall extends Component {
             document.getElementById("rose-container").classList.remove('four');
             document.getElementById("rose-container").classList.add('five');
            }else if(document.getElementById("rose-container").classList.contains('five')){
-            document.getElementById("rose-container").classList.remove('five');
-            document.getElementById("rose-container").classList.add('six');
-           }else if(document.getElementById("rose-container").classList.contains('six')){
-            document.getElementById("rose-container").classList.remove('six');
-            document.getElementById("rose-container").classList.add('seven');
-           }else if(document.getElementById("rose-container").classList.contains('seven')){
-            document.getElementById("rose-container").classList.remove('seven');
-            document.getElementById("rose-container").classList.add('eight');
-           }else if(document.getElementById("rose-container").classList.contains('eight')){
 
            }else {
            document.getElementById("rose-container").classList.add('one');
@@ -98,6 +86,7 @@ class RoseWall extends Component {
 
 
   render() {
+
     window.scroll(400, 400)
     console.log(this.props)
     const {records} = this.props
@@ -114,10 +103,7 @@ class RoseWall extends Component {
         url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
       }
       if(!x.fields.Private){
-
-      
       return(
-
 
         <a href={'/flower/'+url} key={x.id} id={x.id} className="station" >
 
@@ -129,52 +115,46 @@ class RoseWall extends Component {
           <p className='dedication-name'>{x.fields.Dedication}</p>
           <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
          </a>
-       )}
+       )
+    }
       })
 
     return(
+
       <div>
-      <div id='rose-container' className="rose-container">
+      <div id='rose-container' className="rose-container on">
         <div id='rose-content' className="rose-content">
         {roses}
       {this.state.rosesHere ? '' :
 
 
-        <div className="info">
-
-
-
-          <div className="info-text">
-            <p className="medium-text">
-              <span>
-              Welcome to the CLOUD9 Memorial Garden, a space for collective remembrance with care, gentleness and respect. Pandemic times limit how we can gather to mourn and remember. During periods of mass loss and isolation, creating intentional spaces to enact and celebrate collective memory is vital. Our community continues to plant new seeds for all of ours that we have lost in this time, due to state violence, due to Covid and due to the continued systems centered on harming Black people, Indigenous people, brown people, low income people, trans people, undocumented people, and marginalized people. We invite you to transform personal grief into collective healing, growth and liberation.
-              </span>
-              <span className="subtitle">
-              This garden is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love On Ur Desktop)</a>
-              </span>
-
-            <button className="medium-text" id="modal-button" onClick={this.clickHandler}><span className='medium-text'> Enter Garden</span></button>
-            </p>
-        </div>
-      </div>
+''
 
       }
 
 
       </div>
       </div>
-        <div id='welcome-garden' className="medium-text hidden">
+        <div id='welcome-garden' className="medium-text on">
           {/* <span>Welcome to the garden.</span> */}
             <div className='small-text'>
               <span>desktop: use + - keys to zoom & arrow keys to pan</span> <br/>
               <span>mobile: pinch to zoom</span>
             </div>
         </div>
-        <div id='about-garden' className="medium-text-link hidden">
+        <div id='about-garden' className="medium-text-link on">
            <a className="medium-text-link" href="/about">about this garden</a>
           </div>
+          <nav className='medium-text-link on'>
+          <Link className='medium-text-link' to="/share">share your flower dedication</Link>
+          </nav>
+
+       
+
+      
       </div>
+
       );
   }
 }
-export default RoseWall
+export default Garden

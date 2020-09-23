@@ -5,7 +5,7 @@ import P5Wrapper from "react-p5-wrapper";
 import sketch from "../../utils/p5/sketch";
 import './style.css';
 import {VideoEmbed} from '../';
-
+import slugify from 'react-slugify';
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base("appZuPErukOoOExF9");
 
 class Share extends Component {
@@ -97,13 +97,23 @@ class Share extends Component {
         } = this.state;
 
         const submissionCallBack = (err, records) => {
+          const {flowers} = this.props
           if (err) {
             console.error(err);
             return;
           }
           document.getElementById("submission").classList.add("submitted");
-          document.getElementById("submission-link").href = "/flower/"+records[0].id
-
+          var flowerArray = []
+          for (var i = flowers.length - 1; i >= 0; i--) {
+            if(flowers[i].fields.Dedication == records[0].fields.Dedication && records[0].id != flowers[i].id){
+              flowerArray.push(flowers[i])
+            }
+          }
+          if(flowerArray.length > 0){
+            document.getElementById("submission-link").href = "/flower/"+ slugify(records[0].fields.Dedication) + "_"+ flowerArray.length;
+          }else{
+          document.getElementById("submission-link").href = "/flower/"+slugify(records[0].fields.Dedication)
+          }
           const timeoutCallBack = () => {
             const url = `https://@api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/delete_by_token`;
             request
@@ -130,8 +140,7 @@ class Share extends Component {
               OptionalLink: optional_link,
               OptionalVideoLink: optional_video_link,
               OptionalPhoto: [{ url: optional_photo }],
-              RoseSVG: [{ url: response.body["url"] }],
-              Public: "Yes",
+              RoseSVG: [{ url: response.body["url"] }]
             },
           },
         ];
@@ -142,6 +151,7 @@ class Share extends Component {
   }
 
   render() {
+    const{flowers} = this.props
     const uploadTag = {
       cloudName: process.env.REACT_APP_CLOUD_NAME,
       uploadPreset: process.env.REACT_APP_PRESET_NAME,
@@ -166,11 +176,11 @@ class Share extends Component {
             />
           </label>
           <label>
-            <span className='medium-text'>Leave a Note:</span>
+            <span className='medium-text'>Add a reflection:</span>
             <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
           </label>
           <label>
-            <span className='medium-text'>Leave a link:</span><br/>
+            <span className='medium-text'>Add a resource:</span><br/>
             <input
               className="medium-text"
               type="text"
@@ -185,14 +195,15 @@ class Share extends Component {
                 id="photo-button"
                 onClick={() => this.showWidget(myWidget)}
               >
-                <span className='small-text' id='inner-photo'>upload a photo (optional)</span>
+                <span className='small-text' id='inner-photo'>Add a photograph (optional)</span>
               </button>
             </div>
           </label>
           <label>
-            <span className='medium-text'>Leave a video link, supports youtube & vimeo (optional):</span><br/>
+            <span className='medium-text'>Add a video link (optional):</span><br/>
             <input
               className="medium-text"
+              // placeholder="supports youtube & vimeo"
               type="text"
               value={optional_video_link}
               onChange={this.handleVideoLink}
@@ -205,13 +216,15 @@ class Share extends Component {
             Review Dedication
           </button>
           <button className='medium-text' id="submit-button" onClick={this.handleSubmit}>
-            Submit Dedication
+            Share Dedication
           </button><br/>
           <a className='medium-text' id='submission-link'>View Flower Page</a>
         </div>
+
         <nav className='medium-text-link'>
-         <a href="/">↩ back to the garden</a>
+         <a href="/garden">↩ back to the garden</a>
          </nav>
+
         {this.state.formHere ? '' :
 
 
@@ -220,15 +233,12 @@ class Share extends Component {
           <div className="info-text">
             <p className="medium-text">
               <span>
-                content for ritual and time to pause before submitting
+                We invite you to take a moment to leave a memory.
               </span>
 
-            <button className="medium-text" id="modal-button" onClick={this.clickHandler}> Submit a Dedication</button>
+            <button className="medium-text" id="modal-button" onClick={this.clickHandler}>Share a Dedication</button>
             </p>
         </div>
-
-
-
 
 
         {/* <div id='about-garden' className="medium-text">

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
 import {VideoEmbed} from '../';
-
+import slugify from 'react-slugify';
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
-
+import ReactMarkdown from "react-markdown";
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Flower extends Component {
 
@@ -25,7 +25,8 @@ class Flower extends Component {
 			}
 	   	const records = [];
 	   	for (var i = this.props.records.length - 1; i >= 0; i--) {
-	   		if(this.props.records[i].id == this.props.match.params.id){
+        console.log(slugify(this.props.records[i].fields.Dedication))
+	   		if(slugify(this.props.records[i].fields.Dedication) == this.props.match.params.id.split('_')[0]){
 	   			records.push(
 		   		 <div key={this.props.records[i].id} id={this.props.records[i].id} className="single-flower" >
 
@@ -51,7 +52,7 @@ class Flower extends Component {
                       {!this.props.records[i].fields.OptionalPhoto ? '' :
                       <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
                       }
-                      <div className='rose-note'><p className='medium-text'>{this.props.records[i].fields.OptionalNote}</p></div>
+                      <div className='rose-note'><p className='medium-text'><ReactMarkdown  source={this.props.records[i].fields.OptionalNote}/></p></div>
                       {linkCheck(this.props.records[i].fields)}
                       <br></br>
 
@@ -66,7 +67,12 @@ class Flower extends Component {
 	   		}
 
 	   	}
-	   	return <div>{records}</div>
+      records.reverse()
+      var x = 0;
+      if(this.props.match.params.id.split('_')[1]){
+        x =  parseInt(this.props.match.params.id.split('_')[1])
+      }
+	   	return <div>{records[x]}</div>
    }
 
    render() {
@@ -74,7 +80,7 @@ class Flower extends Component {
     	<div>
     	<div>{this.renderFlower()}</div>
     	<nav id='flower-nav' className='medium-text-link'>
-         <a href="/" className='medium-text-link'>↩ back to the garden</a>
+         <a href="/garden" className='medium-text-link'>↩ back to the garden</a>
          </nav>
          </div>
     )
