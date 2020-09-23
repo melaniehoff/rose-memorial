@@ -7,7 +7,9 @@
 
 /*----FONTS----*/
 
-
+a {
+  word-wrap: break-word;
+}
 @font-face {
     font-family: 'Canela Web';
     src: url('./fonts/CanelaWeb-Thin.woff2') format('woff2'),
@@ -61,6 +63,14 @@
     line-height: 1.2;
     letter-spacing: 0.5px;
   }
+  a.medium-text {
+    border-bottom: 1px dotted wheat;
+  }
+
+  a.medium-text:hover {
+    border-bottom: 1px dotted white;
+  }
+
   .medium-text-link{
     font-family: 'Canela Web';
     font-weight: bold;
