@@ -108,14 +108,14 @@ class RoseWall extends Component {
       for (var j = 0; j <= i; j++) {
         if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
           flowerArray.push(records[j])
-        } 
+        }
       }
       if(flowerArray.length > 0){
         url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
       }
       if(!x.fields.Private){
 
-      
+
       return(
 
 
@@ -147,11 +147,11 @@ class RoseWall extends Component {
           <div className="info-text">
             <p className="medium-text">
               <span>
-              Welcome to the CLOUD9 Memorial Garden, a space for collective remembrance with care, gentleness and respect. Pandemic times limit how we can gather to mourn and remember. During periods of mass loss and isolation, creating intentional spaces to enact and celebrate collective memory is vital. Our community continues to plant new seeds for all of ours that we have lost in this time, due to state violence, due to Covid and due to the continued systems centered on harming Black people, Indigenous people, brown people, low income people, trans people, undocumented people, and marginalized people. We invite you to transform personal grief into collective healing, growth and liberation.
+              Welcome to the CLOUD9 Memorial Garden, a space for collective remembrance with care, gentleness and respect. Pandemic times limit how we can gather to mourn and remember. During periods of mass loss and isolation, creating intentional spaces to enact and celebrate collective memory is vital. Our community continues to plant new seeds for all of ours that we have lost in this time, due to state violence, due to Covid and due to the continued systems centered on harming Black people, Indigenous people, brown people, low income people, trans people, undocumented people, and marginalized people. In this garden, each flower is unique to its dedication. We invite you to transform personal grief into collective healing, growth and liberation.
               </span>
-              <span className="subtitle">
+              {/* <span className="subtitle">
               This garden is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love On Ur Desktop)</a>
-              </span>
+              </span> */}
 
             <button className="medium-text" id="modal-button" onClick={this.clickHandler}><span className='medium-text'> Enter Garden</span></button>
             </p>
