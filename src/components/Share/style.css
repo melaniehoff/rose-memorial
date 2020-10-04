@@ -33,17 +33,46 @@ canvas-holder> div{
 }
 #photo-image-preview.show{
 	display:block;
-	width: 200px;
+	width: 35%;
 	margin:0 auto;
+	border: 1px solid wheat;
 }
-/*#submission.on{
+#video-preview {
+	width: 50%;
+	margin: 0px auto;
+}
+
+#video-preview iframe {
+		border: 1px solid wheat;
+		box-sizing: border-box;
+		border: 1px solid wheat;
+}
+
+.formlabel {
+	font-family: 'Canela Web';
+	font-weight: bold;
+	font-size: 1.7vw !important;
+}
+/* #submission.on{
     float: left;
-    width: 50vw;
     text-align: left;
+		width: 45vw;
+    position: absolute;
+    left: 50vw;
+    height: 100vh;
+} */
+
+/* #submission.on .formlabel{
+	display: none;
+	opacity: 0;
+	visibility: hidden;
+	height: 0px;
 }
+
 #submission.on textarea{
 	width: 90%;
 	border:none;
+	margin: 0px;
 }
 #submission.on input[type='text']{
 	width:90%;
@@ -54,7 +83,9 @@ canvas-holder> div{
 	margin-left:0;
 	display:inline-block;
 	vertical-align: top;
-}*/
+} */
+
+
 #flower + div#canvas-holder.on{
 	display:block;
 	position:relative;
@@ -78,6 +109,7 @@ canvas-holder> div{
 /* TEMP SUBMISSION FORM STYLES*/
 #submission.on textarea, #submission.on input[type='text']{
 	border:0.5px solid #ffedcd66;
+
 }
 .info-text{
 background: rgba(0,0,0,0.3);
@@ -122,11 +154,14 @@ textarea, input[type='text']{
 	margin-top:10px;
 	background: rgba(0,0,0,0);
 	border:1px solid #ffedcd;
+	padding: 10px;
 }
 textarea:focus, input[type='text']:focus{
-	border:1px solid #ffedcd;
+	border:1px solid #fff;
 	outline:none;
 }
+
+
 #flower + div {
   position: absolute;
   left:60%;
@@ -153,6 +188,7 @@ textarea{
   color:#ffedcd;
   padding: 25px 50px 50px;
   max-width: 1080px;
+	padding-top: 10vh;
 }
 label{
   width: 100%;
@@ -184,8 +220,8 @@ input[type='file']{
   display: block;
 }
 textarea{
-  width: 40%;
-  height: 200px;
+  width: 50%;
+  height: 400px;
   display: block;
 }
 #submission.submitted label, #submission.submitted button{
@@ -218,7 +254,8 @@ textarea{
 }
 #submission.submitted:before{
   content:"Your flower has been planted, honored with your dedication.";
-  font-size:1.2rem;
+  /* font-size:1.2rem; */
+	font-size: 1.7vw !important;
 	font-family: 'orpheus';
 	font-weight: bold;
 }
@@ -239,6 +276,27 @@ textarea{
  			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
  			padding-top: 10vh;
  	}
+
+	#video-preview {
+		width: 90%;
+		margin: 0px auto;
+	}
+
+	.formlabel {
+		font-family: 'Canela Web';
+		font-weight: bold;
+		font-size: 22px !important;
+	}
+
+	textarea {
+    width: 90%;
+    height: 400px;
+    display: block;
+}
+
+#submission.submitted:before{
+	font-size: 22px !important;
+}
 
 	/* .info-text p{
 

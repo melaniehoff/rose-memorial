@@ -243,11 +243,11 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 }
 
 .rose-content .info-text p a {
-	color: #ffedcd;
+	color: #fff;
 }
 
 .rose-content .info-text p a:hover {
-	color: #fff !important;
+	color: #ffedcd !important;
 }
 
 

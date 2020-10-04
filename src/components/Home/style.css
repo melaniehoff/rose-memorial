@@ -7,7 +7,7 @@ nav a, a:visited{
 }
 
 
-nav a, a:hover{
+nav a, a:hover, #download-flower a:hover{
 	color: #ffedcd !important;
 	border-bottom: 1px dotted #fff;
 }

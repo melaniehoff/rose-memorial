@@ -53,7 +53,7 @@ class Flower extends Component {
                       <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
                       }
                       <div className='rose-note'><p className='medium-text'><ReactMarkdown  source={this.props.records[i].fields.OptionalNote}/></p></div>
-                      {linkCheck(this.props.records[i].fields)}
+                     {linkCheck(this.props.records[i].fields)}
                       <br></br>
 
                       {!this.props.records[i].fields.OptionalVideoLink ? '' :

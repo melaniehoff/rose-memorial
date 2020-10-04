@@ -15,6 +15,12 @@
 	background: rgba(0,0,0,.3);
 }
 
+  iframe {
+		box-sizing: border-box;
+		border: 1px solid wheat;
+		/* margin-top: 40px; */
+}
+
 .single-flower{
 	text-align: center;
 	margin:0 auto;
@@ -73,7 +79,10 @@
 	/* text-align: center; */
 }
 .flower-info img{
-	max-width: 300px
+	/* max-width: 300px */
+	width: 50%;
+	border: 1px solid wheat;
+	box-sizing: border-box;
 }
 
 @media(max-width:768px){
@@ -145,9 +154,9 @@
 		/* min-height: 80vh; */
 		/* text-align: center; */
 	}
-	.flower-info img{
-		max-width: 300px
-	}
+	/* .flower-info img{
+		width: 400px
+	} */
 
 
 

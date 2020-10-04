@@ -167,7 +167,7 @@ class Share extends Component {
         </div>
         <div id="submission">
           <label>
-            <span className='medium-text'>Dedicated in memory of</span><br/>
+            <span className='medium-text formlabel'>Dedicated in memory of</span><br/>
             <input
               className="medium-text"
               type="text"
@@ -175,19 +175,7 @@ class Share extends Component {
               onChange={this.handleDedication}
             />
           </label>
-          <label>
-            <span className='medium-text'>Add a reflection</span>
-            <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
-          </label>
-          <label>
-            <span className='medium-text'>Add a resource link <i>(optional)</i></span><br/>
-            <input
-              className="medium-text"
-              type="text"
-              value={optional_link}
-              onChange={this.handleLink}
-            />
-          </label>
+
           <label>
             <div>
               <img id='photo-image-preview' src=''/>
@@ -199,8 +187,23 @@ class Share extends Component {
               </button>
             </div>
           </label>
+
           <label>
-            <span className='medium-text'>Add a video link <i>(optional)</i></span><br/>
+            <span className='medium-text formlabel'>Add a reflection</span>
+            <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
+          </label>
+          <label>
+            <span className='medium-text formlabel'>Add a resource link <i>(optional)</i></span><br/>
+            <input
+              className="medium-text"
+              type="text"
+              value={optional_link}
+              onChange={this.handleLink}
+            />
+          </label>
+
+          <label>
+            <span className='medium-text formlabel'>Add a video link <i>(optional)</i></span><br/>
             <input
               className="medium-text"
               // placeholder="supports youtube & vimeo"
