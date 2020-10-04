@@ -46,8 +46,8 @@ class Home extends Component {
       // <div>{this.renderFlowers()}</div>
       <div>
       <RoseWall {...this.props}/>
-         <nav className='medium-text-link hidden'>
-          <Link className='medium-text-link' to="/share">share your flower dedication</Link>
+         <nav className='medium-text-link hidden' id='share'>
+          <Link className='medium-text-link' to="/share">share a dedication</Link>
           </nav>
 
 

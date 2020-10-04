@@ -142,8 +142,6 @@ class RoseWall extends Component {
 
         <div className="info">
 
-
-
           <div className="info-text">
             <p className="medium-text">
               <span>
@@ -153,7 +151,7 @@ class RoseWall extends Component {
               This garden is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love On Ur Desktop)</a>
               </span> */}
 
-            <button className="medium-text" id="modal-button" onClick={this.clickHandler}><span className='medium-text'> Enter Garden</span></button>
+            <button className="medium-text" id="modal-button" onClick={this.clickHandler}><span className='medium-text-link'> enter garden</span></button>
             </p>
         </div>
       </div>

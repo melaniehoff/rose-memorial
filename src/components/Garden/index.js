@@ -97,7 +97,7 @@ class Garden extends Component {
       for (var j = 0; j <= i; j++) {
         if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
           flowerArray.push(records[j])
-        } 
+        }
       }
       if(flowerArray.length > 0){
         url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
@@ -145,13 +145,13 @@ class Garden extends Component {
         <div id='about-garden' className="medium-text-link on">
            <a className="medium-text-link" href="/about">about this garden</a>
           </div>
-          <nav className='medium-text-link on'>
-          <Link className='medium-text-link' to="/share">share your flower dedication</Link>
+          <nav className='medium-text-link on' id='share'>
+          <Link className='medium-text-link' to="/share">share your dedication</Link>
           </nav>
 
-       
 
-      
+
+
       </div>
 
       );

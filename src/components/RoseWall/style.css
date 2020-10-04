@@ -207,6 +207,10 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 	background-position: center left;
 }
 
+
+
+
+
 .info {
 	position: fixed;
 	top: 0px;
@@ -220,9 +224,11 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 	display: table;
 }
 
+
 .rose-content .info-text {
 	display: table-cell;
   	vertical-align: middle;
+
 }
 
 .rose-content .info-text p {
@@ -230,6 +236,7 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
     width: 56vw;
     color: #ffedcd;
     text-shadow: none;
+		box-sizing: border-box;
     padding: 25px;
     margin-left: 21vw;
 		text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
@@ -309,21 +316,41 @@ p.dedication-name {
 
 @media(max-width:768px){
 
-	.rose-content .info-text p{
-		width: calc(100% - 20px);
-		padding:10px;
-        margin-left:0;
+.rose-content .info-text {
+	width: 100%;
+}
+
+	.rose-content .info-text p {
+	    width: 90%;
+			margin-left: 5vw;
+
+	    padding: 5vw;
+
+			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+			padding-top: 10vh;
 	}
+
+
+
+	.rose-content .info-text p a {
+		color: #ffedcd;
+	}
+
+
 	.rose-container{
 	   overflow-x: hidden;
 	   width:100%;
 
 	}
+
+
 	.rose-container.on{
 overflow-x: scroll;
 	   width:100%;
 
 	}
+
+
 	.rose-content{
 		padding:0;
 	}
@@ -337,7 +364,6 @@ overflow-x: scroll;
 		transform:translateY(50px);
 	}
 	button#modal-button span{
-		/* border-bottom: 1px dotted wheat; */
 		display: inline;
 		color: #fff !important;
 	}
@@ -358,32 +384,32 @@ overflow-x: scroll;
 			right:0;
 		}
 
-	nav{
-		position:fixed;
-		bottom:0;
-		left:0;
-     width: 100vw;
-     padding:10px 0;
 
-	}
+
+
 	#welcome-garden.on, #about-garden.on, nav.on{
 
 		filter:none;
 	}
-.rose-content .info-text{
+
+
+
+
+  .rose-content .info-text{
 	position:fixed;
 	overflow:scroll;
 	z-index: 99999;
-	top:5vh;
-	height: 94vh;
+	top:0vh;
+	height: 100vh;
+	padding:0px;
+	/* padding-top: 10vh; */
 }
+
+
 .trim{
 	  width: 52vw;
 }
 
-/* #welcome-garden .inner{
-  font-size:1vw;
-} */
 
 .station{
 	width: 52vw;
@@ -395,10 +421,29 @@ overflow-x: scroll;
 }
 	#about-garden {
 		position: fixed;
-		bottom:25px;
+		bottom:60px;
 		width:100vw;
 		text-align:center;
 		padding:10px 0;
+	}
+
+
+	nav#share {
+		position:fixed;
+		bottom:20px;
+		left:0;
+		 width: 100vw;
+		 padding:10px 0;
+		 height: 30px;
+	}
+
+	nav#flower-nav {
+		position:fixed;
+		top:20px;
+		left:0;
+		 width: 100vw;
+		 padding:10px 0;
+		 height: 30px;
 	}
 
 }

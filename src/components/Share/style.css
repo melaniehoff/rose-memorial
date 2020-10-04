@@ -10,6 +10,7 @@ canvas-holder> div{
 #submission.submitted #submission-link{
 	display:inline-block;
 	margin-top:2rem;
+	border-bottom: 1px dotted wheat;
 }
 #broken-video{
 	display: none;
@@ -83,6 +84,7 @@ background: rgba(0,0,0,0.3);
 }
 .info {
 	position: fixed;
+	box-sizing: border-box;
 	top: 0px;
 	left: 0px;
 	z-index: 4;
@@ -95,6 +97,7 @@ background: rgba(0,0,0,0.3);
 }
 
 .info-text {
+	box-sizing: border-box;
 	display: table-cell;
   	vertical-align: middle;
 }
@@ -112,6 +115,7 @@ background: rgba(0,0,0,0.3);
     text-shadow: none;
     padding: 25px;
     margin-left: 21vw;
+		box-sizing: border-box;
 }
 textarea, input[type='text']{
 	color:#ffedcd;
@@ -213,8 +217,10 @@ textarea{
   display: none;
 }
 #submission.submitted:before{
-  content:"thank you";
+  content:"Your flower has been planted, honored with your dedication.";
   font-size:1.2rem;
+	font-family: 'orpheus';
+	font-weight: bold;
 }
 
 /* END SUBMISSION FORM */
@@ -223,8 +229,18 @@ textarea{
 
 @media(max-width:768px){
 
+	.info-text {
+ 	width: 100%;
+ }
+ .info-text p {
+ 	    width: 90%;
+ 			margin-left: 5vw;
+ 	    padding: 5vw;
+ 			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+ 			padding-top: 10vh;
+ 	}
 
-	.info-text p{
+	/* .info-text p{
 
 		padding:0;
 	}
@@ -264,5 +280,5 @@ textarea{
 		left:0;
 		padding:0 10px;
 		height:95vh;
-	}
+	} */
 }

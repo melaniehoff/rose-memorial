@@ -1,3 +1,47 @@
-body{
+/* body{
 	color:whitesmoke;
+} */
+
+
+.about-info-container{
+	width: 100vw;
+	/* position: absolute; */
+	left: 0vw;
+	height: 100vh;
+	display: table;
+}
+
+.about-info{
+	display: table-cell;
+  vertical-align: middle;
+	text-align: center;
+	padding-top: 10vh;
+	padding-bottom:5rem;
+}
+
+
+.about-info p {
+    width: 56vw;
+    box-sizing: border-box;
+    color: #ffedcd;
+    text-shadow: none;
+    padding: 25px;
+    margin-left: 21vw;
+		text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+}
+
+.about-info p span {
+    margin-bottom: 20px;
+    display: block;
+}
+
+
+@media(max-width:768px){
+
+  .about-info p {
+      width: 90vw;
+      padding: 25px;
+      margin-left: 5vw;
+  }
+
 }

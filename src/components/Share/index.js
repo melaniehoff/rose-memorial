@@ -167,7 +167,7 @@ class Share extends Component {
         </div>
         <div id="submission">
           <label>
-            <span className='medium-text'>Dedicated in Memory of:</span><br/>
+            <span className='medium-text'>Dedicated in memory of</span><br/>
             <input
               className="medium-text"
               type="text"
@@ -176,11 +176,11 @@ class Share extends Component {
             />
           </label>
           <label>
-            <span className='medium-text'>Add a reflection:</span>
+            <span className='medium-text'>Add a reflection</span>
             <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
           </label>
           <label>
-            <span className='medium-text'>Add a resource:</span><br/>
+            <span className='medium-text'>Add a resource link <i>(optional)</i></span><br/>
             <input
               className="medium-text"
               type="text"
@@ -195,12 +195,12 @@ class Share extends Component {
                 id="photo-button"
                 onClick={() => this.showWidget(myWidget)}
               >
-                <span className='small-text' id='inner-photo'>Add a photograph (optional)</span>
+                <span className='small-text' id='inner-photo'>Add a photograph <i>(optional)</i></span>
               </button>
             </div>
           </label>
           <label>
-            <span className='medium-text'>Add a video link (optional):</span><br/>
+            <span className='medium-text'>Add a video link <i>(optional)</i></span><br/>
             <input
               className="medium-text"
               // placeholder="supports youtube & vimeo"
@@ -212,16 +212,16 @@ class Share extends Component {
               {this.state.toggle_video ? <VideoEmbed videoUrl={this.state.toggle_video}/> : ""}
             </div>
           </label>
-          <button className='medium-text' id="review-button" onClick={this.showSubmit}>
-            Review Dedication
+          <button className='medium-text-link' id="review-button" onClick={this.showSubmit}>
+            review your dedication
           </button>
-          <button className='medium-text' id="submit-button" onClick={this.handleSubmit}>
-            Share Dedication
+          <button className='medium-text-link' id="submit-button" onClick={this.handleSubmit}>
+            share your dedication
           </button><br/>
-          <a className='medium-text' id='submission-link'>View Flower Page</a>
+          <a className='medium-text-link' id='submission-link'>visit your flower</a>
         </div>
 
-        <nav className='medium-text-link'>
+        <nav id='flower-nav' className='medium-text-link'>
          <a href="/garden">↩ back to the garden</a>
          </nav>
 
@@ -236,7 +236,7 @@ class Share extends Component {
                 We invite you to take a moment to leave a memory.
               </span>
 
-            <button className="medium-text" id="modal-button" onClick={this.clickHandler}>Share a Dedication</button>
+            <button className="medium-text-link" id="modal-button" onClick={this.clickHandler}>share your dedication</button>
             </p>
         </div>
 

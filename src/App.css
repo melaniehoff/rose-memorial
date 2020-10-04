@@ -53,7 +53,8 @@ a {
     font-family: 'orpheus';
     font-weight: bold;
     text-shadow: 0px 2px #000;
-    letter-spacing: 0.5px;
+    /* letter-spacing: 0.5px; */
+    letter-spacing: 0px;
   }
   .medium-text{
     font-family: 'orpheus';
@@ -61,10 +62,12 @@ a {
     font-size: 1.7vw !important;
     text-shadow: 0px 2px #000;
     line-height: 1.2;
-    letter-spacing: 0.5px;
+    /* letter-spacing: 0.5px; */
+    letter-spacing: 0px;
   }
   a.medium-text {
     border-bottom: 1px dotted wheat;
+    color: #fff !important;
   }
 
   a.medium-text:hover {
@@ -77,7 +80,15 @@ a {
     font-size: 1.7vw !important;
     text-shadow: 0px 2px #000;
     line-height: 1.2;
-    letter-spacing: 0.5px;
+    /* letter-spacing: 0.5px; */
+    letter-spacing: 0px;
+    color: #fff;
+  }
+
+  .medium-text-link:hover
+  /* , #about-garden:hover  */
+  {
+    color:#ffedcd !important;
   }
   .hidden{
     visibility: hidden;
@@ -130,7 +141,7 @@ nav{
   z-index: 9;
   padding:25px;
 }
-nav a, a:visited{
+nav a, a:visited, a:active{
   background:rgba(0,0,0,0.3);
 }
 
