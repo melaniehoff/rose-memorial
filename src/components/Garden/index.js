@@ -16,34 +16,27 @@ class Garden extends Component {
       rosesHere: true,
       zoomLevel:0
     };
-    this.clickHandler =this.clickHandler.bind(this)
+
    }
    componentDidMount(){
     if(cookie.load('rosesHere') == ''){
         this.clickHandler()
     }
-   }
-  clickHandler() {
-    var elmnt = document.getElementById("rose-content");
-      document.getElementById("rose-container").classList.add('on');
-      const makeVisible0 = document.getElementsByClassName("hidden")[0]
-      const makeVisible1 = document.getElementsByClassName("hidden")[1]
-      const makeVisible2 = document.getElementsByClassName("hidden")[2]
-      makeVisible0.classList.remove('hidden')
-      makeVisible1.classList.remove('hidden')
-      makeVisible2.classList.remove('hidden')
-      document.getElementsByTagName("nav")[0].classList.add('on');
-      document.getElementById("welcome-garden").classList.add('on');
-      document.getElementById("about-garden").classList.add('on');
-      this.setState({rosesHere: true})
-      cookie.save('rosesHere', true,{sameSite:true, maxAge: 10}); //ten seconds max before welcome screen will pop up again
-      document.getElementById("modal-button").style.display = "none";
-      const log = document.getElementById('rose-content');
+       const log = document.getElementById('rose-content');
       document.addEventListener('keypress', logKey);
       function logKey(e) {
         if(`${e.code}` == "Equal"){
            //plus
-          if(document.getElementById("rose-container").classList.contains('five')){
+          if(document.getElementById("rose-container").classList.contains('eight')){
+            document.getElementById("rose-container").classList.remove('eight');
+            document.getElementById("rose-container").classList.add('seven');
+           }else if(document.getElementById("rose-container").classList.contains('seven')){
+            document.getElementById("rose-container").classList.remove('seven');
+            document.getElementById("rose-container").classList.add('six');
+           }else if(document.getElementById("rose-container").classList.contains('six')){
+            document.getElementById("rose-container").classList.remove('six');
+            document.getElementById("rose-container").classList.add('five');
+           }else if(document.getElementById("rose-container").classList.contains('five')){
             document.getElementById("rose-container").classList.remove('five');
             document.getElementById("rose-container").classList.add('four');
            }else if(document.getElementById("rose-container").classList.contains('four')){
@@ -76,13 +69,22 @@ class Garden extends Component {
             document.getElementById("rose-container").classList.remove('four');
             document.getElementById("rose-container").classList.add('five');
            }else if(document.getElementById("rose-container").classList.contains('five')){
+            document.getElementById("rose-container").classList.remove('five');
+            document.getElementById("rose-container").classList.add('six');
+           }else if(document.getElementById("rose-container").classList.contains('six')){
+            document.getElementById("rose-container").classList.remove('six');
+            document.getElementById("rose-container").classList.add('seven');
+           }else if(document.getElementById("rose-container").classList.contains('seven')){
+            document.getElementById("rose-container").classList.remove('seven');
+            document.getElementById("rose-container").classList.add('eight');
+           }else if(document.getElementById("rose-container").classList.contains('eight')){
 
            }else {
            document.getElementById("rose-container").classList.add('one');
           }
         }
       }
-  }
+   }
 
 
   render() {
