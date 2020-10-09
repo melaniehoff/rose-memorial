@@ -108,28 +108,31 @@ body {
    width:100%;*/
 
 }
-.rose-container.eight{
+.rose-container .rose-content{
+	    transform-origin: left top;
+}
+.rose-container.eight .rose-content{
 	transform:scale(0.2);
 }
-.rose-container.seven{
+.rose-container.seven .rose-content{
 	transform:scale(0.3);
 }
-.rose-container.six{
+.rose-container.six .rose-content{
 	transform:scale(0.4);
 }
-.rose-container.five{
+.rose-container.five .rose-content{
 	transform:scale(0.5);
 }
-.rose-container.four{
+.rose-container.four .rose-content{
 	transform:scale(0.6);
 }
-.rose-container.three{
+.rose-container.three .rose-content{
 	transform:scale(0.7);
 }
-.rose-container.two{
+.rose-container.two .rose-content{
 	transform:scale(0.8);
 }
-.rose-container.one{
+.rose-container.one .rose-content{
 	transform:scale(0.9);
 }
 
@@ -444,6 +447,9 @@ overflow-x: scroll;
 		 width: 100vw;
 		 padding:10px 0;
 		 height: 30px;
+	}
+	#welcome-garden span{
+		display: none;
 	}
 
 }
