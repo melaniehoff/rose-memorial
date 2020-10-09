@@ -108,6 +108,9 @@ body {
    width:100%;*/
 
 }
+.rose-container .rose-content{
+	    transform-origin: left top;
+}
 .rose-container.eight .rose-content{
 	transform:scale(0.2);
 }
