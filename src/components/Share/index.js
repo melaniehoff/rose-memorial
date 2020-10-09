@@ -16,6 +16,7 @@ class Share extends Component {
       optional_note: "",
       optional_photo: "",
       optional_link: "",
+      optional_location: "",
       optional_video_link: "",
       toggle_video: false,
       rose_id: "",
@@ -40,6 +41,9 @@ class Share extends Component {
   }
   handleLink(event) {
     this.setState({ optional_link: event.target.value });
+  }
+  handleLink(event) {
+    this.setState({ optional_location: event.target.value });
   }
   handleVideoLink(event) {
     this.setState({ optional_video_link: event.target.value });
@@ -93,7 +97,8 @@ class Share extends Component {
           optional_photo,
           optional_video_link,
           rose_id,
-          optional_link
+          optional_link,
+          optional_location
         } = this.state;
 
         const submissionCallBack = (err, records) => {
@@ -138,6 +143,7 @@ class Share extends Component {
               Dedication: dedication,
               OptionalNote: optional_note,
               OptionalLink: optional_link,
+              OptionalLocation: optional_location,
               OptionalVideoLink: optional_video_link,
               OptionalPhoto: [{ url: optional_photo }],
               RoseSVG: [{ url: response.body["url"] }]
@@ -157,7 +163,7 @@ class Share extends Component {
       uploadPreset: process.env.REACT_APP_PRESET_NAME,
     };
     let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => {this.checkUploadResult(result)});
-    const { dedication, optional_note, optional_link, optional_video_link, toggle_video } = this.state;
+    const { dedication, optional_note, optional_link, optional_location, optional_video_link, toggle_video } = this.state;
 
     return (
       <React.Fragment>
@@ -167,10 +173,25 @@ class Share extends Component {
         </div>
         <div id="submission">
           <label>
-            <span className='medium-text formlabel'>Dedicated in memory of</span><br/>
+            <span className='medium-text formlabel'>Dedicated in memory of <sup>*</sup></span><br/>
             <input
               className="medium-text"
               type="text"
+              placeholder="a person"
+              value={dedication}
+              onChange={this.handleDedication}
+            /> <br /> <br />
+            <input
+              className="medium-text"
+              type="text"
+              placeholder="a place"
+              value={dedication}
+              onChange={this.handleDedication}
+            /> <br /> <br />
+            <input
+              className="medium-text"
+              type="text"
+              placeholder="a thing"
               value={dedication}
               onChange={this.handleDedication}
             />
@@ -189,25 +210,40 @@ class Share extends Component {
           </label>
 
           <label>
-            <span className='medium-text formlabel'>Add a reflection</span>
+            <span className='medium-text formlabel'>Add a reflection<sup>*</sup></span>
             <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
           </label>
+
           <label>
-            <span className='medium-text formlabel'>Add a resource link <i>(optional)</i></span><br/>
+            <span className='medium-text formlabel'>Add a location</span><br/>
             <input
               className="medium-text"
               type="text"
+              placeholder=""
+              value={optional_location}
+              onChange={this.handleLink}
+            />
+          </label>
+
+
+          <label>
+            <span className='medium-text formlabel'>Add a resource link</span><br/>
+            <input
+              className="medium-text"
+              type="text"
+              placeholder=""
               value={optional_link}
               onChange={this.handleLink}
             />
           </label>
 
           <label>
-            <span className='medium-text formlabel'>Add a video link <i>(optional)</i></span><br/>
+            <span className='medium-text formlabel'>Add a video link</span><br/>
             <input
               className="medium-text"
-              // placeholder="supports youtube & vimeo"
+              placeholder="supports youtube & vimeo"
               type="text"
+
               value={optional_video_link}
               onChange={this.handleVideoLink}
             />

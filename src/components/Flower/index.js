@@ -49,6 +49,9 @@ class Flower extends Component {
               <div className='flower-info-container'>
     			       <div className='flower-info'>
                       <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}</p>
+
+                      <p className='flower-dedication medium-text'>{this.props.records[i].fields.OptionalLocation}</p>
+
                       {!this.props.records[i].fields.OptionalPhoto ? '' :
                       <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
                       }
