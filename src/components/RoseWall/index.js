@@ -104,6 +104,20 @@ class RoseWall extends Component {
     const roses = records.map((x, i)=>{
       var url = slugify(x.fields.Dedication)
       var flowerArray = [];
+      var type = "dedication-person";
+      if(x.fields.DedicationPlace){
+        type = "dedication-place";
+      }else if(x.fields.DedicationLocation){
+        type ="dedication-location";
+      }
+      var dedication = ""
+      if(type == "dedication-location"){
+        dedication = x.fields.DedicationLocation;
+      }else if(type == "dedication-place"){
+        dedication = x.fields.DedicationPlace
+      }else if(type == "dedication-person"){
+        dedication = x.fields.Dedication
+      }
       console.log(i)
       for (var j = 0; j <= i; j++) {
         if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
@@ -126,7 +140,7 @@ class RoseWall extends Component {
             <img alt={x.fields.Dedication + " Flower"} src={x.fields.RoseSVG[0].url}/>
           }
           </div>
-          <p className='dedication-name'>{x.fields.Dedication}</p>
+          <p className={type + ' dedication-name'}>{dedication}</p>
           <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
          </a>
        )}

@@ -108,6 +108,15 @@ body {
    width:100%;*/
 
 }
+.dedication-person.dedication-name{
+	opacity: 1;
+}
+.dedication-place.dedication-name{
+	opacity: 0.5;
+}
+.dedication-location.dedication-name{
+	opacity: 0.5;
+}
 .rose-container .rose-content{
 	    transform-origin: left top;
 }
