@@ -134,9 +134,13 @@ class RoseWall extends Component {
 
     return(
       <div>
-      <div id='rose-container' className="rose-container">
+      <div id='rose-container' className="rose-container three">
         <div id='rose-content' className="rose-content">
         {roses}
+      
+
+
+      </div>
       {this.state.rosesHere ? '' :
 
 
@@ -157,9 +161,6 @@ class RoseWall extends Component {
       </div>
 
       }
-
-
-      </div>
       </div>
         <div id='welcome-garden' className="medium-text hidden">
           {/* <span>Welcome to the garden.</span> */}
