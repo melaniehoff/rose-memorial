@@ -71,6 +71,8 @@ class Share extends Component {
     myWidget.open();
   }
   showSubmit(){
+     document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     document.getElementById('submit-button').classList.add('on');
     document.getElementById('canvas-holder').classList.add('on');
     document.getElementById('submission').classList.add('on');
