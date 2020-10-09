@@ -168,7 +168,7 @@ input[type='text']::placeholder {
 	 padding-top:0px;
    font-size:1.2vw;
 	 line-height: 1.7vw;
-	 color: rgba(255,237, 205, .5);
+	 color: rgba(255,237, 205, .6);
 }
 
 #flower + div {
