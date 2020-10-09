@@ -23,6 +23,7 @@ class Share extends Component {
       formHere: false,
     };
     this.handleDedication = this.handleDedication.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
     this.handleLink = this.handleLink.bind(this);
     this.handleVideoLink = this.handleVideoLink.bind(this);
     this.handleNote = this.handleNote.bind(this);
@@ -42,7 +43,7 @@ class Share extends Component {
   handleLink(event) {
     this.setState({ optional_link: event.target.value });
   }
-  handleLink(event) {
+  handleLocation(event) {
     this.setState({ optional_location: event.target.value });
   }
   handleVideoLink(event) {
@@ -221,17 +222,17 @@ class Share extends Component {
               type="text"
               placeholder=""
               value={optional_location}
-              onChange={this.handleLink}
+              onChange={this.handleLocation}
             />
           </label>
 
 
           <label>
-            <span className='medium-text formlabel'>Add a resource link</span><br/>
+            <span className='medium-text formlabel'>Add an external link</span><br/>
             <input
               className="medium-text"
               type="text"
-              placeholder=""
+              placeholder="e.g. GoFundMe link"
               value={optional_link}
               onChange={this.handleLink}
             />
