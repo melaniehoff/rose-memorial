@@ -111,6 +111,8 @@ canvas-holder> div{
 	border:0.5px solid #ffedcd66;
 
 }
+
+
 .info-text{
 background: rgba(0,0,0,0.3);
 }
@@ -154,13 +156,20 @@ textarea, input[type='text']{
 	margin-top:10px;
 	background: rgba(0,0,0,0);
 	border:1px solid #ffedcd;
-	padding: 10px;
+	padding: .75vw;
 }
 textarea:focus, input[type='text']:focus{
 	border:1px solid #fff;
 	outline:none;
 }
 
+
+input[type='text']::placeholder {
+	 padding-top:0px;
+   font-size:1.2vw;
+	 line-height: 1.7vw;
+	 color: rgba(255,237, 205, .5);
+}
 
 #flower + div {
   position: absolute;

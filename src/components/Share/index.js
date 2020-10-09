@@ -180,18 +180,18 @@ class Share extends Component {
               placeholder="a person"
               value={dedication}
               onChange={this.handleDedication}
-            /> <br /> <br />
+            /> <br />
             <input
               className="medium-text"
               type="text"
-              placeholder="a place"
+              placeholder="or, a place"
               value={dedication}
               onChange={this.handleDedication}
-            /> <br /> <br />
+            /> <br />
             <input
               className="medium-text"
               type="text"
-              placeholder="a thing"
+              placeholder="or, a thing"
               value={dedication}
               onChange={this.handleDedication}
             />
