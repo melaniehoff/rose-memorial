@@ -228,13 +228,13 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 }
 
 
-.rose-content .info-text {
+.rose-container .info-text {
 	display: table-cell;
   	vertical-align: middle;
 
 }
 
-.rose-content .info-text p {
+.rose-container .info-text p {
 	/* background: rgba(0,0,0,0.3); */
     width: 56vw;
     color: #ffedcd;
@@ -245,11 +245,11 @@ div#rose-content:focus, body, .App, #root, .rose-container, nav{
 		text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
 }
 
-.rose-content .info-text p a {
+.rose-container .info-text p a {
 	color: #fff;
 }
 
-.rose-content .info-text p a:hover {
+.rose-container .info-text p a:hover {
 	color: #ffedcd !important;
 }
 
@@ -319,11 +319,11 @@ p.dedication-name {
 
 @media(max-width:768px){
 
-.rose-content .info-text {
+.rose-container .info-text {
 	width: 100%;
 }
 
-	.rose-content .info-text p {
+	.rose-container .info-text p {
 	    width: 90%;
 			margin-left: 5vw;
 
@@ -335,7 +335,7 @@ p.dedication-name {
 
 
 
-	.rose-content .info-text p a {
+	.rose-container .info-text p a {
 		color: #ffedcd;
 	}
 
@@ -398,7 +398,7 @@ overflow-x: scroll;
 
 
 
-  .rose-content .info-text{
+  .rose-container .info-text{
 	position:fixed;
 	overflow:scroll;
 	z-index: 99999;
