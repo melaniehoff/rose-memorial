@@ -26,14 +26,14 @@ class Flower extends Component {
 	   	const records = [];
 	   	for (var i = this.props.records.length - 1; i >= 0; i--) {
         console.log(slugify(this.props.records[i].fields.Dedication))
-	   		if(slugify(this.props.records[i].fields.Dedication) == this.props.match.params.id.split('_')[0]){
+	   		if((slugify(this.props.records[i].fields.Dedication) == this.props.match.params.id.split('_')[0])|| (slugify(this.props.records[i].fields.DedicationPlace) == this.props.match.params.id.split('_')[0]) || (slugify(this.props.records[i].fields.DedicationLocation) == this.props.match.params.id.split('_')[0])){
 	   			records.push(
 		   		 <div key={this.props.records[i].id} id={this.props.records[i].id} className="single-flower" >
 
 		           <div className='flower'>
 				        <div className="trim">
 				          {!this.props.records[i].fields.RoseSVG ? '' :
-				            <img alt={this.props.records[i].fields.Dedication + " Flower"} src={this.props.records[i].fields.RoseSVG[0].url}/>
+				            <img alt={(this.props.records[i].fields.Dedication ||  this.props.records[i].fields.DedicationLocation || this.props.records[i].fields.DedicationPlace) + " Flower"} src={this.props.records[i].fields.RoseSVG[0].url}/>
 				          }
 				        </div>
 
@@ -48,7 +48,7 @@ class Flower extends Component {
 
               <div className='flower-info-container'>
     			       <div className='flower-info'>
-                      <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}</p>
+                      <p className='flower-dedication large-text'>{(this.props.records[i].fields.Dedication ||  this.props.records[i].fields.DedicationLocation || this.props.records[i].fields.DedicationPlace)}</p>
 
                       <p className='flower-dedication medium-text'>{this.props.records[i].fields.OptionalLocation}</p>
 

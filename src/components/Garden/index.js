@@ -93,7 +93,15 @@ class Garden extends Component {
     console.log(this.props)
     const {records} = this.props
     const roses = records.map((x, i)=>{
-      var url = slugify(x.fields.Dedication)
+    var url = ""
+      if(x.fields.Dedication){
+        url = slugify(x.fields.Dedication)
+      }else if(x.fields.DedicationPlace){
+        url = slugify(x.fields.DedicationPlace)
+      } else if(x.fields.DedicationLocation){
+        url = slugify(x.fields.DedicationLocation)
+      }
+
       var flowerArray = [];
       var type = "dedication-person";
       if(x.fields.DedicationPlace){
@@ -111,9 +119,20 @@ class Garden extends Component {
       }
       console.log(i)
       for (var j = 0; j <= i; j++) {
-        if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
-          flowerArray.push(records[j])
+        if (type == "dedication-person"){
+          if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
+            flowerArray.push(records[j])
+          }
+        }else if (type == "dedication-location"){
+          if(slugify(records[j].fields.DedicationLocation) == slugify(x.fields.DedicationLocation) && records[j].id != x.id){
+            flowerArray.push(records[j])
+          }
+        }else if (type == "dedication-place"){
+          if(slugify(records[j].fields.DedicationPlace) == slugify(x.fields.DedicationPlace) && records[j].id != x.id){
+            flowerArray.push(records[j])
+          }
         }
+        
       }
       if(flowerArray.length > 0){
         url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
