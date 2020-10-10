@@ -166,12 +166,28 @@ textarea:focus, input[type='text']:focus{
 }
 
 
-input[type='text']::placeholder {
+input[type='text']::placeholder, textarea::placeholder {
 	 padding-top:0px;
    font-size:1.2vw;
 	 line-height: 1.7vw;
-	 color: rgba(255,237, 205, .6);
+	 color: rgba(255,237, 205, .5);
 }
+
+input[type='text']:focus::placeholder, textarea:focus::placeholder {
+	 color: rgba(255,237, 205, .3);
+}
+
+/* ::-webkit-input-placeholder::before {
+  content: "FIRST\000ASECOND\000ATHIRD";
+}
+
+::-moz-placeholder::before {
+  content: "FIRST\000ASECOND\000ATHIRD";
+}
+
+:-ms-input-placeholder::before {
+  content: "FIRST\000ASECOND\000ATHIRD";
+} */
 
 #submission p {
     /* width: 56vw; */
@@ -201,6 +217,10 @@ textarea{
 }
 #photo-button span{
 	border-bottom: 1px dotted #ffedcd;
+}
+
+#photo-button span i{
+	border-bottom: 0px dotted #ffedcd !important;
 }
 #submission{
 	filter:blur(10px);

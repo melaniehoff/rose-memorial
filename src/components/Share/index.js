@@ -198,6 +198,7 @@ class Share extends Component {
 
           <label>
             <span className='medium-text formlabel'>Dedicated in memory of <sup>*</sup></span><br/>
+            <i className='small-text'>(choose one)</i><br/>
             <input
               className="medium-text"
               type="text"
@@ -228,14 +229,20 @@ class Share extends Component {
                 id="photo-button"
                 onClick={() => this.showWidget(myWidget)}
               >
-                <span className='small-text' id='inner-photo'>Add a photograph <i>(optional)</i></span>
+                <span className='small-text' id='inner-photo'>Add a photograph</span> <i className='small-text'>(optional)</i>
               </button>
+              {/* <span className='small-text'><i>(optional)</i></span> */}
             </div>
           </label>
 
           <label>
             <span className='medium-text formlabel'>Add a reflection<sup>*</sup></span>
-            <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
+            <textarea className="medium-text" value={optional_note} onChange={this.handleNote}
+            placeholder="How do you want to hold space for yourself and close ones in remembering?
+            What are you senses that come back to you in remembering? What do you smell? Taste? Hear? See? Feel?
+            What is a memory of joy or celebration you have together?
+            What do you want to invoke for the future in their honor?
+            How does their presence continue? " />
           </label>
 
           <label>
