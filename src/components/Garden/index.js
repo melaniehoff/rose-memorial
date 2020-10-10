@@ -98,12 +98,12 @@ class Garden extends Component {
       var type = "dedication-person";
       if(x.fields.DedicationPlace){
         type = "dedication-place";
-      }else if(x.fields.DedicationLocation){
-        type ="dedication-location";
+      }else if(x.fields.DedicationThing){
+        type ="dedication-thing";
       }
       var dedication = ""
-      if(type == "dedication-location"){
-        dedication = x.fields.DedicationLocation;
+      if(type == "dedication-thing"){
+        dedication = x.fields.DedicationThing;
       }else if(type == "dedication-place"){
         dedication = x.fields.DedicationPlace
       }else if(type == "dedication-person"){
