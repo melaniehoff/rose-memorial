@@ -50,9 +50,17 @@ a {
 /*----TYPOGRAPHY----*/
 
 
+  .tiny-text{
+    font-size:1vw;
+    font-family: 'orpheus';
+    font-weight: bold;
+    text-shadow: 0px 2px #000;
+    /* letter-spacing: 0.5px; */
+    letter-spacing: 0px;
+  }
 
   .small-text{
-    font-size:1vw;
+    font-size:1.2vw;
     font-family: 'orpheus';
     font-weight: bold;
     text-shadow: 0px 2px #000;
@@ -205,7 +213,7 @@ nav a, a:visited, a:active{
   }
      /*----TYPOGRAPHY----*/
 
-  .small-text, .dedication-name, .small-text{
+  .tiny-text, .small-text, .dedication-name{
   /* font-size: 0.8rem; */
   font-size: 14px !important;
   }
