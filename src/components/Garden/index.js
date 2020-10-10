@@ -98,8 +98,8 @@ class Garden extends Component {
         url = slugify(x.fields.Dedication)
       }else if(x.fields.DedicationPlace){
         url = slugify(x.fields.DedicationPlace)
-      } else if(x.fields.DedicationLocation){
-        url = slugify(x.fields.DedicationLocation)
+      } else if(x.fields.DedicationThing){
+        url = slugify(x.fields.DedicationThing)
       }
 
       var flowerArray = [];
@@ -123,8 +123,8 @@ class Garden extends Component {
           if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
             flowerArray.push(records[j])
           }
-        }else if (type == "dedication-location"){
-          if(slugify(records[j].fields.DedicationLocation) == slugify(x.fields.DedicationLocation) && records[j].id != x.id){
+        }else if (type == "dedication-thing"){
+          if(slugify(records[j].fields.DedicationThing) == slugify(x.fields.DedicationThing) && records[j].id != x.id){
             flowerArray.push(records[j])
           }
         }else if (type == "dedication-place"){
@@ -135,7 +135,7 @@ class Garden extends Component {
         
       }
       if(flowerArray.length > 0){
-        url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
+        url = slugify(x.fields.Dedication || x.fields.DedicationThing || x.fields.DedicationPlace) + "_" + flowerArray.length;
       }
       if(!x.fields.Private){
       return(

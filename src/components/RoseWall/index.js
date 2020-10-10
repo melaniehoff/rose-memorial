@@ -107,20 +107,20 @@ class RoseWall extends Component {
         url = slugify(x.fields.Dedication)
       }else if(x.fields.DedicationPlace){
         url = slugify(x.fields.DedicationPlace)
-      } else if(x.fields.DedicationLocation){
-        url = slugify(x.fields.DedicationLocation)
+      } else if(x.fields.DedicationThing){
+        url = slugify(x.fields.DedicationThing)
       }
 
       var flowerArray = [];
       var type = "dedication-person";
       if(x.fields.DedicationPlace){
         type = "dedication-place";
-      }else if(x.fields.DedicationLocation){
-        type ="dedication-location";
+      }else if(x.fields.DedicationThing){
+        type ="dedication-thing";
       }
       var dedication = ""
-      if(type == "dedication-location"){
-        dedication = x.fields.DedicationLocation;
+      if(type == "dedication-thing"){
+        dedication = x.fields.DedicationThing;
       }else if(type == "dedication-place"){
         dedication = x.fields.DedicationPlace
       }else if(type == "dedication-person"){
@@ -132,8 +132,8 @@ class RoseWall extends Component {
           if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
             flowerArray.push(records[j])
           }
-        }else if (type == "dedication-location"){
-          if(slugify(records[j].fields.DedicationLocation) == slugify(x.fields.DedicationLocation) && records[j].id != x.id){
+        }else if (type == "dedication-thing"){
+          if(slugify(records[j].fields.DedicationThing) == slugify(x.fields.DedicationThing) && records[j].id != x.id){
             flowerArray.push(records[j])
           }
         }else if (type == "dedication-place"){
@@ -144,7 +144,7 @@ class RoseWall extends Component {
         
       }
       if(flowerArray.length > 0){
-        url = slugify(x.fields.Dedication) + "_" + flowerArray.length;
+        url = slugify(x.fields.Dedication || x.fields.DedicationThing || x.fields.DedicationPlace) + "_" + flowerArray.length;
       }
       if(!x.fields.Private){
 
