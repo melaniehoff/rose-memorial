@@ -163,7 +163,7 @@ class RoseWall extends Component {
       </div>
         <div id='welcome-garden' className="medium-text hidden">
           {/* <span>Welcome to the garden.</span> */}
-            <div className='small-text'>
+            <div className='tiny-text'>
               <span>desktop: use + - keys to zoom & arrow keys to pan</span> <br/>
               <span>mobile: pinch to zoom</span>
             </div>

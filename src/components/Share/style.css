@@ -21,11 +21,13 @@ canvas-holder> div{
 #canvas-holder.on{
 	opacity: 1;
 }
-#submit-button, #review-button.on{
+#submit-button, #submit-text, #review-button.on, #submission.on #review-text, #submission.submitted.on #submit-text,
+#done-text, #submission.on #share-text
+{
 	display:none;
 }
 
-#submit-button.on{
+#submit-button.on, #submission.on #submit-text, #submission.submitted.on #done-text{
 	display:block;
 }
 #photo-image-preview{
@@ -171,6 +173,16 @@ input[type='text']::placeholder {
 	 color: rgba(255,237, 205, .6);
 }
 
+#submission p {
+    /* width: 56vw; */
+    box-sizing: border-box;
+    color: #ffedcd;
+    text-shadow: none;
+    padding: 25px;
+    /* margin-left: 21vw; */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+}
+
 #flower + div {
   position: absolute;
   left:60%;
@@ -178,8 +190,8 @@ input[type='text']::placeholder {
   border-radius: 0;
 }
 #submission.on{
-	padding-top:0;
-	margin-top:0;
+	/* padding-top:0;
+	margin-top:0; */
 }
 textarea{
 	margin:10px auto;
@@ -262,7 +274,7 @@ textarea{
   display: none;
 }
 #submission.submitted:before{
-  content:"Your flower has been planted, honored with your dedication.";
+  /* content:"Your flower has been planted, honored with your dedication."; */
   /* font-size:1.2rem; */
 	font-size: 1.7vw !important;
 	font-family: 'orpheus';
