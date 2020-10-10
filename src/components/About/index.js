@@ -26,7 +26,7 @@ class About extends Component {
               ❃ ❊ ❋ ✣ ✤
             </span>
             <span>
-               The CLOUD9 Memorial Garden is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love on Ur Desktop)</a>, a platform for sharing care, strategies, wisdom, sweetness, resources, and love to support everyone affected by the coronavirus pandemic. The CLOUD9 Memorial Garden was built by <a href="http://aarati.me/">Aarati Akkapeddi</a>, <a href="https://zai.zone/">Zainab Aliyu</a>, <a href="https://www.melaniehoff.com/">Melanie Hoff</a> and <a href="https://cofuente.io">Chiara Marcial Martínez</a> in collaboration with <a href="http://www.bufubyusforus.com/">BUFU (By Us For Us)</a>.
+               The CLOUD9 Memorial Garden is a continuation and extension of <a href="https://cloud9.support/">CLOUD9 (Collective Love on Ur Desktop)</a>, a platform for sharing care, strategies, wisdom, sweetness, resources, and love to support everyone affected by the coronavirus pandemic. This garden was built by and is tended to by <a href="http://aarati.me/">Aarati Akkapeddi</a>, <a href="https://zai.zone/">Zainab Aliyu</a>, <a href="https://www.melaniehoff.com/">Melanie Hoff</a> and <a href="https://cofuente.io">Chiara Marcial Martínez</a> in collaboration with <a href="http://www.bufubyusforus.com/">BUFU (By Us For Us)</a>.
             </span>
             <span>
               ✽ ✾ ✿ ❀ ❁
