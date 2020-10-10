@@ -106,12 +106,12 @@ class Garden extends Component {
       var type = "dedication-person";
       if(x.fields.DedicationPlace){
         type = "dedication-place";
-      }else if(x.fields.DedicationLocation){
-        type ="dedication-location";
+      }else if(x.fields.DedicationThing){
+        type ="dedication-thing";
       }
       var dedication = ""
-      if(type == "dedication-location"){
-        dedication = x.fields.DedicationLocation;
+      if(type == "dedication-thing"){
+        dedication = x.fields.DedicationThing;
       }else if(type == "dedication-place"){
         dedication = x.fields.DedicationPlace
       }else if(type == "dedication-person"){
@@ -172,7 +172,7 @@ class Garden extends Component {
       </div>
         <div id='welcome-garden' className="medium-text on">
           {/* <span>Welcome to the garden.</span> */}
-            <div className='small-text'>
+            <div className='tiny-text'>
               <span>desktop: use + - keys to zoom & arrow keys to pan</span> <br/>
               <span>mobile: pinch to zoom</span>
             </div>

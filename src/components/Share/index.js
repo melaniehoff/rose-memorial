@@ -13,6 +13,8 @@ class Share extends Component {
     super(props);
     this.state = {
       dedication: "",
+      dedication_place: "",
+      dedication_thing: "",
       optional_note: "",
       optional_photo: "",
       optional_link: "",
@@ -23,6 +25,8 @@ class Share extends Component {
       formHere: false,
     };
     this.handleDedication = this.handleDedication.bind(this);
+    this.handleDedicationPlace = this.handleDedicationPlace.bind(this);
+    this.handleDedicationThing = this.handleDedicationThing.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
     this.handleLink = this.handleLink.bind(this);
     this.handleVideoLink = this.handleVideoLink.bind(this);
@@ -39,6 +43,12 @@ class Share extends Component {
   }
   handleDedication(event) {
     this.setState({ dedication: event.target.value });
+  }
+  handleDedicationPlace(event) {
+    this.setState({ dedication_place: event.target.value });
+  }
+  handleDedicationThing(event) {
+    this.setState({ dedication_thing: event.target.value });
   }
   handleLink(event) {
     this.setState({ optional_link: event.target.value });
@@ -96,6 +106,8 @@ class Share extends Component {
         //send info to airtable
         const {
           dedication,
+          dedication_place,
+          dedication_thing,
           optional_note,
           optional_photo,
           optional_video_link,
@@ -144,6 +156,8 @@ class Share extends Component {
             fields: {
               Timestamp: Date.now(),
               Dedication: dedication,
+              DedicationPlace: dedication_place,
+              DedicationThing: dedication_thing,
               OptionalNote: optional_note,
               OptionalLink: optional_link,
               OptionalLocation: optional_location,
@@ -166,17 +180,25 @@ class Share extends Component {
       uploadPreset: process.env.REACT_APP_PRESET_NAME,
     };
     let myWidget = window.cloudinary.createUploadWidget(uploadTag, (error, result) => {this.checkUploadResult(result)});
-    const { dedication, optional_note, optional_link, optional_location, optional_video_link, toggle_video } = this.state;
+    const { dedication, dedication_place, dedication_thing, optional_note, optional_link, optional_location, optional_video_link, toggle_video } = this.state;
 
     return (
       <React.Fragment>
-        <div id="flower"></div>
-        <div id="canvas-holder">
-          <P5Wrapper sketch={sketch} />
-        </div>
+
         <div id="submission">
+          <p className='large-text' id="share-text">share your dedication</p>
+          <p className='large-text' id="submit-text">review your dedication</p>
+          <p className="medium-text" id="done-text">Your flower, dedicated to {dedication}{dedication_place}{dedication_thing}, has been planted in the CLOUD9 Memorial Garden.</p>
+
+
+          <div id="flower"></div>
+          <div id="canvas-holder">
+            <P5Wrapper sketch={sketch} />
+          </div>
+
           <label>
             <span className='medium-text formlabel'>Dedicated in memory of <sup>*</sup></span><br/>
+            <i className='small-text'>(choose one)</i><br/>
             <input
               className="medium-text"
               type="text"
@@ -188,15 +210,15 @@ class Share extends Component {
               className="medium-text"
               type="text"
               placeholder="or, a place"
-              value={dedication}
-              onChange={this.handleDedication}
+              value={dedication_place}
+              onChange={this.handleDedicationPlace}
             /> <br />
             <input
               className="medium-text"
               type="text"
               placeholder="or, a thing"
-              value={dedication}
-              onChange={this.handleDedication}
+              value={dedication_thing}
+              onChange={this.handleDedicationThing}
             />
           </label>
 
@@ -207,14 +229,20 @@ class Share extends Component {
                 id="photo-button"
                 onClick={() => this.showWidget(myWidget)}
               >
-                <span className='small-text' id='inner-photo'>Add a photograph <i>(optional)</i></span>
+                <span className='small-text' id='inner-photo'>Add a photograph</span> <i className='small-text'>(optional)</i>
               </button>
+              {/* <span className='small-text'><i>(optional)</i></span> */}
             </div>
           </label>
 
           <label>
             <span className='medium-text formlabel'>Add a reflection<sup>*</sup></span>
-            <textarea className="medium-text" value={optional_note} onChange={this.handleNote} />
+            <textarea className="medium-text" value={optional_note} onChange={this.handleNote}
+            placeholder="How do you want to hold space for yourself and close ones in remembering?
+            What are you senses that come back to you in remembering? What do you smell? Taste? Hear? See? Feel?
+            What is a memory of joy or celebration you have together?
+            What do you want to invoke for the future in their honor?
+            How does their presence continue? " />
           </label>
 
           <label>
@@ -222,7 +250,7 @@ class Share extends Component {
             <input
               className="medium-text"
               type="text"
-              placeholder=""
+              placeholder="e.g. Brooklyn, NY"
               value={optional_location}
               onChange={this.handleLocation}
             />
@@ -254,11 +282,17 @@ class Share extends Component {
               {this.state.toggle_video ? <VideoEmbed videoUrl={this.state.toggle_video}/> : ""}
             </div>
           </label>
+          <p className="small-text" id="review-text">Next, you'll have an opportunity to view your flower and review/edit your dedication before it's shared publicly.</p>
+
           <button className='medium-text-link' id="review-button" onClick={this.showSubmit}>
             review your dedication
           </button>
+
+          <p className="small-text" id="submit-text">Your flower will now be planted in the garden with your dedication, and you will be able to visit your flower.</p>
+
+
           <button className='medium-text-link' id="submit-button" onClick={this.handleSubmit}>
-            share your dedication
+            plant your flower
           </button><br/>
           <a className='medium-text-link' id='submission-link'>visit your flower</a>
         </div>

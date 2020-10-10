@@ -19,8 +19,8 @@ class Flower extends Component {
 				if (!OptionalLink) return ('')
 				else {
 					const prefix = OptionalLink.slice(3)
-					if (prefix !== 'http') return (<a className='medium-text' href={`https://${OptionalLink}`}>{OptionalLink}</a>)
-					else return (<a className='medium-text' href={OptionalLink}>{OptionalLink}</a>)
+					if (prefix !== 'http') return (<a className='small-text' href={`https://${OptionalLink}`}>{OptionalLink}</a>)
+					else return (<a className='small-text' href={OptionalLink}>{OptionalLink}</a>)
 				}
 			}
 	   	const records = [];
@@ -48,9 +48,11 @@ class Flower extends Component {
 
               <div className='flower-info-container'>
     			       <div className='flower-info'>
-                      <p className='flower-dedication large-text'>{(this.props.records[i].fields.Dedication ||  this.props.records[i].fields.DedicationLocation || this.props.records[i].fields.DedicationPlace)}</p>
 
-                      <p className='flower-dedication medium-text'>{this.props.records[i].fields.OptionalLocation}</p>
+                      <p className='flower-dedication large-text'>{this.props.records[i].fields.Dedication}{this.props.records[i].fields.DedicationPlace}{this.props.records[i].fields.DedicationThing}</p>
+
+
+                      <p className='flower-dedication small-text'>{this.props.records[i].fields.OptionalLocation}</p>
 
                       {!this.props.records[i].fields.OptionalPhoto ? '' :
                       <img alt={this.props.records[i].fields.Dedication + " Photo"} src={this.props.records[i].fields.OptionalPhoto[0].url}/>
