@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
-import {RoseWall} from '../';
-import './style.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+/* eslint-disable react/prop-types */
+import React, { Component } from "react";
+import { RoseWall } from "../";
+import "./style.css";
+import { Link } from "react-router-dom";
 
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Home extends Component {
@@ -17,41 +12,43 @@ class Home extends Component {
       roses: [],
     };
     this.renderFlowers = this.renderFlowers.bind(this);
-   }
+  }
 
-   renderFlowers(){
-   	const records = [];
-   	console.log(this.props)
-   	for (var i = this.props.records.length - 1; i >= 0; i--) {
-      if(!this.props.records[i].fields.Private){
-   		records.push(
-   		<div key={this.props.records[i].id} className="station">
-           <img src={this.props.records[i].fields.RoseSVG[0].url}/>
-
-        </div>
-        )
+  renderFlowers() {
+    const records = [];
+    console.log(this.props);
+    for (var i = this.props.records.length - 1; i >= 0; i--) {
+      if (!this.props.records[i].fields.Private) {
+        records.push(
+          <div key={this.props.records[i].id} className="station">
+            <img
+              src={this.props.records[i].fields.RoseSVG[0].url}
+              alt="url to flower"
+            />
+          </div>
+        );
       }
-   	}
-   	console.log(records)
-   	return <div>{records}</div>
+    }
+    console.log(records);
+    return <div>{records}</div>;
+  }
 
-
-   }
-
-   render() {
-   	// const { roses } = this.state;
+  render() {
+    // const { roses } = this.state;
     // console.log(this.props)
 
     return (
       // <div>{this.renderFlowers()}</div>
       <div>
-        <RoseWall {...this.props}/>
-        <nav className='medium-text-link hidden' id='share'>
-        <Link className='medium-text-link' to="/share">share your dedication</Link>
+        <RoseWall {...this.props} />
+        <nav className="medium-text-link hidden" id="share">
+          <Link className="medium-text-link" to="/share">
+            share your dedication
+          </Link>
         </nav>
       </div>
     );
   }
 }
 
-export default Home
+export default Home;
