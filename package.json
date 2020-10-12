@@ -29,7 +29,7 @@
     "superagent": "^5.2.2"
   },
   "scripts": {
-    "start": "npm-run-all --parallel start:app start:server",
+    "start": "nodenv --exec 'npm-run-all --parallel start:app start:server'",
     "start:app": "react-scripts start",
     "start:server": "netlify-lambda serve ./server",
     "build": "run-p build:**",
