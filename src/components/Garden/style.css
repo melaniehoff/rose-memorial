@@ -6,6 +6,11 @@ nav a, a:visited{
 	border-bottom: 1px dotted wheat;
 }
 
+#ripple{
+position: fixed;
+top:0;
+left: 0;
+}
 
 nav a, a:hover{
 	color: #ffedcd;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import P5Wrapper from "react-p5-wrapper";
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +9,7 @@ import {
 } from "react-router-dom";
 import cookie from "react-cookies";
 import slugify from 'react-slugify';
+import ripple from "../../utils/p5/ripple";
 
 class Garden extends Component {
   constructor(props) {
@@ -90,7 +92,7 @@ class Garden extends Component {
   render() {
 
     window.scroll(400, 400)
-    console.log(this.props)
+
     const {records} = this.props
     const roses = records.map((x, i)=>{
     var url = ""
@@ -117,7 +119,7 @@ class Garden extends Component {
       }else if(type == "dedication-person"){
         dedication = x.fields.Dedication
       }
-      console.log(i)
+
       for (var j = 0; j <= i; j++) {
         if (type == "dedication-person"){
           if(slugify(records[j].fields.Dedication) == slugify(x.fields.Dedication) && records[j].id != x.id){
@@ -157,6 +159,9 @@ class Garden extends Component {
     return(
 
       <div>
+      <div id="ripple">
+        <P5Wrapper sketch={ripple} />
+      </div>
       <div id='rose-container' className="rose-container on three">
         <div id='rose-content' className="rose-content">
         {roses}
