@@ -3,27 +3,49 @@ function ripple (p) {
   var x = 200;
   var y = 200;
   let particles = [];
+  let stars = []
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
-    for(let i = 0;i<1;i++){
+    for(let i = 0;i<100;i++){
 	    particles.push(new Particle());
 	  }
+
   }
 
   p.draw = function (){
    p.background(0);
+   if(stars[0]){
+   	stars[0].createParticle();
+  	stars[0].moveParticle();
+   }
+  
   for(let i = 0;i<particles.length;i++) {
     particles[i].createParticle();
     particles[i].moveParticle();
     
   }
- 
-  if(p.frameCount % 300 == 0){
- 
-  	particles.slice(0,3);
+  // if(p.frameCount % 200 == 0){
+  // 	stars.slice(0,1);
+  // 	stars.push(new ShootingStar());
 
-	    particles.push(new Particle());
-	  
+  // }
+ 
+  if(p.frameCount % 20 == 0){
+ 
+  	particles.slice(0,10);
+
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+	particles.push(new Particle());
+
+
   }
    //  for (var i = 0; i < 5; i++){
 
@@ -46,26 +68,26 @@ class Particle {
 // setting the co-ordinates, radius and the
 // speed of a particle in both the co-ordinates axes.
   constructor(){
-    this.x = p.random(100,p.width - 100);
-    this.y = p.random(300,p.height * 2);
-    this.r = p.random(1,8);
+    this.x = p.random(0,p.width);
+    this.y = p.random(0,p.height);
+    this.r = p.random(1,5);
     this.outerDiam = 0;
     this.xSpeed = p.random(-0.2,0.2);
     this.ySpeed = p.random(-0.2,0.2);
     this.rSpeed = 1;
     this.colorSpeed = 0.2;
-    this.color = 100
+    this.red = p.random(120,255);
+    this.blue = p.random(120,255);
+    this.green = p.random(200,255);
+    this.color = 0
+    this.fading = false;
   }
 
 // creation of a particle.
   createParticle() {
-    p.noFill();
-    p.stroke(this.color);
-    p.push();
-    p.scale(1,0.3);
+    p.noStroke();
+    p.fill(255,this.green,255,this.color);
     p.circle(this.x,this.y,this.r);
-    p.circle(this.x,this.y,this.r + 40);
-    p.pop();
     // p.circle(this.x,this.y,this.r - 4);
 	  
   }
@@ -78,8 +100,17 @@ class Particle {
       this.ySpeed*=-1;
     this.x+=this.xSpeed;
     this.y+=this.ySpeed;
-    this.r+=this.rSpeed;
-    this.color-=this.colorSpeed
+    if(this.color>200 && this.fading == false){
+    	 this.fading = true;
+    	 console.log(this.fading)
+    	 this.color-=this.colorSpeed
+    	
+    }else if(this.fading == false){
+		this.color+=this.colorSpeed
+	}else{
+		this.color-=this.colorSpeed
+	}
+
 
     // this.outerDiam = this.outerDiam + 2;
   }
@@ -88,6 +119,50 @@ class Particle {
 // between particles which are less than a certain distance apart
  
 }
+
+// class ShootingStar {
+// // setting the co-ordinates, radius and the
+// // speed of a particle in both the co-ordinates axes.
+//   constructor(){
+//     this.x = p.random(0,p.width);
+//     this.y = p.random(0,p.height);
+//     this.r = p.random(1,5);
+//     this.outerDiam = 0;
+//     this.xSpeed = p.random(-20,20);
+//     this.ySpeed = p.random(-20,20);
+//     this.rSpeed = 1;
+//     this.colorSpeed = 1;
+//     this.red = p.random(120,255);
+//     this.blue = p.random(120,255);
+//     this.green = p.random(200,255);
+//     this.color = 255
+//     this.fading = false;
+//   }
+
+// // creation of a particle.
+//   createParticle() {
+//     p.noStroke();
+//     p.fill(255,this.green,255,this.color);
+//     p.circle(this.x,this.y,this.r);
+//     // p.circle(this.x,this.y,this.r - 4);
+	  
+//   }
+
+// // setting the particle in motion.
+//   moveParticle() {
+    
+//     this.x+=this.xSpeed;
+//     this.y+=this.ySpeed;
+  
+
+
+//     // this.outerDiam = this.outerDiam + 2;
+//   }
+
+// // this function creates the connections(lines)
+// // between particles which are less than a certain distance apart
+ 
+// }
 
 };
 
