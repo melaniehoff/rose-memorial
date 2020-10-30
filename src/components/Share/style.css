@@ -201,7 +201,7 @@ input[type='text']:focus::placeholder, textarea:focus::placeholder {
 
 #flower + div {
   position: absolute;
-  left:60%;
+  left:50%;
   padding:25px;
   border-radius: 0;
 }
