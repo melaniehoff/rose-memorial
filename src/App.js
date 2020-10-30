@@ -23,6 +23,9 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
+    if(window.location.href.includes("/?frame")){
+      window.location.href = "/garden_frame.png"
+    }
     fetch("/.netlify/functions/roseGarden")
     .then( response => response.json())
         .then( (data) => {
