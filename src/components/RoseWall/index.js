@@ -141,7 +141,7 @@ class RoseWall extends Component {
             flowerArray.push(records[j])
           }
         }
-        
+
       }
       if(flowerArray.length > 0){
         url = slugify(x.fields.Dedication || x.fields.DedicationThing || x.fields.DedicationPlace) + "_" + flowerArray.length;
@@ -170,7 +170,7 @@ class RoseWall extends Component {
       <div id='rose-container' className="rose-container three">
         <div id='rose-content' className="rose-content">
         {roses}
-      
+
 
 
       </div>
@@ -197,10 +197,12 @@ class RoseWall extends Component {
       </div>
         <div id='welcome-garden' className="medium-text hidden">
           {/* <span>Welcome to the garden.</span> */}
-            <div className='tiny-text'>
-              <span>desktop: use + - keys to zoom & arrow keys to pan</span> <br/>
-              <span>mobile: pinch to zoom</span>
-            </div>
+          <div className='tiny-text'>
+            <span>
+              {/* desktop:  */}
+              use + - keys to zoom & arrow keys to pan</span> <br/>
+            {/* <span>mobile: pinch to zoom</span> */}
+          </div>
         </div>
         <div id='about-garden' className="medium-text-link hidden">
            <a className="medium-text-link" href="/about">about this garden</a>
