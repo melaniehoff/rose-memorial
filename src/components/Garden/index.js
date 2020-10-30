@@ -132,7 +132,7 @@ class Garden extends Component {
             flowerArray.push(records[j])
           }
         }
-        
+
       }
       if(flowerArray.length > 0){
         url = slugify(x.fields.Dedication || x.fields.DedicationThing || x.fields.DedicationPlace) + "_" + flowerArray.length;
@@ -173,8 +173,10 @@ class Garden extends Component {
         <div id='welcome-garden' className="medium-text on">
           {/* <span>Welcome to the garden.</span> */}
             <div className='tiny-text'>
-              <span>desktop: use + - keys to zoom & arrow keys to pan</span> <br/>
-              <span>mobile: pinch to zoom</span>
+              <span>
+                {/* desktop:  */}
+                use + - keys to zoom & arrow keys to pan</span> <br/>
+              {/* <span>mobile: pinch to zoom</span> */}
             </div>
         </div>
         <div id='about-garden' className="medium-text-link on">
