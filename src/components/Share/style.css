@@ -7,6 +7,10 @@
 canvas-holder> div{
 	transition:0;
 }
+
+#submission {
+	overlflow-x: hidden;
+}
 #submission.submitted #submission-link{
 	display:inline-block;
 	margin-top:2rem;
@@ -110,8 +114,8 @@ canvas-holder> div{
 }*/
 /* TEMP SUBMISSION FORM STYLES*/
 #submission.on textarea, #submission.on input[type='text']{
-	border:0.5px solid #ffedcd66;
-
+	border:1px solid #fff;
+	 opacity: .8;
 }
 
 
@@ -157,7 +161,7 @@ textarea, input[type='text']{
 	color:#ffedcd;
 	margin-top:10px;
 	background: rgba(0,0,0,0);
-	border:1px solid #ffedcd;
+	border:1px dotted #ffedcd;
 	padding: .75vw;
 }
 textarea:focus, input[type='text']:focus{
