@@ -309,7 +309,7 @@ class Share extends Component {
           <div className="info-text">
             <p className="medium-text">
               <span>
-                We invite you to take a moment to leave a memory.
+                We invite you to take a moment to reflect before leaving a memory.
               </span>
 
             <button className="medium-text-link" id="modal-button" onClick={this.clickHandler}>share your dedication</button>
