@@ -7,8 +7,42 @@
 
 /*----FONTS----*/
 
+/* ::-webkit-scrollbar {
+    display: none;
+} */
+body::-webkit-scrollbar {
+  background-color: #000;
+  height: 0px;
+  width: 0px;
+}
+
+body::-webkit-scrollbar-track {
+   background-color: #000;
+   height: 0px;
+   width: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000;
+  height: 0px;
+  width: 0px;
+}
+
+body::-webkit-scrollbar-track-piece  {
+    background-color: #000;
+    height: 0px;
+    width: 0px;
+}
+
+body::-webkit-scrollbar-thumb:vertical {
+    height: 0px;
+    background-color: #000;
+}
+
 body {
   background: #000;
+  scrollbar-color: #000 #000 !important;
+  scrollbar-width: thin !important;
 }
 a {
   word-wrap: break-word;
