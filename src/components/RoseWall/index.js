@@ -167,8 +167,8 @@ class RoseWall extends Component {
 
     return(
       <div>
-      <div id='rose-container' className="rose-container three">
-        <div id='rose-content' className="rose-content">
+      <div id='rose-container' className="rose-container three parent">
+        <div id='rose-content' className="rose-content child">
         {roses}
 
 
