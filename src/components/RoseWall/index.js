@@ -160,7 +160,7 @@ class RoseWall extends Component {
           }
           </div>
           <p className={type + ' dedication-name'}>{dedication}</p>
-          <div className='rose-preview'><p className='small-text'>{x.fields.OptionalNote}</p></div>
+          <div className='rose-preview'><p className='small-text'>{x.fields.OptionalLocation}</p></div>
          </a>
        )}
       })
