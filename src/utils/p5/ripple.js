@@ -15,7 +15,7 @@ function ripple (p) {
   }
 
   p.draw = function (){
-   p.background(0,0,0,20);
+   p.background(0,0,0,40);
   for(let i = 0;i<particles.length;i++) {
     particles[i].createParticle();
     particles[i].moveParticle();
@@ -108,7 +108,7 @@ class Particle {
 // creation of a particle.
   createParticle() {
     p.noFill();
-    p.stroke(this.color);
+    p.stroke(this.color,this.color,this.color, 40);
     p.push();
     p.scale(1,0.3);
     p.circle(this.x,this.y,this.r);

@@ -4,6 +4,8 @@ import {VideoEmbed} from '../';
 import slugify from 'react-slugify';
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import ripple from "../../utils/p5/ripple";
+import P5Wrapper from "react-p5-wrapper";
 // TODO convert this class to a pure function, w/o local state, its not necessary to be a class
 class Flower extends Component {
 
@@ -83,6 +85,9 @@ class Flower extends Component {
    render() {
     return (
     	<div>
+      <div id="ripple">
+        <P5Wrapper sketch={ripple} />
+      </div>
     	<div>{this.renderFlower()}</div>
     	<nav id='flower-nav' className='medium-text-link'>
          <a href="/garden" className='medium-text-link'>↩ back to the garden</a>
