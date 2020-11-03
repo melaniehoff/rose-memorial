@@ -15,7 +15,7 @@ function ripple (p) {
   }
 
   p.draw = function (){
-   p.background(0,0,0,40);
+   p.background(0,0,0,15);
   for(let i = 0;i<particles.length;i++) {
     particles[i].createParticle();
     particles[i].moveParticle();
@@ -66,7 +66,8 @@ class Star {
 
 // creation of a particle.
   createParticle() {
-    p.fill(255)
+    p.stroke(this.color,this.color,this.color, 40);
+    p.fill(255,255,255,190)
     p.circle(this.x,this.y,this.r);
     
   }
@@ -107,8 +108,9 @@ class Particle {
 
 // creation of a particle.
   createParticle() {
-    p.noFill();
-    p.stroke(this.color,this.color,this.color, 40);
+    p.fill(0);
+    p.stroke(this.color,this.color,this.color, 80);
+    p.strokeWeight(4)
     p.push();
     p.scale(1,0.3);
     p.circle(this.x,this.y,this.r);
