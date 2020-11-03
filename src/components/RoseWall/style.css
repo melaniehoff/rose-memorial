@@ -6,6 +6,8 @@
    -moz-transition: all .3s ease-in-out;
    -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
+	 scrollbar-color: black black !important;
+   scrollbar-width: none !important;
 }
 
 .subtitle {
@@ -110,12 +112,16 @@ body {
 }
 .dedication-person.dedication-name{
 	opacity: 1;
+	font-size: 1.5vw;
 }
 .dedication-place.dedication-name{
-	opacity: 0.5;
+	opacity: 0.8;
+	font-style: italic;
 }
 .dedication-thing.dedication-name{
-	opacity: 0.5;
+	opacity: 0.8;
+	font-style: italic;
+
 }
 .rose-container .rose-content{
 	    transform-origin: left top;

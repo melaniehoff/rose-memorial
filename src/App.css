@@ -7,8 +7,42 @@
 
 /*----FONTS----*/
 
+/* ::-webkit-scrollbar {
+    display: none;
+} */
+body::-webkit-scrollbar {
+  background-color: #000;
+  height: 0px;
+  width: 0px;
+}
+
+body::-webkit-scrollbar-track {
+   background-color: #000;
+   height: 0px;
+   width: 0px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000;
+  height: 0px;
+  width: 0px;
+}
+
+body::-webkit-scrollbar-track-piece  {
+    background-color: #000;
+    height: 0px;
+    width: 0px;
+}
+
+body::-webkit-scrollbar-thumb:vertical {
+    height: 0px;
+    background-color: #000;
+}
+
 body {
   background: #000;
+  scrollbar-color: #000 #000 !important;
+  scrollbar-width: thin !important;
 }
 a {
   word-wrap: break-word;
@@ -215,7 +249,8 @@ nav a, a:visited, a:active{
 
   .tiny-text, .small-text, .dedication-name{
   /* font-size: 0.8rem; */
-  font-size: 14px !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
   }
   .medium-text, .medium-text-link{
   /* font-size: 1rem; */
@@ -226,5 +261,16 @@ nav a, a:visited, a:active{
   font-size: 30px !important;
   }
   /*----END TYPOGRAPHY----*/
+
+
+  input[type='text']::placeholder, textarea::placeholder {
+  	 font-size: 16px !important;
+     line-height: 24px !important;
+  }
+
+  textarea, input[type='text']{
+  	padding: 2.5vw !important;
+  }
+
 
 }
