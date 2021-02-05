@@ -347,7 +347,9 @@ p.dedication-name {
 			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
 			padding-top: 10vh;
 	}
-
+	#modal-button{
+		margin-top:0;
+	}
 
 
 	.rose-container .info-text p a {
