@@ -4,6 +4,18 @@
 # The CLOUD9 Memorial Garden is a continuation and extension of [CLOUD9 (Collective Love on Ur Desktop)](https://cloud9.support), a platform for sharing care, strategies, wisdom, sweetness, resources, and love to support everyone affected by the coronavirus pandemic. This garden was built by and is tended to by Aarati Akkapeddi, Zainab Aliyu, Melanie Hoff and Chiara Marcial Martínez in collaboration with BUFU (By Us For Us).
 # ✽ ✾ ✿ ❀ ❁
 # Flowers made with [p5.js](https://p5js.org/). Each flower is unique to its dedication.  
+----------------
+
+## Our Stack
+- React
+- Airtable
+- Cloudinary (to temporary store flowers images to then upload to airtable)
+
+
+
+
+
+
 ---------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
