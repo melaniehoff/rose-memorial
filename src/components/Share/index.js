@@ -229,7 +229,7 @@ class Share extends Component {
                 id="photo-button"
                 onClick={() => this.showWidget(myWidget)}
               >
-                <span className='small-text' id='inner-photo'>Add a photograph</span> <i className='small-text'>(optional)</i>
+                <span className='small-text' id='inner-photo'>Optionally, add a photograph</span> 
               </button>
               {/* <span className='small-text'><i>(optional)</i></span> */}
             </div>
