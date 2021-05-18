@@ -31,7 +31,6 @@ class App extends React.Component {
         .then( (data) => {
           this.setState({
               isLoaded : true,
-              meow : data,
               records: data.records
           });
         // console.log('airtable', data)
